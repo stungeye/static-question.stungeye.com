@@ -1,0 +1,1383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>DOM and Javascript</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link href="/stylesheets/syntax/blackboard.css?1242837601" media="screen" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+  
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+  
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #eeeeee;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+  
+  div.presentation {
+    width: auto;
+    border: 1px solid #eeeeee;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+  
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+  
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+  
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .9em;
+        overflow: auto;
+  } 
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 980px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>DOM and Javascript</h1>
+<h2>XML &amp; Mobile Computing COMP-1011</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+  
+<div class="slide">
+  <h1>DOM and Javascript</h1>
+  <h2>XML & Mobile Computing COMP-1011</h2>
+  <h3>Kyle Geske</h3>
+  <h4>Red River College</h4>
+</div>
+
+
+<div class="slide">
+  <h1>Introduction</h1>
+  
+    <p>This lesson will introduce DOM, the Document Object Model.</p>
+
+<p>The XML Document Object Model is a W3C specification designed to provide a standard programming interface to a wide variety of applications. XML DOM defines the way an XML document can be accessed and manipulated. Using DOM, a programmer can navigate the structure of an XML document, and add, modify, or delete its elements.</p>
+
+<p>The DOM is programming language agnostic.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Objectives</h1>
+  
+    <p>Upon completion of this section, you should be able to:</p>
+
+<ul>
+<li>Write modern Javascript code.</li>
+
+<li>Add Javascript to an XHTML document without invalidating it.</li>
+
+<li>Install and use the Firebug extension</li>
+
+<li>Understand the DOM concept of &#8216;Everything as a Node&#8217;</li>
+
+<li>Parse and modify XML using Javascript</li>
+
+<li>Parse and modify XHTML using Javascript</li>
+
+<li>Write Javascript DOM code that works for all browsers.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>A Re-Introduction to Javascript</h1>
+  
+    <p>Javascript is a misunderstood programming language. The web is littered with out of date Javascript tutorials and poorly written example code.</p>
+
+<p>However, Javascript is an interesting and powerful language, and with the growing importance of web-based applications it&#8217;s a language which you should not ignore.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://www.crockford.com/javascript/javascript.html">JavaScript: The World&#8217;s Most Misunderstood Programming Language</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript History</h1>
+  
+    <p>In late-1995/early-1996 a scripting language called Mocha / LiveScript was introduced as part of the Netscape v2.0 browser. It was later re-named Javascript as a marketing decision made by Netscape and Sun. The name has been a constant source of confusion; JavaScript has more in common with C (or even Lisp) than Java.</p>
+
+<p>In 1997 Javascript was standardized as ECMAScript (ECMA-262). It is now supported by all major web browsers and is considered the <a href="http://en.wikipedia.org/wiki/Lingua_franca">lingua franca</a> of client-side web programming. ActionScript, the programming language in Adobe&#8217;s Flash, is another implementation of ECMAScript.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript @ Wikipedia</a></li>
+
+<li><a href="http://en.wikipedia.org/wiki/JavaScript">Javascript @ Wikipedia</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript Reference Material</h1>
+  
+    <p>In order to get re-acquainted with Javascript I recommend reading section (up to and including &#8220;Functions&#8221;) of <a href="http://developer.mozilla.org/en/docs/A_re-introduction_to_JavaScript">A Re-Introduction to JavaScript</a>. This tutorial required reading for this course.</p>
+
+<p>Also see the <a href="http://www.ilovejackdaniels.com/cheat-sheets/javascript-cheat-sheet/">Javascript Cheatsheet</a> at I Love Jack Daniels. (Note that the &#8220;inline Javascript&#8221; example in the &#8220;Javascript in HTML&#8221; section is incorrect.)</p>
+
+<p>You can check your code for common errors with <a href="http://www.jslint.com/">JSLint</a>. (Remember to select the &#8220;Assume a browser&#8221; option.) Take all error warnings with &#8220;a grain of salt.&#8221;</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript DOM Reference</h1>
+  
+    <p>For JavaScript DOM reference material, please see:</p>
+
+<ul>
+<li><a href="http://www.oreilly.com/catalog/jscript4/chapter/ch17.html">Chapter 17 of O&#8217;Reilly&#8217;s JavaScript: The Definitive Guide</a></li>
+
+<li><a href="http://www.webreference.com/programming/javascript/ppk1/index.html">PPK on Javascript: The DOM</a></li>
+</ul>
+
+<p>You also might find these DOM API useful:</p>
+
+<ul>
+<li><a href="http://www.javascriptkit.com/domref/">http://www.javascriptkit.com/domref/</a></li>
+
+<li><a href="http://krook.org/jsdom/">http://krook.org/jsdom/</a></li>
+</ul>
+
+<p>The first reference contains more detailed information. You might find the second useful as it is structured like a Java API. It&#8217;s key to remember that both the <a href="http://krook.org/jsdom/Element.html">Element</a> and <a href="http://krook.org/jsdom/Document.html">Document</a> classes inherit properties and methods from the <a href="http://krook.org/jsdom/Node.html">Node</a> class.</p>
+  
+  <div class="handout">
+    <p>If you&#8217;re interesting in learning more advanced Javascript techniques I recommend the <a href="http://video.yahoo.com/search/?p=douglascrockford">Javascript video series by Douglas Crockford</a> (Yahoo&#8217;s Javascript Guru).</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Top 5 Javascript No-Nos</h1>
+  
+    <p><strong>Number One &#8211; document.write:</strong></p>
+
+<p>By using document.write we circumvent the DOM and can invalidate our XHTML by inserting invalid or malformed markup. Later in the lesson we&#8217;ll see how to use the DOM to properly insert text or markup into an XHTML document.</p>
+
+<p>I don&#8217;t want to see any of this in your code:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Keyword">&lt;</span>script type<span class="Keyword">=</span><span class="String"><span class="String">&quot;</span>text/javascript<span class="String">&quot;</span></span><span class="Keyword">&gt;</span>
+<span class="line-numbers">   2 </span>     <span class="Support">document</span>.<span class="Support">write</span>(<span class="String"><span class="String">&quot;</span>Woot! Adding content dynamically.<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> <span class="Keyword">&lt;</span>/script<span class="Keyword">&gt;</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript No-Nos II</h1>
+  
+    <p><strong>Number Two &#8211; Leaving out blocks:</strong></p>
+
+<p>Although most Javascript control structures can by followed by either statements or blocks, the latter should always be used.</p>
+
+<p>Poor Form:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Keyword">if</span> (chunky_bacon <span class="Keyword">==</span> <span class="Constant">true</span>) 
+<span class="line-numbers">   2 </span>     <span class="Support">alert</span>(<span class="String"><span class="String">&quot;</span>Wow, this bacon sure is chunky!<span class="String">&quot;</span></span>);
+</pre></code></pre>
+
+<p>Preferred:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Keyword">if</span> (chunky_bacon <span class="Keyword">==</span> <span class="Constant">true</span>) {
+<span class="line-numbers">   2 </span>     <span class="Support">alert</span>(<span class="String"><span class="String">&quot;</span>Wow, this bacon sure is chunky!<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> }
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>Maintenance errors can be introduced when we leave out the block. Imagine we added a second alert:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Keyword">if</span> (chunky_bacon <span class="Keyword">==</span> <span class="Constant">true</span>) 
+<span class="line-numbers">   2 </span>     <span class="Support">alert</span>(<span class="String"><span class="String">&quot;</span>Wow, this bacon sure is chunky!<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span>     <span class="Support">alert</span>(<span class="String"><span class="String">&quot;</span>Would you like some?<span class="String">&quot;</span></span>);
+</pre></code></pre>
+
+<p>The second alert will execute even if chunky_bacon is false.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript No-Nos III</h1>
+  
+    <p><strong>Number Three: Leaving out &#8220;var&#8221;:</strong></p>
+
+<p>All variables should be declared before used. This is done using the &#8220;var&#8221; keyword:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> mountain_lion;
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> i, j, blade_of_grass;
+</pre></code></pre>
+
+<p>The &#8220;var&#8221; keyword is not required, but it makes your programs easier to read and maintain. Variables used without being declared with &#8220;var&#8221; may end up as part of the global scope.</p>
+
+<p>Global variables should be avoided if possible.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://c2.com/cgi/wiki?GlobalVariablesAreBad">Global Variables Are Bad</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript No-Nos IV</h1>
+  
+    <p><strong>Number Four &#8211; Invalidating your XHTML</strong></p>
+
+<p>Your Javascript code may contain characters which are not allowed within an XHTML document (the &#8217;&amp;&#8217; for example). For this reason we wrap our code in an XML CDATA block. (Remember to hide the open and close of the CDATA block from the Javascript interpreter by commenting out those lines.)</p>
+
+<pre lang="html"><code class="html" lang="html"><pre class="blackboard"><span class="line-numbers">   1 </span> &lt;<span class="Entity">script</span> <span class="Entity">type</span>=<span class="String"><span class="String">&quot;</span>text/javascript<span class="String">&quot;</span></span>&gt;
+<span class="line-numbers">   2 </span> <span class="Comment"><span class="Comment">//</span> &lt;![CDATA[</span>
+<span class="line-numbers">   3 </span>     <span class="Comment"><span class="Comment">//</span> Javascript code goes here.</span>
+<span class="line-numbers">   4 </span> <span class="Comment"><span class="Comment">//</span> ]]&gt;</span>
+<span class="line-numbers">   5 </span> &lt;/<span class="Entity">script</span>&gt;
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Javascript No-Nos V</h1>
+  
+    <p><strong>Number Five &#8211; Leaving out semicolons:</strong></p>
+
+<p>Although semicolons are optional in Javascript it is poor form to leave them out. It is best not to rely on the automatic semicolon insertion.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Firebug for Javascript Debugging</h1>
+  
+    <p>Firebug integrates with Firefox to put a wealth of web development tools at your fingertips while you browse. You can edit, debug, and monitor CSS, XHTML, and JavaScript live in any web page.</p>
+
+<p>Download here: <a href="http://www.getfirebug.com/">http://www.getfirebug.com/</a></p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Installing Firebug</h1>
+  
+    <p>Firebug is an extension for the Firefox web browser. To install the extension, click on the install link on the Firebug web page.</p>
+
+<p>Once installed (and after restarting Firefox) you can activate Firebug by clicking on the bug icon in the bottom right corner of the Firefox window, or by hitting the F12 key.</p>
+
+<p>A limited version of Firebug is available for IE as a Javascript file which you can integrate into Webpages you are designing.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://getfirebug.com">Firebug</a></li>
+
+<li><a href="http://www.getfirebug.com/lite.html">Firebug Lite for IE</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Using console.log</h1>
+  
+    <p>We&#8217;ll be using Firebug&#8217;s logging console to debug our Javascript programs. The logging console frees us from having to use the Javascript alert function for debugging. Using the alert function for debugging can be annoying as it halts the flow of the program.</p>
+
+<p>To write a message to the console we use the log method of the console object.</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Entity">console</span><span class="Support">.log</span>(<span class="String"><span class="String">&quot;</span>An Inquiry into Meaning and Truth<span class="String">&quot;</span></span>);
+</pre></code></pre>
+
+<p>The console can also be used to inspect the properties of any object. We do this with the dir method.</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Entity">console</span>.<span class="Support">dir</span>(object_name);
+</pre></code></pre>
+
+<p>We can also inspect the contents of XML document object or XML fragments using the dirxml method.</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Entity">console</span>.dirxml(xml_document_object);
+</pre></code></pre>
+  
+  <div class="handout">
+    <p><strong>Note:</strong> When deploying webpage in industry, remember to remove any console method calls when you&#8217;re done development. They can result in Javascript errors for browsers without Firebug installed.</p>
+
+<p>If your console displays an error when you attempt to use <code>console.log</code> (&#8220;console is undefined&#8221;) you may need to upgrade to <a href="http://www.mozilla.com/en-US/firefox/">Firefox 3</a>.</p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://www.getfirebug.com/logging.html">Firebug Logging</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>The DOM</h1>
+  
+    <p>Within the W3C DOM everything in an XML document is a node. The entire document is a document node, every tag element is an element node, the text contained within these elements are text nodes, the attributes of these elements are attribute nodes, even the XML comments are comment nodes.</p>
+
+<p>The DOM represents an XML document as a tree structure. The terminology used to describe these trees is borrowed from family trees. Nodes have a hierarchical relationship to each other. DOM nodes all have one parent node (except for the root node which has no parent). Nodes can have zero or more children nodes. Nodes with the same parent are called siblings.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Everything is a Node</h1>
+  
+    <p>Consider this fragment of HTML code:</p>
+
+<pre lang="html"><code class="html" lang="html"><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">p</span> <span class="MetaTag">title</span>=<span class="String"><span class="String">&quot;</span>The test paragraph<span class="String">&quot;</span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   2 </span>     This is a sample of some <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">b</span><span class="MetaTag">&gt;</span></span>HTML you might<span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">br</span>/<span class="MetaTag">&gt;</span></span>have<span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">b</span><span class="MetaTag">&gt;</span></span> in your document
+<span class="line-numbers">   3 </span> <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">p</span><span class="MetaTag">&gt;</span></span>
+</pre></code></pre>
+
+<p>Within the DOM this fragment is represented by the following tree. Note the distinction between childNodes and the attribute node.</p>
+
+<p><img src="/images/15/205.jpg" alt="DOM Tree" /></p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Nodes as Objects (Node Types)</h1>
+  
+    <p>When using the DOM API in a Javascript program all the DOM nodes are Javascript objects. As such, these node objects have both object properties and object methods.</p>
+
+<p><strong>Node Types</strong></p>
+
+<p>The following table lists the most commonly used node types:</p>
+<table dir="ltr" class="bordered" summary="" width="89%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="31%">Node Type
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="69%">Example
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="31%">Document type
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="69%">&lt;!DOCTYPE food SYSTEM &quot;snowReport.dtd&quot;!&gt;
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="31%">Processing instruction
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="69%">&lt;?xml-stylesheet href=&quot;mystyle.css&quot; type=&quot;text/css&quot;?&gt;
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="31%">Element
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="69%">&lt;location type=&quot;city&quot;&gt;Rogla&lt;/location&gt;
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="31%">Attribute
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="69%">type=&quot;city&quot;
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="31%">Text
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="69%">Rogla
+</td> 
+</tr> 
+</table>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Nodes as Objects (Node Types II)</h1>
+  
+    <p>There are 12 DOM node types altogether, identified by a numeric nodeType property.</p>
+<table dir="ltr" class="bordered" summary="" width="90%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="16%">Node
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="30%">nodeType
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="30%">nodeName
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="23%">nodeValue
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Element
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">1
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">tagName
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Attribute
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">2
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">name
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">value
+</td> 
+</tr> 
+<tr>
+<td align="left" valign="top" style="background-color: ;" width="30%">Text
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">3
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">#text
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">content of node
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">CDATA Section
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">4
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">#cdatasection
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">content of node
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Entity Reference
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">5
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">entity reference name
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Entity
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">6
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">entity name
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Processing Instruction
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">7
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">target
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">content of node
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Comment
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">8
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">comment text
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Document
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">9
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">#document
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Document Type
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">10
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">doctype name
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Document Fragment
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">11
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">#document fragment
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="30%">Notation
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="16%">12
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="30%">notation name
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="23%">null
+</td> 
+</tr> 
+</table>
+  
+  <div class="handout">
+    <p>If, for example, we had a DOM node variable called <code>dom_node</code> we could do the follow:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Entity">console</span><span class="Support">.log</span>(dom_node.<span class="Support">nodeType</span>);
+<span class="line-numbers">   2 </span> <span class="Entity">console</span><span class="Support">.log</span>(dom_node.<span class="Support">nodeName</span>);
+<span class="line-numbers">   3 </span> <span class="Entity">console</span><span class="Support">.log</span>(dom_node.<span class="Support">nodeValue</span>);
+</pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Nodes as Objects (Node Properties)</h1>
+  
+    <p>Here are the rest of the general node properties, including the three we saw on the previous page:</p>
+<table dir="ltr" class="bordered" summary="" width="99%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="25%">W3C Node Property 
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="75%">Returns 
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">attributes 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">a NamedNodeMap (hash) containing all attributes for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">childNodes 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">a NodeList (array) containing all the child nodes for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">firstChild 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the first child node for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">lastChild 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the last child node for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">nextSibling 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the next sibling node. Two nodes are siblings if they have the same parent node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">nodeName 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the nodeName, depending on the type 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">nodeType 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the nodeType as a number 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">nodeValue 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">or sets, the value of this node, depending on the type 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">ownerDocument 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the root node of the document 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">parentNode 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the parent node for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="25%">previousSibling 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="75%">the previous sibling node. Two nodes are siblings if they have the same parent node
+</td> 
+</tr> 
+</table>
+  
+  <div class="handout">
+    <p>Again, if we had a DOM node variable called <code>dom_node</code> we could access these properties like this:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Locate the node's parent:</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> parent_node <span class="Keyword">=</span> dom_node.<span class="Support">parentNode</span>;
+<span class="line-numbers">   3 </span> 
+<span class="line-numbers">   4 </span> <span class="Comment"><span class="Comment">//</span> Locate the node's children:</span>
+<span class="line-numbers">   5 </span> <span class="Storage">var</span> children_array <span class="Keyword">=</span> dom_node.<span class="Support">childNodes</span>
+</pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Nodes as Objects (Node Properties II)</h1>
+  
+    <p>Exploring the same HTML fragment as before we can get a better feeling for the nodeName, NodeType, and nodeValue properties.</p>
+
+<pre lang="html"><code class="html" lang="html"><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">p</span> <span class="MetaTag">title</span>=<span class="String"><span class="String">&quot;</span>The test paragraph<span class="String">&quot;</span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   2 </span>     This is a sample of some <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">b</span><span class="MetaTag">&gt;</span></span>HTML you might<span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">br</span>/<span class="MetaTag">&gt;</span></span>have<span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">b</span><span class="MetaTag">&gt;</span></span> in your document
+<span class="line-numbers">   3 </span> <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">p</span><span class="MetaTag">&gt;</span></span>
+</pre></code></pre>
+
+<p><img src="/images/15/207.jpg" alt="Node Tree" /></p>
+  
+  <div class="handout">
+    <p>Note the disconnect (//) in the tree for the attribute connection. When accessing the childNodes property of the root (p element) of this HTML fragment the attribute node is not included in the returned array.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Nodes as Objects (Node Methods)</h1>
+  
+    <p>The general node type methods are listed below:</p>
+<table dir="ltr" class="bordered" summary="" width="99%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="37%">W3C Node Method 
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="62%">Description 
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">appendChild(newChild) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Appends newChild at the end of the child nodes for this node 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">cloneNode(boolean) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Returns an exact clone of this node. If the boolean value is set to true, the cloned node contains all the child nodes as well 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">hasChildNodes() 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Returns true if this node has any child nodes 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">insertBefore(newNode,refNode) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Inserts a new node, newNode, before the existing node, refNode 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">removeChild(nodeName) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Removes the specified node, nodeName 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">replaceChild(newNode,oldNode) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Replaces the oldNode, with the newNode 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="37%">getElementsByTagName(tagName) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="62%">Returns as an array all the child elements of the current element matching the "tagName" parameter. 
+</td> 
+</tr> 
+</table>
+  
+  <div class="handout">
+    <p>These methods belong to all DOM node variables. So if we again have a <code>dom_node</code> variable that references a DOM node:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Make a copy (clone) a node</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> cloned_node <span class="Keyword">=</span> dom_node.<span class="Support">cloneNode</span>(<span class="Constant">true</span>);
+</pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>The Document Object</h1>
+  
+    <p>Within a DOM tree the entire XML document is represented as a <em>document node</em>. In Javascript we call this the document object. This object has some special properties and methods not available to general nodes.</p>
+<table dir="ltr" class="bordered" summary="" width="89%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="35%">W3C Document Property 
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="65%">Returns 
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">documentElement 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">The root element of the document 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">doctype 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">The DTD or Schema for the document. 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">implementation 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">the implementation object for this particular document 
+</td> 
+</tr> 
+</table>
+  
+  <div class="handout">
+    <p>Methods of the Document Object:</p>
+<table dir="ltr" class="bordered" summary="" width="99%"> 
+<tr> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="35%">W3C Document Method 
+</th> 
+<th scope="column" align="left" valign="top" style="background-color: ;" width="65%">Description 
+</th> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createAttribute(attributeName) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates an attribute node with the specified attribute name 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createCDATASection(text) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates a CDATASection, containing the specified text 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createComment(text) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates a comment node, containing the specified text 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createDocumentFragment() 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates an empty documentFragment object 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createElement(tagName) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates an element with the specified tagName 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createEntityReference(referenceName) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates an entityReference with the specified referenceName 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createProcessingInstruction(target,text) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates a processingInstruction node, containing the specified target and text 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">createTextNode(text) 
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Creates a text node, containing the specified text 
+</td> 
+</tr> 
+<tr> 
+<td align="left" valign="top" style="background-color: ;" width="35%">getElementById(id)
+</td> 
+<td align="left" valign="top" style="background-color: ;" width="65%">Locate any element in the DOM tree via its ID attribute.
+</td> 
+</tr> 
+</table>
+<p>Most of these methods are used to create new DOM nodes. The general node methods can be used to add these newly created nodes anywhere within a DOM tree.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>XHTML and the DOM</h1>
+  
+    <p>Since XHTML is an XML-base language we can use the DOM to interact with our XHTML documents using Javascript. In a Javascript program we access the XHTML document object via a global variable called &#8220;document&#8221;.</p>
+
+<p>For example, to locate the root element of our XHTML document we could do the following:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xhtml_root_element <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">documentElement</span>;
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>The <code>documentElement</code> property of the document object returns the root element of the XML document, in the case of XHTML this is the <code>html</code> element.</p>
+
+<p>Note: The XHTML document we are accessing here is the document that actually contains our javascript code. For a working example of this see the <code>no_document_write.html</code> file in the <a href="http://connect.rrc.ca/DACCA/COMAF/COMP-1011/Shared%20Documents/XML%20files/Crossbrowser_DOM.zip">Crossbrowser_DOM zip file</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Locating XHTML Elements</h1>
+  
+    <p>To access an array of elements of a specific tag name we can use the getElementsByTagName method of the document object.</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Locate all the paragraph elements in our XHTML document.</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> all_p_elements <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">'</span>p<span class="String">'</span></span>);
+<span class="line-numbers">   3 </span> 
+<span class="line-numbers">   4 </span> <span class="Comment"><span class="Comment">//</span> Dump the first p element to the console for inspection.</span>
+<span class="line-numbers">   5 </span> <span class="Entity">console</span><span class="Support">.log</span>(all_p_elements[<span class="Constant">0</span>]); 
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Locating XHTML nodes by ID</h1>
+  
+    <p>We can also locate individual elements if they have been assigned a unique id attribute.</p>
+
+<p>Image we had an XHTML document that contained the following fragment:</p>
+
+<pre lang="html"><code class="html" lang="html"><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">div</span> <span class="MetaTag"><span class="MetaTag">id</span><span class="MetaTag">=</span><span class="String"><span class="String">&quot;</span><span class="String">output</span><span class="String">&quot;</span></span></span><span class="MetaTag">&gt;</span></span>This text is a child node of the div element.<span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">div</span><span class="MetaTag">&gt;</span></span>
+</pre></code></pre>
+
+<p>To pin-point this element we could do the follow:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xhtml_output_div <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">getElementById</span>(<span class="String"><span class="String">&quot;</span>output<span class="String">&quot;</span></span>);
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>The <code>getElementById</code> method of the document object searches the entire DOM tree for an element with a specific <code>id</code> attribute. Since id attributes are supposed to have unique values in XML/XHTML this method will always return a reference to a single DOM node.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Avoiding document.write</h1>
+  
+    <p>The document.write method was number one in our list of Javascript no-nos. For XHTML served from a web-server with the mime-type of &#8220;application/xhtml+xml&#8221; document.write will not work at all.</p>
+
+<p>We need a DOM compliant method for dynamically adding text to an XHTML webpage. Let&#8217;s start with the following XHTML template.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>XHTML Template</h1>
+  
+    <pre lang="html"><code class="html" lang="html"><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="MetaTag"><span class="MetaTag">&lt;?</span><span class="MetaTag">xml</span> <span class="MetaTag">version</span> =<span class="String"><span class="String">&quot;</span>1.0<span class="String">&quot;</span></span><span class="MetaTag">?&gt;</span></span>
+<span class="line-numbers">   2 </span> <span class="MetaTag"><span class="MetaTag">&lt;!</span><span class="MetaTag"><span class="MetaTag">DOCTYPE</span> html PUBLIC <span class="String">&quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;</span>  </span></span>
+<span class="line-numbers">   3 </span> <span class="MetaTag"><span class="MetaTag">    <span class="String">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   4 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">html</span> <span class="MetaTag">xmlns</span>=<span class="String"><span class="String">&quot;</span>http://www.w3.org/1999/xhtml<span class="String">&quot;</span></span> <span class="MetaTag">xml:lang</span>=<span class="String"><span class="String">&quot;</span>en<span class="String">&quot;</span></span> <span class="MetaTag">lang</span>=<span class="String"><span class="String">&quot;</span>en<span class="String">&quot;</span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   5 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">head</span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   6 </span>     <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">title</span><span class="MetaTag">&gt;</span></span>No More document.write<span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">title</span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">   7 </span>     &lt;<span class="Entity">script</span> <span class="Entity">type</span>=<span class="String"><span class="String">&quot;</span>text/javascript<span class="String">&quot;</span></span>&gt;
+<span class="line-numbers">   8 </span>         <span class="Storage">function</span> <span class="Entity">dynamic_write</span>() {
+<span class="line-numbers">   9 </span>         }
+<span class="line-numbers">  10 </span>     &lt;/<span class="Entity">script</span>&gt;
+<span class="line-numbers">  11 </span> <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">head</span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">  12 </span> <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">body</span> <span class="MetaTag">onload</span>=<span class="String"><span class="String">&quot;</span>dynamic_write()<span class="String">&quot;</span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">  13 </span>     <span class="MetaTag"><span class="MetaTag">&lt;</span><span class="MetaTag">div</span> <span class="MetaTag"><span class="MetaTag">id</span><span class="MetaTag">=</span><span class="String"><span class="String">&quot;</span><span class="String">output</span><span class="String">&quot;</span></span></span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">  14 </span>     <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">div</span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">  15 </span> <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">body</span><span class="MetaTag">&gt;</span></span>
+<span class="line-numbers">  16 </span> <span class="MetaTag"><span class="MetaTag">&lt;/</span><span class="MetaTag">html</span><span class="MetaTag">&gt;</span></span>
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>This template contains a script element with an empty Javascript function called <code>dynamic_write</code>. The body element contains an onload attribute which will execute the <code>dynamic_write</code> function once the body element is loaded in the browser. Within the body there is an empty div element with an id attribute equal to &#8220;output&#8221;.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Creating a Text Node</h1>
+  
+    <p>As we saw in a previous section, we can pin-point the empty div element by using the following Javascript:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xhtml_output_div <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">getElementById</span>(<span class="String"><span class="String">&quot;</span>output<span class="String">&quot;</span></span>);
+</pre></code></pre>
+
+<p>We can then create a new DOM text node containing the string we wish to display within the empty div. We use the createTextNode method of the document object to do this.</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> new_text_node <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">createTextNode</span>(<span class="String"><span class="String">&quot;</span>Look Ma! No document.write!<span class="String">&quot;</span></span>);
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Appending a Text Node</h1>
+  
+    <p>Finally, we can append this textNode to the empty div:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> xhtml_output_div.<span class="Support">appendChild</span>(new_text_node);
+</pre></code></pre>
+
+<p>For every new line we need to insert a br element:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> xhtml_output_div.<span class="Support">appendChild</span>(<span class="Support">document</span>.<span class="Support">createElement</span>(<span class="String"><span class="String">&quot;</span>br<span class="String">&quot;</span></span>));
+<span class="line-numbers">   2 </span> xhtml_output_div.<span class="Support">appendChild</span>(<span class="Support">document</span>.<span class="Support">createTextNode</span>(<span class="String"><span class="String">&quot;</span>Another line.<span class="String">&quot;</span></span>));
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>This method of writing to a document can become cumbersome, so we can cheat by using the innerHTML property of node objects:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xhtml_output_div <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">getElementById</span>(<span class="String"><span class="String">&quot;</span>output<span class="String">&quot;</span></span>);
+<span class="line-numbers">   2 </span> xhtml_output_div.innerHTML <span class="Keyword">+</span><span class="Keyword">=</span> <span class="String"><span class="String">&quot;</span>Look Ma! No document.write!&lt;br/&gt;<span class="String">&quot;</span></span>;
+<span class="line-numbers">   3 </span> xhtml_output_div.innerHTML <span class="Keyword">+</span><span class="Keyword">=</span> <span class="String"><span class="String">&quot;</span>Another line.<span class="String">&quot;</span></span>;
+</pre></code></pre>
+
+<p>The innerHTML property used to be exclusive to Internet Explorer but is now supported by all the major browsers.</p>
+
+<p>We must be careful when using innerHTML because, like document.write, it allows us to circumvent the DOM and potentially add invalid markup to our XHTML document. It&#8217;s best to avoid using innerHTML in production code, leaving it for debugging purposes only. In many cases we can simply use the Firebug console instead.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Parsing XML</h1>
+  
+    <p>So far the only document node we&#8217;ve interacted with has been the document node of our XHTML document. This node was provided to us by the browser, referenced by the <code>document</code> variable.</p>
+
+<p>What if we want to parse an external XML document into a DOM tree and obtain its document node? I have written a method for you that does just this called <code>loadXML</code>.</p>
+
+<p>For example, you can use this method to load the contents of an XML document into a DOM tree and obtain a reference to its document node like this:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xml_document_node <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">'</span>example.xml<span class="String">'</span></span>);
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>Here is the loadXML function:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">function</span> <span class="Entity">loadXML</span>(<span class="Variable">filename</span>) {
+<span class="line-numbers">   2 </span>     <span class="Storage">var</span> xmlDoc;
+<span class="line-numbers">   3 </span>     <span class="Keyword">if</span> (<span class="Support">window</span>.ActiveXObject) {
+<span class="line-numbers">   4 </span>         xmlDoc <span class="Keyword">=</span> <span class="Keyword">new</span> <span class="Entity">ActiveXObject</span>(<span class="String"><span class="String">&quot;</span>Microsoft.XMLDOM<span class="String">&quot;</span></span>);
+<span class="line-numbers">   5 </span>     } <span class="Keyword">else</span> <span class="Keyword">if</span> (<span class="Support">document</span>.<span class="Support">implementation</span> <span class="Keyword">&amp;</span><span class="Keyword">&amp;</span> <span class="Support">document</span>.<span class="Support">implementation</span>.createDocument) {
+<span class="line-numbers">   6 </span>         xmlDoc <span class="Keyword">=</span> <span class="Support">document</span>.<span class="Support">implementation</span>.createDocument(<span class="String"><span class="String">&quot;</span><span class="String">&quot;</span></span>,<span class="String"><span class="String">&quot;</span><span class="String">&quot;</span></span>,<span class="Constant">null</span>);
+<span class="line-numbers">   7 </span>     } <span class="Keyword">else</span> {
+<span class="line-numbers">   8 </span>         <span class="Support">alert</span>(<span class="String"><span class="String">'</span>Your browser does not support XML.<span class="String">'</span></span>);
+<span class="line-numbers">   9 </span>         <span class="Keyword">return</span>;
+<span class="line-numbers">  10 </span>     }  
+<span class="line-numbers">  11 </span>     xmlDoc.async<span class="Keyword">=</span><span class="Constant">false</span>;
+<span class="line-numbers">  12 </span>     xmlDoc.<span class="Support">load</span>(filename);
+<span class="line-numbers">  13 </span>     <span class="Keyword">return</span> xmlDoc;
+<span class="line-numbers">  14 </span> }   
+</pre></code></pre>
+
+<p>You can treat this method as a black-box: You provide it with a filename and it returns to a document node object.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Printing XML Fragments</h1>
+  
+    <p>I&#8217;ve also write an xmlToString method for you that takes any type of DOM node as an argument and returns the string representation.</p>
+
+<p>You can also treat this method as a black-box: You pass it a DOM node, it turns a string of XML. For example, if you had a DOM node reference by a <code>dom_node</code> variable:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Support">alert</span>(xmlToString(dom_node));
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>Here is the xmlToString method:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">function</span> <span class="Entity">xmlToString</span>(<span class="Variable">node</span>) {
+<span class="line-numbers">   2 </span>     <span class="Keyword">if</span> (node.xml) { 
+<span class="line-numbers">   3 </span>         <span class="Keyword">return</span> node.xml;
+<span class="line-numbers">   4 </span>     } <span class="Keyword">else</span> <span class="Keyword">if</span> (XMLSerializer) {
+<span class="line-numbers">   5 </span>         <span class="Storage">var</span> my_serializer <span class="Keyword">=</span> <span class="Keyword">new</span> <span class="Entity">XMLSerializer</span>();
+<span class="line-numbers">   6 </span>         <span class="Keyword">return</span> my_serializer.serializeToString(node);
+<span class="line-numbers">   7 </span>     } <span class="Keyword">else</span> {
+<span class="line-numbers">   8 </span>         <span class="Support">alert</span>(<span class="String"><span class="String">'</span>Your browser does not support XML serialization.<span class="String">'</span></span>);
+<span class="line-numbers">   9 </span>         <span class="Keyword">return</span> <span class="String"><span class="String">&quot;</span><span class="String">&quot;</span></span>;
+<span class="line-numbers">  10 </span>     }
+<span class="line-numbers">  11 </span> }
+</pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Loading XML -- The Basics</h1>
+  
+    <p>Let&#8217;s load an XML file into a DOM tree, fetch it&#8217;s root node and then print out the contents of the root node using an alert. We will make use of our <code>loadXML</code> and <code>xmlToString</code> methods.</p>
+
+<p>Here&#8217;s the Javascript:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> xml_document_node <span class="Keyword">=</span> loadXML( <span class="String"><span class="String">&quot;</span>example.xml<span class="String">&quot;</span></span> );
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> root_element      <span class="Keyword">=</span> xml_document_node.<span class="Support">documentElement</span>;
+<span class="line-numbers">   3 </span> <span class="Support">alert</span>( xmlToString( root_element ) );
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Adding An Element</h1>
+  
+    <pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Load an XML document:</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> xml_document_node  <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>flight.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> <span class="Comment"><span class="Comment">//</span> Location the root element:</span>
+<span class="line-numbers">   4 </span> <span class="Storage">var</span> root_element       <span class="Keyword">=</span> xml_document_node.<span class="Support">documentElement</span>;
+<span class="line-numbers">   5 </span> <span class="Comment"><span class="Comment">//</span> Create a new Element node:</span>
+<span class="line-numbers">   6 </span> <span class="Storage">var</span> new_status_element <span class="Keyword">=</span> xml_document_node.<span class="Support">createElement</span>(<span class="String"><span class="String">&quot;</span>status<span class="String">&quot;</span></span>);
+<span class="line-numbers">   7 </span> <span class="Comment"><span class="Comment">//</span> Create a new Text node:</span>
+<span class="line-numbers">   8 </span> <span class="Storage">var</span> new_text_node      <span class="Keyword">=</span> xml_document_node.<span class="Support">createTextNode</span>(<span class="String"><span class="String">&quot;</span>on time<span class="String">&quot;</span></span>);
+<span class="line-numbers">   9 </span> <span class="Comment"><span class="Comment">//</span> Append the new Element to the root node:</span>
+<span class="line-numbers">  10 </span> root_element.<span class="Support">appendChild</span>(new_status_element);
+<span class="line-numbers">  11 </span> <span class="Comment"><span class="Comment">//</span> Append the new Text node to the new Element:</span>
+<span class="line-numbers">  12 </span> new_status_element.<span class="Support">appendChild</span>(new_text_node);
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <p>For a working example of this see the <code>crossbrowser_add_node.html</code> file in the <a href="http://connect.rrc.ca/DACCA/COMAF/COMP-1011/Shared%20Documents/XML%20files/Crossbrowser_DOM.zip">Crossbrowser_DOM zip file</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Removing an Element</h1>
+  
+    <pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Load an XML document:</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> xml_document_node <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>flight.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> <span class="Comment"><span class="Comment">//</span> Locate the root node:</span>
+<span class="line-numbers">   4 </span> <span class="Storage">var</span> root_element      <span class="Keyword">=</span> xml_document_node.<span class="Support">documentElement</span>;
+<span class="line-numbers">   5 </span> <span class="Comment"><span class="Comment">//</span> Locate all `number` elements:</span>
+<span class="line-numbers">   6 </span> <span class="Storage">var</span> number_elements   <span class="Keyword">=</span> root_element.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">&quot;</span>number<span class="String">&quot;</span></span>);
+<span class="line-numbers">   7 </span> <span class="Comment"><span class="Comment">//</span> getElementsByTagName returns an array, let's pin-point the first element:</span>
+<span class="line-numbers">   8 </span> <span class="Storage">var</span> number_element    <span class="Keyword">=</span> number_elements[<span class="Constant">0</span>];
+<span class="line-numbers">   9 </span> <span class="Comment"><span class="Comment">//</span> Remove the first number element:</span>
+<span class="line-numbers">  10 </span> root_element.<span class="Support">removeChild</span>(number_element);
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <p>For a working example of this see the <code>crossbrowser_remove_node.html</code> file in the <a href="http://connect.rrc.ca/DACCA/COMAF/COMP-1011/Shared%20Documents/XML%20files/Crossbrowser_DOM.zip">Crossbrowser_DOM zip file</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Multiple XML Documents</h1>
+  
+    <pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Load two XML documents: </span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> catalogXML   <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>catalog.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> <span class="Storage">var</span> workorderXML <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>workorder.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   4 </span> <span class="Comment"><span class="Comment">//</span> Locate the root elements:</span>
+<span class="line-numbers">   5 </span> <span class="Storage">var</span> catalog_root_element   <span class="Keyword">=</span> catalogXML.<span class="Support">documentElement</span>;
+<span class="line-numbers">   6 </span> <span class="Storage">var</span> workorder_root_element <span class="Keyword">=</span> workorderXML.<span class="Support">documentElement</span>;
+<span class="line-numbers">   7 </span> <span class="Comment"><span class="Comment">//</span> Print out the contents of each root (and children):</span>
+<span class="line-numbers">   8 </span> <span class="Support">alert</span>(xmlToString(catalog_root_element));
+<span class="line-numbers">   9 </span> <span class="Support">alert</span>(xmlToString(workorder_root_element));
+<span class="line-numbers">  10 </span> <span class="Comment"><span class="Comment">//</span> Locate the first partID element in the catalog:</span>
+<span class="line-numbers">  11 </span> <span class="Storage">var</span> isolated_node <span class="Keyword">=</span> catalog_root_element.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">'</span>partID<span class="String">'</span></span>)[<span class="Constant">0</span>];
+<span class="line-numbers">  12 </span> <span class="Comment"><span class="Comment">//</span> Print out the located node:</span>
+<span class="line-numbers">  13 </span> <span class="Support">alert</span>(xmlToString(isolated_node));
+<span class="line-numbers">  14 </span> <span class="Comment"><span class="Comment">//</span> Move the located node into the work order tree</span>
+<span class="line-numbers">  15 </span> <span class="Comment"><span class="Comment">//</span> as a child of the work order root node:</span>
+<span class="line-numbers">  16 </span> workorder_root_element.<span class="Support">appendChild</span>(isolated_node);
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>This line:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> isolated_node <span class="Keyword">=</span> catalog_root_element.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">'</span>partID<span class="String">'</span></span>)[<span class="Constant">0</span>];
+</pre></code></pre>
+
+<p>Is a shortcut for:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">var</span> partID_nodes <span class="Keyword">=</span> catalog_root_element.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">'</span>partID<span class="String">'</span></span>);
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> isolated_node <span class="Keyword">=</span> partID_nodes[<span class="Constant">0</span>];
+</pre></code></pre>
+
+<p>Note: When we append the <code>isolated_node</code> to the work order tree it is removed from the catalog tree. This is because a node can only have <em>one</em> parent node.</p>
+    
+      <h3>Resources</h3>
+      <p>For a working example of this see the <code>crossbrowser_multi_doc.html</code> file in the <a href="http://connect.rrc.ca/DACCA/COMAF/COMP-1011/Shared%20Documents/XML%20files/Crossbrowser_DOM.zip">Crossbrowser_DOM zip file</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Multiple Documents with Cloning</h1>
+  
+    <p>In the previous example we <em>moved</em> an isolated node from one DOM tree to another. In this example we&#8217;ll <em>copy</em> the node:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">//</span> Load two XML documents:</span>
+<span class="line-numbers">   2 </span> <span class="Storage">var</span> catalogXML   <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>catalog.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   3 </span> <span class="Storage">var</span> workorderXML <span class="Keyword">=</span> loadXML(<span class="String"><span class="String">&quot;</span>workorder.xml<span class="String">&quot;</span></span>);
+<span class="line-numbers">   4 </span> <span class="Comment"><span class="Comment">//</span> Locate the root elements:</span>
+<span class="line-numbers">   5 </span> <span class="Storage">var</span> catalog_root_element   <span class="Keyword">=</span> catalogXML.<span class="Support">documentElement</span>;
+<span class="line-numbers">   6 </span> <span class="Storage">var</span> workorder_root_element <span class="Keyword">=</span> workorderXML.<span class="Support">documentElement</span>;
+<span class="line-numbers">   7 </span> <span class="Comment"><span class="Comment">//</span> Clone a specific node in the catalog.</span>
+<span class="line-numbers">   8 </span> <span class="Storage">var</span> isolated_node <span class="Keyword">=</span> catalog_root_element.<span class="Support">getElementsByTagName</span>(<span class="String"><span class="String">'</span>partID<span class="String">'</span></span>)[<span class="Constant">0</span>];
+<span class="line-numbers">   9 </span> <span class="Storage">var</span> cloned_node <span class="Keyword">=</span> isolated_node.<span class="Support">cloneNode</span>(<span class="Constant">true</span>);
+<span class="line-numbers">  10 </span> <span class="Comment"><span class="Comment">//</span> Append the cloned node as a child of the work order root:    </span>
+<span class="line-numbers">  11 </span> workorder_root_element.<span class="Support">appendChild</span>(cloned_node);
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <p>For a working example of this see the <code>crossbrowser_multi_doc_clone.html</code> file in the <a href="http://connect.rrc.ca/DACCA/COMAF/COMP-1011/Shared%20Documents/XML%20files/Crossbrowser_DOM.zip">Crossbrowser_DOM zip file</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Firefox and XML Whitespace</h1>
+  
+    <p>Unlike Internet Explorer, the FireFox browser considers whitespace (tabs, newlines, spaces, &amp;c) in XML documents as textNodes.</p>
+
+<p>This can cause problems when using child-based node properties such as childNodes, firstChild, lastChild, nextSibling, previousSibling as there will (potentially) be more children in the DOM tree in Firefox than when using IE.</p>
+
+<p>When writing cross-browser code it&#8217;s best to avoid sibling/children-based methods in favour of direct targeting using IDs and classes.</p>
+  
+  <div class="handout">
+    <p>You could also run any loaded XML document node through the following whitespace-node removal function:</p>
+
+<pre><code><pre class="blackboard"><span class="line-numbers">   1 </span> <span class="Storage">function</span> <span class="Entity">cleanWhiteSpace</span>(<span class="Variable">node</span>) {
+<span class="line-numbers">   2 </span>     <span class="Storage">var</span> notWhitespace <span class="Keyword">=</span><span class="String"> <span class="String">/</span>S<span class="String">/</span></span>; <span class="Comment"><span class="Comment">//</span> A RegExp for everything other than whitespace</span>
+<span class="line-numbers">   3 </span>     <span class="Keyword">for</span> (<span class="Storage">var</span> i<span class="Keyword">=</span><span class="Constant">0</span>; i <span class="Keyword">&lt;</span> node.<span class="Support">childNodes</span>.<span class="Support">length</span>; i<span class="Keyword">++</span>) {
+<span class="line-numbers">   4 </span>         <span class="Storage">var</span> childNode <span class="Keyword">=</span> node.<span class="Support">childNodes</span>[i];
+<span class="line-numbers">   5 </span>         <span class="Keyword">if</span> ((childNode.<span class="Support">nodeType</span> <span class="Keyword">==</span> <span class="Constant">3</span>)<span class="Keyword">&amp;</span><span class="Keyword">&amp;</span>
+<span class="line-numbers">   6 </span>             (<span class="Keyword">!</span>notWhitespace.<span class="Support">test</span>(childNode.<span class="Support">nodeValue</span>))) {
+<span class="line-numbers">   7 </span>             <span class="Comment"><span class="Comment">//</span> that is, if it's a whitespace text node</span>
+<span class="line-numbers">   8 </span>             node.<span class="Support">removeChild</span>(node.<span class="Support">childNodes</span>[i]);
+<span class="line-numbers">   9 </span>             i<span class="Keyword">--</span>;
+<span class="line-numbers">  10 </span>         } <span class="Keyword">else</span> <span class="Keyword">if</span>(childNode.<span class="Support">nodeType</span> <span class="Keyword">==</span> <span class="Constant">1</span>) 	{
+<span class="line-numbers">  11 </span>             <span class="Comment"><span class="Comment">//</span> elements can have text child nodes of their own</span>
+<span class="line-numbers">  12 </span>             cleanWhiteSpace(childNode);
+<span class="line-numbers">  13 </span>         }
+<span class="line-numbers">  14 </span>     }
+<span class="line-numbers">  15 </span> }
+</pre></code></pre>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://developer.mozilla.org/en/docs/Whitespace_in_the_DOM">More info on Firefox and XML Whitespace</a></li>
+</ul>
+    
+  </div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Internet Bots for Fun &amp; No Profit</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link href="/stylesheets/syntax/dawn.css?1369765348" media="screen" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+  
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+  
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #eeeeee;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+  
+  div.presentation {
+    width: auto;
+    border: 1px solid #eeeeee;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+  
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+  
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+  
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .9em;
+        overflow: auto;
+  } 
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 980px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Internet Bots for Fun &amp; No Profit</h1>
+<h2>BSides Winnipeg 2013 Talk</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+  
+<div class="slide">
+  <h1>Internet Bots for Fun & No Profit</h1>
+  <h2>BSides Winnipeg 2013 Talk</h2>
+  <h3>Kyle Geske</h3>
+  <h4></h4>
+</div>
+
+
+<div class="slide">
+  <h1>He Who Presents</h1>
+  
+  <div class="content-with-image">
+    <img alt="3350514518_8ca9143bbd_b" class="medium" src="/system/images/551/medium/3350514518_8ca9143bbd_b.jpg?1302687140" />
+    <p><strong>Kyle Geske</strong></p>
+
+<ul>
+<li>Hardware/Firmware Engineer Turned Web Developer</li>
+
+<li>Instructor at Red River College<br /><em>(Ruby/Rails, PHP, HTML/CSS, Philosophy of Time Travel)</em></li>
+
+<li>Artist - Shared studio space with my dad @ Artspace</li>
+</ul>
+
+<p><strong>V-World Avatars</strong></p>
+
+<ul>
+<li><em><a href="http://twitter.com/stungeye">T</a>witter, <a href="http://flickr.com/stungeye">F</a>lickr, <a href="https://pinboard.in/u:stungeye">P</a>inboard, <a href="http://github.com/stungeye">G</a>ithub, <a href="mailto:stungeye@gmail.com">G</a>mail, Etc:</em> <code>stungeye</code></li>
+
+<li><em>Web:</em> <a href="http://stungeye.com">stungeye.com</a></li>
+
+<li><em>AKA:</em> Walter S. Glutton</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Foucault's Pendulum</h1>
+  
+  <div class="content-with-image">
+    <img alt="Italian_cover_foucault" class="medium" src="/system/images/681/medium/italian_cover_foucault.jpg?1384044315" />
+    <p>I first encountered <a href="https://en.wikipedia.org/wiki/Foucault&apos;s_Pendulum">the Pendulum</a> 20 years ago. It contained code, really big words, and European history that I knew nothing about.</p>
+
+<pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Constant">10</span>  <span class="Variable">REM</span> anagrams
+<span class="line-numbers">   2 </span> <span class="Constant">20</span>  <span class="Variable">INPUT</span> <span class="Variable">L</span>$(<span class="Constant">1</span>)<span class="PunctuationSeparator">,</span><span class="Variable">L</span>$(<span class="Constant">2</span>)<span class="PunctuationSeparator">,</span><span class="Variable">L</span>$(<span class="Constant">3</span>)<span class="PunctuationSeparator">,</span><span class="Variable">L</span>$(<span class="Constant">4</span>)
+<span class="line-numbers">   3 </span> <span class="Constant">30</span>  <span class="Variable">PRINT</span>
+<span class="line-numbers">   4 </span> <span class="Constant">40</span>  <span class="Variable">FOR</span> <span class="Variable">I1</span><span class="Keyword">=</span><span class="Constant">1</span> <span class="Variable">TO</span> <span class="Constant">4</span>
+<span class="line-numbers">   5 </span> <span class="Constant">50</span>  <span class="Variable">FOR</span> <span class="Variable">I2</span><span class="Keyword">=</span><span class="Constant">1</span> <span class="Variable">TO</span> <span class="Constant">4</span>
+<span class="line-numbers">   6 </span> <span class="Constant">60</span>  <span class="Variable">IF</span> <span class="Variable">I2</span><span class="Keyword">=</span><span class="Variable">I1</span> <span class="Variable">THEN</span> <span class="Constant">130</span>
+<span class="line-numbers">   7 </span> <span class="Constant">70</span>  <span class="Variable">FOR</span> <span class="Variable">I3</span><span class="Keyword">=</span><span class="Constant">1</span> <span class="Variable">TO</span> <span class="Constant">4</span>
+<span class="line-numbers">   8 </span> <span class="Constant">80</span>  <span class="Variable">IF</span> <span class="Variable">I3</span><span class="Keyword">=</span><span class="Variable">I1</span> <span class="Variable">THEN</span> <span class="Constant">120</span>
+<span class="line-numbers">   9 </span> <span class="Constant">90</span>  <span class="Variable">IF</span> <span class="Variable">I3</span><span class="Keyword">=</span><span class="Variable">I2</span> <span class="Variable">THEN</span> <span class="Constant">120</span>
+<span class="line-numbers">  10 </span> <span class="Constant">100</span> <span class="Variable">LET</span> <span class="Variable">I4</span><span class="Keyword">=</span><span class="Constant">10</span><span class="Keyword">-</span>(<span class="Variable">I1</span><span class="Keyword">+</span><span class="Variable">I2</span><span class="Keyword">+</span><span class="Variable">I3</span>)
+<span class="line-numbers">  11 </span> <span class="Constant">110</span> <span class="Variable">LPRINT</span> <span class="Variable">L</span>$(<span class="Variable">I1</span>)<span class="PunctuationSeparator">;</span><span class="Variable">L</span>$(<span class="Variable">I2</span>)<span class="PunctuationSeparator">;</span><span class="Variable">L</span>$(<span class="Variable">I3</span>)<span class="PunctuationSeparator">;</span><span class="Variable">L</span>$(<span class="Variable">I4</span>)
+<span class="line-numbers">  12 </span> <span class="Constant">120</span> <span class="Variable">NEXT</span> <span class="Variable">I3</span>
+<span class="line-numbers">  13 </span> <span class="Constant">130</span> <span class="Variable">NEXT</span> <span class="Variable">I2</span>
+<span class="line-numbers">  14 </span> <span class="Constant">140</span> <span class="Variable">NEXT</span> <span class="Variable">I1</span>
+<span class="line-numbers">  15 </span> <span class="Constant">150</span> <span class="Keyword">END</span>
+</pre></code></pre>
+
+<p>It took me 18 years to finish this book.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Abulafia</h1>
+  
+  <div class="content-with-image">
+    <img alt="Abraham_abulafia" class="medium" src="/system/images/713/medium/Abraham_abulafia.jpg?1384481557" />
+    <ul>
+<li>
+<p>Abulafia is the name of a computer in the book Foucault&#8217;s pendulum.</p>
+</li>
+
+<li>
+<p>Named after <a href="https://en.wikipedia.org/wiki/Abraham_Abulafia">Abraham Abulafia</a>, religious philosopher of the 1200s and the founder of the school of &#8220;Prophetic Kabbalah&#8221;.</p>
+</li>
+
+<li>
+<p>The characters use Abulafia to invent their own conspiracy theory by writing a program that makes connections between random bits of text they provide.</p>
+
+<ul>
+<li>
+<p>The Templars have something to do with everything</p>
+</li>
+
+<li>
+<p>Minnie Mouse is Mickey Mouse&#8217;s fiancee</p>
+</li>
+
+<li>
+<p>What follows is not true</p>
+</li>
+</ul>
+</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Abotlafia</h1>
+  
+  <div class="content-with-image">
+    <img alt="Capture" class="medium" src="/system/images/694/medium/Capture.PNG?1384480511" />
+    <ul>
+<li>
+<p><a href="https://twitter.com/abotlafia">Abotlafia</a> is my version of this fictional computer.</p>
+</li>
+
+<li>
+<p>Abotlafia makes the connections the inspire The Plan.</p>
+</li>
+
+<li>
+<p>Abotlafia makes random connection between tweet-sized sentences from the book Foucault&#8217;s pendulum.</p>
+</li>
+
+<li>
+<p>Abotlafia has over 480 followers&#8230;</p>
+</li>
+
+<li>
+<p>&#8230; and a Klout score of 44.</p>
+</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Summon the Bots</h1>
+  
+    <p>Pull out your mobile devices and tweet a few of these phrases:</p>
+
+<ul>
+<li>
+<p>Inconceivable!</p>
+</li>
+
+<li>
+<p>beetlejuice beetlejuice beetlejuice</p>
+</li>
+
+<li>
+<p>Mirror mirror on the wall who&#8217;s the [fill in the blank] of them all.</p>
+</li>
+</ul>
+<br />
+<p>These phrases summon bots written using the Ruby library <a href="http://muffinlabs.com/chatterbot.html">Chatterbot</a>.</p>
+
+<p>Written by Colin Mitchell.</p>
+
+<ul>
+<li>
+<p>On Twitter: <a href="http://twitter.com/mitchc2">@mitchc2</a></p>
+</li>
+
+<li>
+<p><a href="http://muffinlabs.com/">muffinlabs.com</a></p>
+</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Building Bots with Ruby & Chatterbot</h1>
+  
+    <h3 id="make_a_twitter_account">Make a Twitter Account</h3>
+
+<p>First thing you&#8217;ll need to do is create an account for your bot on Twitter. That&#8217;s the easy part.</p>
+
+<h3 id="install_chatterbot">Install Chatterbot</h3>
+<br />
+<pre><code><pre class="dawn"><span class="line-numbers">   1 </span> gem install chatterbot
+</pre></code></pre>
+<br />
+<h3 id="run_the_generator">Run the Generator</h3>
+
+<p>Chatterbot comes with a script named <code>chatterbot-register</code> which:</p>
+
+<ul>
+<li>Will authorize your bot with Twitter. (OAuth)</li>
+
+<li>Will generate a skeleton script, which you use to implement your actual bot.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Ruby </h1>
+  
+  <div class="content-with-image">
+    <img alt="Ruby_makes_me_happy" class="large" src="/system/images/726/large/Ruby_makes_me_happy.png?1384617474" />
+    <p>The code in this talk will be in the <a href="ruby-lang.org">Ruby language</a>. If you don&#8217;t know Ruby just pretend it&#8217;s pseudo-code. ;)</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Numbers Station Bot</h1>
+  
+  <div class="content-with-image">
+    <img alt="Sprach-morse-generator" class="medium" src="/system/images/714/medium/Sprach-Morse-Generator.jpg?1384485306" />
+    <pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Keyword">require</span> 'chatterbot/dsl'
+<span class="line-numbers">   2 </span> 
+<span class="line-numbers">   3 </span> <span class="Keyword">loop</span> <span class="Keyword">do</span>
+<span class="line-numbers">   4 </span> 
+<span class="line-numbers">   5 </span>   tweet <span class="Entity">rand</span>(<span class="Constant">1000000</span><span class="PunctuationSeparator">.</span><span class="PunctuationSeparator">.</span><span class="Constant">99000000</span>)<span class="PunctuationSeparator">.</span><span class="Entity">to_s</span>
+<span class="line-numbers">   6 </span> 
+<span class="line-numbers">   7 </span>   sleep <span class="Constant">300</span>
+<span class="line-numbers">   8 </span> 
+<span class="line-numbers">   9 </span> <span class="Keyword">end</span>
+</pre></code></pre>
+
+<p>The Twitter bot equivalent of a <a href="https://en.wikipedia.org/wiki/Numbers_station">Numbers Station</a>.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>BSidesReminder</h1>
+  
+  <div class="content-with-image">
+    <img alt="Reminder" class="large" src="/system/images/717/large/reminder.PNG?1384543495" />
+    
+  </div>
+  
+  <div class="handout">
+    <p>I built the <a href="http://twitter.com/bsidesreminder">@bsidesreminder</a> bot to ensure that I wouldn&#8217;t procrastinate writing this talk. Every day at 11am this bot would tell me how many days it was until BSides Winnipeg 2013.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>BSidesReminder</h1>
+  
+    <pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Keyword">require</span> 'date'
+<span class="line-numbers">   2 </span> 
+<span class="line-numbers">   3 </span> <span class="Variable">BSIDES_WINNIPEG_2013_DATE</span> <span class="Keyword">=</span> <span class="Support">Date</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>('November 16 2013')
+<span class="line-numbers">   4 </span> days_until_bsides <span class="Keyword">=</span> (<span class="Variable">BSIDES_WINNIPEG_2013_DATE</span> <span class="Keyword">-</span> <span class="Support">Date</span><span class="PunctuationSeparator">.</span><span class="Entity">today</span>)<span class="PunctuationSeparator">.</span><span class="Entity">to_i</span>
+<span class="line-numbers">   5 </span> 
+<span class="line-numbers">   6 </span> exit  <span class="Keyword">if</span> days_until_bsides <span class="Keyword">&lt;</span> <span class="Constant">0</span> 
+<span class="line-numbers">   7 </span> 
+<span class="line-numbers">   8 </span> <span class="Keyword">require</span> 'chatterbot/dsl'
+<span class="line-numbers">   9 </span> 
+<span class="line-numbers">  10 </span> tweet_text <span class="Keyword">=</span> &quot;@stungeye You are presenting @BSidesWpg &quot;
+<span class="line-numbers">  11 </span> 
+<span class="line-numbers">  12 </span> <span class="Keyword">if</span> days_until_bsides<span class="PunctuationSeparator">.</span><span class="Entity">zero?</span>
+<span class="line-numbers">  13 </span>   tweet_text <span class="Keyword">+=</span> &quot;today!&quot;
+<span class="line-numbers">  14 </span> <span class="Keyword">elsif</span> days_until_bsides <span class="Keyword">==</span> <span class="Constant">1</span>
+<span class="line-numbers">  15 </span>   tweet_text <span class="Keyword">+=</span> &quot;tomorrow.&quot;
+<span class="line-numbers">  16 </span> <span class="Keyword">else</span>
+<span class="line-numbers">  17 </span>   tweet_text <span class="Keyword">+=</span> &quot;in <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>days_until_bsides<span class="StringEmbeddedSource">}</span></span> days.&quot;
+<span class="line-numbers">  18 </span> <span class="Keyword">end</span>
+<span class="line-numbers">  19 </span> 
+<span class="line-numbers">  20 </span> tweet tweet_text
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Echo Bot</h1>
+  
+  <div class="content-with-image">
+    <img alt="Echo" class="medium" src="/system/images/709/medium/echo.png?1384489135" />
+    <pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Keyword">require</span> 'chatterbot/dsl'
+<span class="line-numbers">   2 </span> 
+<span class="line-numbers">   3 </span> replies <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">tweet</span><span class="PunctuationSeparator">|</span>
+<span class="line-numbers">   4 </span> 
+<span class="line-numbers">   5 </span>   user <span class="Keyword">=</span> <span class="Entity">tweet_user</span>(tweet)
+<span class="line-numbers">   6 </span> 
+<span class="line-numbers">   7 </span>   echo <span class="Keyword">=</span> tweet<span class="PunctuationSeparator">.</span><span class="Entity">text</span><span class="PunctuationSeparator">.</span><span class="Entity">gsub</span>(<span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="StringRegexp">@echoes_bot</span><span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="PunctuationSeparator">,</span> user)  
+<span class="line-numbers">   8 </span> 
+<span class="line-numbers">   9 </span>   reply echo<span class="PunctuationSeparator">,</span> tweet
+<span class="line-numbers">  10 </span> 
+<span class="line-numbers">  11 </span> <span class="Keyword">end</span>
+</pre></code></pre>
+
+<p>Try sending a tweet to <a href="http://twitter.com/echoes_bot">@echoes_bot</a>. This bot will echo back to you anything you send to it.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Lucky Librarian - @finditplease</h1>
+  
+  <div class="content-with-image">
+    <img alt="Lucky_librarian" class="large" src="/system/images/716/large/lucky_librarian.png?1384489375" />
+    
+  </div>
+  
+  <div class="handout">
+    <p>Send <a href="http://twitter.com/finditplease">@finditplease</a> a topic you wish to research.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Lucky Librarian - @finditplease</h1>
+  
+    <pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Keyword">require</span> 'chatterbot/dsl'
+<span class="line-numbers">   2 </span> <span class="Keyword">require</span> 'google-search'
+<span class="line-numbers">   3 </span> <span class="Keyword">require</span> 'cgi'
+<span class="line-numbers">   4 </span> 
+<span class="line-numbers">   5 </span> <span class="Variable">NO_RESULTS_FOUND</span> <span class="Keyword">=</span> 'Ever so sorry; I found no websites that reference: '
+<span class="line-numbers">   6 </span> 
+<span class="line-numbers">   7 </span> replies <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">user_tweet</span><span class="PunctuationSeparator">|</span>
+<span class="line-numbers">   8 </span>   user_who_tweeted <span class="Keyword">=</span> <span class="Entity">tweet_user</span>(user_tweet)
+<span class="line-numbers">   9 </span>   
+<span class="line-numbers">  10 </span>   google_query <span class="Keyword">=</span> user_tweet<span class="PunctuationSeparator">.</span><span class="Entity">text</span><span class="PunctuationSeparator">.</span><span class="Entity">gsub</span>(<span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="StringRegexp"><span class="StringRegexpSpecial"><span class="StringRegexpSpecial">[</span>#<span class="StringRegexpConstantCharacterEscape">\@</span><span class="StringRegexpSpecial">]</span></span><span class="StringRegexpConstantCharacterEscape">\w</span>+<span class="StringRegexpConstantCharacterEscape">\b</span></span><span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="PunctuationSeparator">,</span>'')<span class="PunctuationSeparator">.</span><span class="Entity">strip</span>
+<span class="line-numbers">  11 </span>   
+<span class="line-numbers">  12 </span>   feeling_lucky <span class="Keyword">=</span> <span class="Support">Google</span><span class="PunctuationSeparator">::</span><span class="Entity">Search</span><span class="PunctuationSeparator">::</span><span class="Entity">Web</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Constant"><span class="Constant">:</span>query</span> <span class="PunctuationSeparator">=&gt;</span> google_query)<span class="PunctuationSeparator">.</span><span class="Entity">first</span>
+<span class="line-numbers">  13 </span> 
+<span class="line-numbers">  14 </span>   response_tweet <span class="Keyword">=</span> user_who_tweeted <span class="Keyword">+</span> &quot; &quot;
+<span class="line-numbers">  15 </span> 
+<span class="line-numbers">  16 </span>   <span class="Keyword">if</span> feeling_lucky<span class="PunctuationSeparator">.</span><span class="Entity">nil?</span>
+<span class="line-numbers">  17 </span>     response_tweet <span class="Keyword">+=</span> <span class="Variable">NO_RESULTS_FOUND</span> <span class="Keyword">+</span> google_query 
+<span class="line-numbers">  18 </span>   <span class="Keyword">else</span>
+<span class="line-numbers">  19 </span>     response_tweet <span class="Keyword">+=</span> <span class="Variable">CGI</span><span class="PunctuationSeparator">.</span><span class="Entity">unescapeHTML</span>(feeling_lucky<span class="PunctuationSeparator">.</span><span class="Entity">title</span>)
+<span class="line-numbers">  20 </span>   <span class="Keyword">end</span>
+<span class="line-numbers">  21 </span>     
+<span class="line-numbers">  22 </span>   response_tweet <span class="Keyword">+=</span> &quot; &quot; <span class="Keyword">+</span> feeling_lucky<span class="PunctuationSeparator">.</span><span class="Entity">uri</span>  <span class="Keyword">unless</span> feeling_lucky<span class="PunctuationSeparator">.</span><span class="Entity">nil?</span>
+<span class="line-numbers">  23 </span> 
+<span class="line-numbers">  24 </span>   reply response_tweet<span class="PunctuationSeparator">,</span> user_tweet
+<span class="line-numbers">  25 </span> <span class="Keyword">end</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Rhyme Librarian</h1>
+  
+  <div class="content-with-image">
+    <img alt="Rhyme_profile" class="large" src="/system/images/718/large/rhyme_profile.PNG?1384544081" />
+    <p><strong>@redlibrarian:</strong> And if you&#8217;re fresh out of library school and need to learn *the job* as well&#8230;</p>
+
+<p><strong>@rhyemelibrarian:</strong> See, for example, under L.</p>
+
+<p>Send <a href="http://twitter.com/rhymelibrarian">@rhymelibrarian</a> a tweet and it will reply with a sentences that rhymes with yours.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Rhyme Librarian</h1>
+  
+  <div class="content-with-image">
+    <img alt="Tough_shit" class="large" src="/system/images/719/large/tough_shit.PNG?1384544138" />
+    <p><strong>@redlibrarian:</strong> @stungeye Dude is @rhymelibrarian yours? If not, I&#8217;m blocking it.</p>
+
+<p><strong>@rhymelibrarian:</strong> If you can&#8217;t figure it out yourself, tough shit.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Rhyme Librarian</h1>
+  
+    <pre><code><pre class="dawn"><span class="line-numbers">   1 </span> <span class="Variable">DB</span> <span class="Keyword">=</span> <span class="Support">Sequel</span><span class="PunctuationSeparator">.</span><span class="Entity">connect</span>(&quot;mysql2://<span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringVariable">DB_USER</span><span class="StringEmbeddedSource">}</span></span>:<span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringVariable">DB_PASSWORD</span><span class="StringEmbeddedSource">}</span></span>@localhost/stungeye&quot;)
+<span class="line-numbers">   2 </span> wordnik <span class="Keyword">=</span> <span class="Support">WordnikParty</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Variable">WORDNIK_KEY</span>)
+<span class="line-numbers">   3 </span> 
+<span class="line-numbers">   4 </span> replies <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">user_tweet</span><span class="PunctuationSeparator">|</span>
+<span class="line-numbers">   5 </span> 
+<span class="line-numbers">   6 </span>   user_name <span class="Keyword">=</span> <span class="Entity">tweet_user</span>(user_tweet)
+<span class="line-numbers">   7 </span>   tweet_text <span class="Keyword">=</span> user_tweet<span class="PunctuationSeparator">.</span><span class="Entity">text</span><span class="PunctuationSeparator">.</span><span class="Entity">gsub</span>(<span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="StringRegexp"><span class="StringRegexpSpecial"><span class="StringRegexpSpecial">[</span>#<span class="StringRegexpConstantCharacterEscape">\@</span><span class="StringRegexpSpecial">]</span></span><span class="StringRegexpConstantCharacterEscape">\w</span>+<span class="StringRegexpConstantCharacterEscape">\b</span></span><span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="PunctuationSeparator">,</span>'')<span class="PunctuationSeparator">.</span><span class="Entity">gsub</span>(<span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="StringRegexp"><span class="StringRegexpConstantCharacterEscape">\W</span>+$</span><span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="PunctuationSeparator">,</span>'')
+<span class="line-numbers">   8 </span>   last_word <span class="Keyword">=</span> tweet_text<span class="PunctuationSeparator">.</span><span class="Entity">split</span>(' ')<span class="PunctuationSeparator">.</span><span class="Entity">last</span><span class="PunctuationSeparator">.</span><span class="Entity">downcase</span>
+<span class="line-numbers">   9 </span> 
+<span class="line-numbers">  10 </span>   <span class="Keyword">unless</span> last_word<span class="PunctuationSeparator">.</span><span class="Entity">include?</span>('http')
+<span class="line-numbers">  11 </span>     rhymes <span class="Keyword">=</span> wordnik<span class="PunctuationSeparator">.</span><span class="Entity">rhymes_with</span>(last_word<span class="PunctuationSeparator">,</span> <span class="Constant">100</span>)
+<span class="line-numbers">  12 </span>     possible_sentences <span class="Keyword">=</span> <span class="Entity">find_sentences</span>(rhymes<span class="PunctuationSeparator">,</span> user_name)
+<span class="line-numbers">  13 </span> 
+<span class="line-numbers">  14 </span>     <span class="Keyword">unless</span> possible_sentences<span class="PunctuationSeparator">.</span><span class="Entity">size</span><span class="PunctuationSeparator">.</span><span class="Entity">zero?</span>
+<span class="line-numbers">  15 </span>       selected_sentence <span class="Keyword">=</span> possible_sentences<span class="PunctuationSeparator">.</span><span class="Entity">sample</span>
+<span class="line-numbers">  16 </span>       <span class="Variable">DB</span>[<span class="Constant"><span class="Constant">:</span>rhymesentences</span>]
+<span class="line-numbers">  17 </span>         <span class="PunctuationSeparator">.</span><span class="Entity">where</span>(<span class="Constant"><span class="Constant">:</span>id</span> <span class="PunctuationSeparator">=&gt;</span> selected_sentence[<span class="Constant"><span class="Constant">:</span>id</span>])
+<span class="line-numbers">  18 </span>         <span class="PunctuationSeparator">.</span><span class="Entity">update</span>(<span class="Constant"><span class="Constant">:</span>tweeted</span> <span class="PunctuationSeparator">=&gt;</span> <span class="Constant">true</span>)
+<span class="line-numbers">  19 </span> 
+<span class="line-numbers">  20 </span>       reply &quot;<span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>user_name<span class="StringEmbeddedSource">}</span></span> <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>selected_sentence<span class="StringEmbeddedSource">[</span><span class="StringConstant"><span class="StringConstant">:</span>words</span><span class="StringEmbeddedSource">]</span><span class="StringEmbeddedSource">}</span></span>&quot;<span class="PunctuationSeparator">,</span> user_tweet
+<span class="line-numbers">  21 </span>     <span class="Keyword">end</span>
+<span class="line-numbers">  22 </span>   <span class="Keyword">end</span>
+<span class="line-numbers">  23 </span> <span class="Keyword">end</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    <p>The <code>rhymesentences</code> table contains sentences from The Communist Manifesto, The Wealth of Nations, and Alice in Wonderland.</p>
+
+<p>The <code>find_sentences</code> method is interacts with this database table to find sentences that end in the possible rhymes found by the <a href="http://developer.wordnik.com/">Wordnik API</a>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Wonder Sparks</h1>
+  
+  <div class="content-with-image">
+    <img alt="Wonder" class="medium" src="/system/images/724/medium/wonder.jpg?1384577987" />
+    <p>Why do I do this? Why create Twitter bots?</p>
+
+<p>As humans I believe we are <strong>contractually obligated</strong> to inspire each other.</p>
+
+<p>&#8220;What are <strong>wonder sparks</strong>, you may ask? Well that&#8217;s the best part&#8230; The answer is: <em>anything</em>. Anything that will stimulate the sense of wonder of your fellow man.</p>
+
+<p>Paint pictures on the sides of garbage cans, plant trees in strange urban locations, leave poems on the tables in the lunch room, or ponder strange philosophical concepts with the other people in the checkout line at the grocery store.&#8221;</p>
+
+<p>&#8211; Me, in 2003.</p>
+
+<p>Since then I&#8217;ve added &#8220;Write weird-ass Twitter bots&#8221; to this list.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Abotlafia</h1>
+  
+  <div class="content-with-image">
+    <img alt="Besides_bsides" class="large" src="/system/images/710/large/besides_bsides.PNG?1384544781" />
+    <p><strong>@abotlafia:</strong> Besides, we had the logic of facts on our side.</p>
+
+<p><strong>@xorrbit:</strong> .@abotlafia BSides: We have the logic of facts on our side. #newslogan</p>
+
+<p><strong>@abotlafia:</strong> @xorrbit There&#8217;s no difference between you and me.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>They Understand the Plan</h1>
+  
+  <div class="content-with-image">
+    <img alt="They_know" class="large" src="/system/images/693/large/they_know.PNG?1384040708" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Reading Cats</h1>
+  
+  <div class="content-with-image">
+    <img alt="Literarycat" class="medium" src="/system/images/722/medium/literarycat.jpg?1384576955" />
+    <p>For 10 minutes last night I hijacked Abulafia&#8217;s tweets and had him do search for and retweet pictures of cats reading. He was averaging about 10 to 20 literary cat retweets a minute.</p>
+
+<p><a href="http://meow-reader.tumblr.com">meow-reader.tumblr.com</a></p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Reading Cats</h1>
+  
+  <div class="content-with-image">
+    <img alt="Cats" class="large" src="/system/images/723/large/cats.PNG?1384576998" />
+    <p><strong>@roseandsigil:</strong> .@abotlafia, my go-to for Eco bibliomancy, has turned into a machine for retweeting pictures of cats reading.</p>
+
+<p><strong>@abotlafia:</strong> To this Abraham Abulafia dedicated his life, while your Saint Thomas was toiling to find god with his five paths.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>On the Internet...</h1>
+  
+  <div class="content-with-image">
+    <img alt="On_the_internet_nobody_knows_you_re_a_dog" class="large" src="/system/images/705/large/On_the_Internet_nobody_knows_you_re_a_dog.jpg?1384406472" />
+    <p>&#8230;nobody knows your a bot either.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Learn That Praise</h1>
+  
+  <div class="content-with-image">
+    <img alt="Jav1" class="large" src="/system/images/688/large/jav1.PNG?1384039970" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Not Understanding U</h1>
+  
+  <div class="content-with-image">
+    <img alt="Jav3" class="large" src="/system/images/690/large/Jav3.PNG?1384040065" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Who is Robert Fludd?</h1>
+  
+  <div class="content-with-image">
+    <img alt="Jav4" class="large" src="/system/images/691/large/Jav4.PNG?1384040080" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Ask U Shall Receive</h1>
+  
+  <div class="content-with-image">
+    <img alt="Jav5" class="large" src="/system/images/692/large/Jav5.PNG?1384040097" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Reverse Turing Test</h1>
+  
+  <div class="content-with-image">
+    <img alt="Turing" class="large" src="/system/images/695/large/turing.PNG?1384547482" />
+    <p>One might say this user failed the Reverse Turing Test. But it&#8217;s all too easy to mistake a bot for a human&#8230; we want to believe!</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Easy to Anthropomorphize</h1>
+  
+  <div class="content-with-image">
+    <img alt="Followers" class="large" src="/system/images/727/large/followers.PNG?1384620481" />
+    <p><strong>an·thro·po·mor·phize</strong></p>
+
+<dl>
+<dt><em>transitive verb</em></dt>
+
+<dd>
+<p>to attribute human form or personality to</p>
+</dd>
+
+<dt><em>intransitive verb</em></dt>
+
+<dd>
+<p>to attribute human form or personality to things not human</p>
+</dd>
+</dl>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Benefit of the Doubt</h1>
+  
+  <div class="content-with-image">
+    <img alt="Fooled" class="large" src="/system/images/696/large/fooled.png?1384227988" />
+    
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Bot Detection</h1>
+  
+  <div class="content-with-image">
+    <img alt="Detecting" class="large" src="/system/images/720/large/detecting.PNG?1384547249" />
+    
+  </div>
+  
+  <div class="handout">
+    <p><strong>Are you sure that all your followers on Twitter are human?</strong> <em>How about everyone you follow?</em></p>
+
+<p>Academic Research: <a href="http://www.cs.wm.edu/~hnw/paper/tdsc12b.pdf">Detecting Automation of Twitter Accounts: Are You a Human, Bot, or Cyborg?</a></p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Thank You - Source Available</h1>
+  
+    <p>The Ruby source for my BSides bots is available on GitHub:</p>
+
+<p><a href="https://github.com/stungeye/Bsides-Bots">github.com/stungeye/Bsides-Bots</a></p>
+
+<p>An early version of Abotlafia:</p>
+
+<p><a href="https://github.com/stungeye/abotlafia">github.com/stungeye/abotlafia</a></p>
+
+<p>The ChatterBot Library I used:</p>
+
+<p><a href="https://github.com/muffinista/chatterbot/">github.com/muffinista/chatterbot/</a></p>
+  
+  <div class="handout">
+    <p>My bots mentioned in this talk:</p>
+
+<ul>
+<li><a href="http://twitter.com/abotlafia">@abotlafia</a></li>
+
+<li><a href="http://twitter.com/bsidesreminder">@bsidesreminder</a></li>
+
+<li><a href="http://twitter.com/bsidesreminder">@finditplease</a></li>
+
+<li><a href="http://twitter.com/rhymelibrarian">@rhymelibrarian</a></li>
+</ul>
+    
+  </div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

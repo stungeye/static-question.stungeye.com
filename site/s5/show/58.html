@@ -1,0 +1,1202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Javascript Tips and Tricks</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  .slide > pre {
+      margin-bottom: 1em;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  margin-bottom: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .92em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    margin-top: 0.7em;
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+.slide details summary {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.slide details ul li {
+  font-size: 0.7em;
+}
+
+
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+  
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Javascript Tips and Tricks</h1>
+<h2>Web Development 2 WEBD-2008</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>Javascript Tips and Tricks</h1>
+  <h2>Web Development 2 WEBD-2008</h2>
+  
+  <h4>Red River College</h4>
+  <div class="handout">
+    <br><br>
+    <details>
+      <summary>
+        Table of Contents
+      </summary>
+      <ul>
+        
+          <li><a href="#introduction">Introduction</a></li>
+        
+          <li><a href="#objective">Objective</a></li>
+        
+          <li><a href="#module-plan">Module Plan</a></li>
+        
+          <li><a href="#javascript-functions">Javascript Functions</a></li>
+        
+          <li><a href="#anonymous-functions">Anonymous Functions</a></li>
+        
+          <li><a href="#callback-functions">Callback Functions</a></li>
+        
+          <li><a href="#arrow-functions">Arrow Functions</a></li>
+        
+          <li><a href="#arrow-function-variants-no-braces">Arrow Function Variants - No Braces</a></li>
+        
+          <li><a href="#arrow-function-variants-unadorned">Arrow Function Variants - Unadorned</a></li>
+        
+          <li><a href="#anonymous-arrow-callbacks">Anonymous Arrow Callbacks</a></li>
+        
+          <li><a href="#loop-da-loop-for-of">Loop Da Loop - For Of</a></li>
+        
+          <li><a href="#loop-da-loop-foreach">Loop Da Loop - forEach</a></li>
+        
+          <li><a href="#loop-da-loop-foreach">Loop Da Loop - forEach</a></li>
+        
+          <li><a href="#array-helpers">Array Helpers</a></li>
+        
+          <li><a href="#array-transformations-map">Array Transformations - Map</a></li>
+        
+          <li><a href="#array-transformations-filter">Array Transformations - Filter</a></li>
+        
+          <li><a href="#array-search-find">Array Search - Find</a></li>
+        
+          <li><a href="#array-tests-includes">Array Tests - Includes</a></li>
+        
+          <li><a href="#array-tests-some-every">Array Tests - Some, Every</a></li>
+        
+          <li><a href="#array-reduction-reduce">Array Reduction - Reduce</a></li>
+        
+          <li><a href="#array-reduction-join">Array Reduction - Join</a></li>
+        
+          <li><a href="#destructuring-arrays">Destructuring - Arrays</a></li>
+        
+          <li><a href="#destructuring-function-return-values">Destructuring - Function Return Values</a></li>
+        
+          <li><a href="#destructuring-objects">Destructuring - Objects</a></li>
+        
+          <li><a href="#destructuring-nested-data">Destructuring - Nested Data</a></li>
+        
+          <li><a href="#object-tricks-functions-properties">Object Tricks - Functions Properties</a></li>
+        
+          <li><a href="#object-tricks-property-access">Object Tricks - Property Access</a></li>
+        
+          <li><a href="#object-tricks-looping">Object Tricks - Looping</a></li>
+        
+          <li><a href="#spread-syntax-function-arguments">Spread Syntax - Function Arguments</a></li>
+        
+          <li><a href="#spread-syntax-array-literals">Spread Syntax - Array Literals</a></li>
+        
+          <li><a href="#spread-syntax-array-destructuring">Spread Syntax - Array Destructuring</a></li>
+        
+          <li><a href="#spread-syntax-objects-literals">Spread Syntax: Objects Literals</a></li>
+        
+          <li><a href="#rest-parameters">Rest Parameters</a></li>
+        
+          <li><a href="#what-s-next">What's Next?</a></li>
+        
+      </ul>
+    </details>
+  </div>
+</div>
+
+
+<div class="slide">
+  <h1 id="introduction">Introduction</h1>
+  
+  <div class="content-with-image">
+    <img alt="Vlad-bagacian-d1eaoaabexs-unsplash" class="medium" src="/system/images/1037/medium/vlad-bagacian-d1eaoAabeXs-unsplash.jpg?1590178552" />
+    <p>The next step in your Javascript journey is to learn the front-end component framework React.</p>
+
+<p>But before we get to React, there are a few more Javascript features you need to learn. Knowing these features will help you better understand the example code you&#8217;ll encounter while learning React (or any other component library).</p>
+
+<p>This module is a collection of modern Javascript tips and tricks.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://reactjs.org/">React - A JavaScript library for building user interfaces.</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="objective">Objective</h1>
+  
+    <p>Upon completion of this module, you should be able to:</p>
+
+<ul>
+<li>Explain what anonymous functions and callback functions are.</li>
+
+<li>Write Javascript functions using regular and arrow syntax.</li>
+
+<li>Use <code>for of</code> and <code>ForEach</code> loops to iterate over Javascript collections.</li>
+
+<li>Manipulate array data using the built-in array helpers.</li>
+
+<li>Pluck data from arrays, objects, and nested data-structures using destructuring.</li>
+
+<li>Access object properties using both bracket notation and dot notation.</li>
+
+<li>Add and use functions as object properties.</li>
+
+<li>Use the spread and rest syntax when working with functions, arrays, and objects.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="module-plan">Module Plan</h1>
+  
+    <ul>
+<li>Javascript Functions</li>
+
+<li>Anonymous Functions</li>
+
+<li>Callback Functions</li>
+
+<li>Arrow Functions</li>
+
+<li>For Of and forEach Loops</li>
+
+<li>Array Transformations</li>
+
+<li>Array Search</li>
+
+<li>Array Boolean Tests</li>
+
+<li>Array Reductions</li>
+
+<li>Destructuring</li>
+
+<li>Objects and Properties</li>
+
+<li>Spread Syntax</li>
+
+<li>Rest Parameters</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="javascript-functions">Javascript Functions</h1>
+  
+    <p>Functions are one of the key building blocks of Javascript applications.</p>
+
+<p>A standard function is defined like this:</p>
+
+<pre><code><pre><code class="javascript">function snail() {
+  console.log(&quot;Hello Snail! 🐌&quot;);
+}
+
+snail(); // And called by name.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="anonymous-functions">Anonymous Functions</h1>
+  
+    <p>Unnamed function are called anonymous*:</p>
+
+<pre><code><pre><code class="javascript">setTimeout(function(){ console.log(&quot;Hello Mail! 📨&quot;; }, 500);</code></pre></code></pre>
+
+<p>Anonymous functions can be assigned to variables:</p>
+
+<pre><code><pre><code class="javascript">let nail = function() {
+  console.log(&quot;Hello Nail! 💅&quot;);
+}
+
+nail(); // And called liked named functions.</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>*Anonymous, derived from the Greek word ἀνωνυμία, anonymia, meaning &#8220;without a name&#8221; or &#8220;namelessness&#8221;.</em></p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="callback-functions">Callback Functions</h1>
+  
+    <p>In Javascript functions can be passed as parameters to other functions. We call these &#8220;callback functions&#8221; as they aren&#8217;t executed immediately.</p>
+
+<p>Example: <code>setTimeout</code> takes a callback function and a time in milliseconds as arguments. The callback function is executed after the provided time elapses.</p>
+
+<pre><code><pre><code class="javascript">function whale() {
+  console.log(&quot;Hello Whale! 🐋&quot;);
+}
+
+let tail = function() {
+  console.log(&quot;Hello Tail! 🦨&quot;);
+}
+
+setTimeout(whale, 500); // Named function as callback.
+
+setTimeout(tail, 1500); // Variable-assigned anonymous function as callback.
+
+// Inline anonymous callback functions are also handy:
+
+setTimeout(function(){ console.log(&quot;Hello Sail! ⛵&quot;); }, 2000); </code></pre></code></pre>
+  
+  <div class="handout">
+    <p>☝️ Callbacks can be named functions, anonymous functions, or anonymous functions assigned to variables.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="arrow-functions">Arrow Functions</h1>
+  
+    <p>Another way to define anonymous function is with the &#8220;arrow operator&#8221; <code>=&gt;</code>:</p>
+
+<pre><code><pre><code class="javascript">let gale = () =&gt; { console.log(&quot;Hello Gale! 🌬️&quot;); }
+
+gale(); // Called by variable name.</code></pre></code></pre>
+
+<p>Arrow functions can also be defined with parameters:</p>
+
+<pre><code><pre><code class="javascript">let rail = (times) =&gt; { 
+  for(let i = 0; i &lt; times; i++) {
+    console.log(&quot;Hello Rail! 🚊&quot;);
+  }
+}
+
+rail(5);</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="arrow-function-variants-no-braces">Arrow Function Variants - No Braces</h1>
+  
+    <p>Arrow functions that contain a single statement can be written without curly braces.</p>
+
+<p>These are called &#8220;implicit* return&#8221; functions.</p>
+
+<pre><code><pre><code class="javascript">let implicit = (word, emoji) =&gt; `Hello ${word}! ${emoji}`;</code></pre></code></pre>
+
+<p>Implicit return functions automatically return the value of the function statement.</p>
+
+<pre><code><pre><code class="javascript">// Here, the implicit function returns a string which is then logged:
+console.log(implicit(&#39;Trail&#39;, &#39;🌠&#39;)); 
+
+// Hello Trail! 🌠</code></pre></code></pre>
+  
+  <div class="handout">
+    <h2 id="explicit_return">Explicit* Return</h2>
+
+<p>The above <code>implicit</code> function is equivalent to:</p>
+
+<pre><code><pre><code class="javascript">let explicit = (word, emoji) =&gt; {
+  return `Hello ${word} ${emoji}`; // Explicit Return Statement
+}
+
+console.log(explicit(&#39;trail&#39;, &#39;🌠&#39;));</code></pre></code></pre>
+
+<p><em>*Implicit means something implied but not stated directly. Explicit means something made clear and stated plainly.</em></p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="arrow-function-variants-unadorned">Arrow Function Variants - Unadorned</h1>
+  
+    <p>One line, one argument, arrow functions can be written without parentheses or curly braces:</p>
+
+<pre><code><pre><code class="javascript">let unadorned = emoji =&gt; `Hello Scale! ${emoji}`;
+
+console.log(unadorned(&#39;⚖️&#39;));
+
+// Hello Scale! ⚖️</code></pre></code></pre>
+
+<p>Unadorned arrows are also implicit return functions.</p>
+
+<p><strong>⏳ Wait for it&#8230;</strong> We&#8217;ll use this style a lot in the coming sections on array helpers.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/">ES6 Arrow Functions: Fat and Concise Syntax in JavaScript</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="anonymous-arrow-callbacks">Anonymous Arrow Callbacks</h1>
+  
+    <p>Arrow functions are a nice way to define clear and concise callback functions.</p>
+
+<p>Compare the readability of this regular callback:</p>
+
+<pre><code><pre><code class="javascript">setTimeout(function() { console.log(&quot;Hello Veil! 👰&quot;); }, 225);</code></pre></code></pre>
+
+<p>With the arrow version:</p>
+
+<pre><code><pre><code class="javascript">setTimeout(() =&gt; console.log(&quot;Hello Veil! 👰&quot;), 225);</code></pre></code></pre>
+
+<p>There&#8217;s a lot less &#8220;punctuation noise&#8221;, which makes the code easier to read for others.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="loop-da-loop-for-of">Loop Da Loop - For Of</h1>
+  
+    <p>Beyond the standard <code>for</code> loop, there are two other popular ways to loop through Arrays in Javascript.</p>
+
+<p>The <code>for of</code> loop assigns each element in turn a loop variable:</p>
+
+<pre><code><pre><code class="javascript">let fruitBasket = [&#39;🍎&#39;, &#39;🍓&#39;, &#39;🍒&#39;, &#39;🥝&#39;];
+
+// for-of: Concise loop when you don&#39;t need the index value.
+
+for(const fruit of fruitBasket) {
+  console.log(fruit);
+}</code></pre></code></pre>
+
+<p>The <code>fruit</code> variable is scoped to the curly-braced code block.</p>
+  
+  <div class="handout">
+    <p><strong>☑️ Best Practice:</strong> Define your loop variables as <code>const</code> to prevent accidental modification of array elements.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="loop-da-loop-foreach">Loop Da Loop - forEach</h1>
+  
+    <p>The array <code>forEach</code> method passes each element in turn as an argument to a provided callback:</p>
+
+<pre><code><pre><code class="javascript">// Print every element using an arrow function:
+
+fruitBasket.forEach(fruit =&gt; console.log(fruit));
+
+// With forEach you can also get access to the index:
+
+fruitBasket.forEach((fruit, i) =&gt; console.log(`${i}: ${fruit}`));
+
+// 0: 🍎
+// 1: 🍓
+// 2: 🍒
+// 3: 🥝</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="loop-da-loop-foreach">Loop Da Loop - forEach</h1>
+  
+    <p>Longer <code>forEach</code> callbacks are also possible.</p>
+
+<p>Let&#8217;s build a fruit pyramid:</p>
+
+<pre><code><pre><code class="javascript">fruitBasket.forEach((fruit, i) =&gt; {
+  let length = fruitBasket.length;
+  let row = &#39; &#39;.repeat(length-i) + fruit.repeat(i+1);
+  console.log(row);
+});
+
+//    🍎 
+//   🍓🍓 
+//  🍒🍒🍒 
+// 🥝🥝🥝🥝</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-helpers">Array Helpers</h1>
+  
+    <p>Javascript has lots of built in methods that make working with arrays a joy.</p>
+
+<p>Imagine we have the following array of objects:</p>
+
+<pre><code><pre><code class="javascript">const animals = [
+  { name: &#39;Monkey&#39;,   emoji: &#39;🐒&#39;, legs: 2, mana: 45,   count: 3 },
+  { name: &#39;Dog&#39;,      emoji: &#39;🐕&#39;, legs: 4, mana: 89,   count: 2 },
+  { name: &#39;Cow&#39;,      emoji: &#39;🐄&#39;, legs: 4, mana: 3,    count: 5 },
+  { name: &#39;Gorilla&#39;,  emoji: &#39;🦍&#39;, legs: 2, mana: 56,   count: 2 },
+  { name: &#39;Deer&#39;,     emoji: &#39;🦌&#39;, legs: 4, mana: 97,   count: 5 },
+  { name: &#39;Kangaroo&#39;, emoji: &#39;🦘&#39;, legs: 2, mana: 4387, count: 1 },
+  { name: &#39;Turkey&#39;,   emoji: &#39;🦃&#39;, legs: 2, mana: 17,   count: 7}
+];</code></pre></code></pre>
+
+<p>Let&#8217;s use <code>find</code>, <code>map</code>, <code>filter</code>, <code>join</code>, <code>includes</code>, <code>every</code>, <code>some</code>, and <code>reduce</code> to make sense of this data.</p>
+  
+  <div class="handout">
+    <p><strong>Remember</strong>, we&#8217;ll be making heavy use of implicit-return arrow functions.</p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Learn more about all these Array methods and others at the Mozilla Developer Network (MDN)</a>.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-transformations-map">Array Transformations - Map</h1>
+  
+    <p>The array <code>map</code> method creates a new array of the same size.</p>
+
+<p>The provided callback is used to transform each element in the original array to the corresponding element in the new array.</p>
+
+<p><code>map</code> an array of animal emojis based on each animal&#8217;s count:</p>
+
+<pre><code><pre><code class="javascript">const emojiZoo = animals.map(animal =&gt; animal.emoji.repeat(animal.count));
+
+console.log(emojiZoo); // Display the new array of strings.
+
+// [ &quot;🐒🐒🐒&quot;, &quot;🐕🐕&quot;, &quot;🐄🐄🐄🐄🐄&quot;, &quot;🦍🦍&quot;, &quot;🦌🦌🦌🦌🦌&quot;, &quot;🦘&quot;, &quot;🦃🦃🦃🦃🦃🦃🦃&quot; ]</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-transformations-filter">Array Transformations - Filter</h1>
+  
+    <p>The <code>filter</code> method returns a new array of elements selected from the original array.</p>
+
+<p>Each element is tested using the callback function. The new array contains elements where the callback returned <code>true</code>.</p>
+
+<p><code>filter</code> for only four legged animals:</p>
+
+<pre><code><pre><code class="javascript">const fourLegsGood = animals.filter(animal =&gt; animal.legs == 4);
+
+console.log(fourLegsGood); // Two legs baaaaaaaaad-🐑
+
+// [ { name: &#39;Dog&#39;,  emoji: &#39;🐕&#39;, legs: 4, mana: 89, count: 2 },
+//   { name: &#39;Cow&#39;,  emoji: &#39;🐄&#39;, legs: 4, mana: 3,  count: 5 },
+//   { name: &#39;Deer&#39;, emoji: &#39;🦌&#39;, legs: 4, mana: 97, count: 5 } ]</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-search-find">Array Search - Find</h1>
+  
+    <p>Sometimes you want to <code>find</code> an array element based on its property values. The callback you provide must return a Boolean value.</p>
+
+<p><code>find</code> only the cow:</p>
+
+<pre><code><pre><code class="javascript">const cow = animals.find(animal =&gt; animal.name == &#39;Cow&#39; );
+
+console.log(cow.emoji);
+
+// 🐄</code></pre></code></pre>
+
+<p>If multiple elements match, only the first is returned.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-tests-includes">Array Tests - Includes</h1>
+  
+    <p>Sometimes you wish to know if your array contains a specific object.</p>
+
+<p>Determine if the array <code>includes</code> a Gorilla:</p>
+
+<pre><code><pre><code class="javascript">// Map to names and then test inclusion of &#39;Gorilla&#39;.
+
+if (animals.map(a =&gt; a.name).includes(&#39;Gorilla&#39;)) {
+  console.log(&quot;There are Gorillas in the mist.&quot;)
+}
+
+// There are Gorillas in the mist.</code></pre></code></pre>
+  
+  <div class="handout">
+    <h2 id="method_chaining">Method Chaining</h2>
+
+<p>Calling a method on the result of a previous method is called &#8220;method chaining&#8221;. In the above example <code>map</code> returns an array of strings and then <code>includes</code> looks through that array for a specific string.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-tests-some-every">Array Tests - Some, Every</h1>
+  
+    <p>Sometime you wish to know if a specific Boolean condition occurs in <code>some</code> or <code>every</code> one of your array elements.</p>
+
+<p>Are <code>some</code> animals ready for the rap battle?</p>
+
+<pre><code><pre><code class="javascript">const manaNeededToBattle = 17;
+
+const someAreReady = animals.some(animal =&gt; animal.mana &gt;= manaNeededToBattle); // true</code></pre></code></pre>
+
+<p>Does <code>every</code> animal have enough mana for the rap battle?</p>
+
+<pre><code><pre><code class="javascript">if (animals.every(animal =&gt; animal.mana &gt;= manaNeededToBattle)) {
+  console.log(&quot;We can battle.&quot;); // Will not execute as Cow&#39;s mana is not sufficient.
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-reduction-reduce">Array Reduction - Reduce</h1>
+  
+    <p>Sometimes we want to <code>reduce</code> an array down to a single value.</p>
+
+<p><code>reduce</code> the animal array down to a sum of all animal counts:</p>
+
+<pre><code><pre><code class="javascript">// Sum animal counts into &#39;total&#39; with a starting sum of zero.
+
+const totalCount = animals.reduce((total, animal) =&gt; total + animal.count, 0);
+
+console.log(`In total there are ${totalCount} animals.`);
+
+// In total there are 25 animals.</code></pre></code></pre>
+  
+  <div class="handout">
+    <h2 id="reduce_explained">Reduce Explained</h2>
+
+<p>The <code>reduce</code> method takes a callback and a starting value. As it iterates through the array, the return value of the callback is assigned to an “accumulator” variable.</p>
+
+<pre><code><pre><code class="javascript">const totalCount = animals.reduce((total, animal) =&gt; total + animal.count, 0);</code></pre></code></pre>
+
+<p>Here, the callback’s first parameter <code>total</code> is the accumulator. It stays in scope across the entire array.</p>
+
+<p>The callback’s second parameter <code>animal</code> is assigned each array element in turn.</p>
+
+<p>In this example the accumulator&#8217;s starting value is set to zero.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="array-reduction-join">Array Reduction - Join</h1>
+  
+    <p>Sometimes we want to <code>join</code> all array element together into a string.</p>
+
+<p>First <code>map</code> to names and then <code>join</code> into a guest list:</p>
+
+<pre><code><pre><code class="javascript">const guestList = animals.map(animal =&gt; animal.name).join(&#39;, &#39;);
+
+console.log(guestList);
+
+// Monkey, Dog, Cow, Gorilla, Deer, Kangaroo, Turkey</code></pre></code></pre>
+
+<p>The <code>join</code> method takes a string value to use as &#8220;glue&#8221; between each element. You can use a empty string to go &#8220;glueless&#8221;.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="destructuring-arrays">Destructuring - Arrays</h1>
+  
+    <p>Destructuring is a way of teasing apart collections and assigning the component values to variables.</p>
+
+<p>Instead of indexed array assignment:</p>
+
+<pre><code><pre><code class="javascript">const hearts = [&#39;🖤&#39;,&#39;❤️&#39;, &#39;💛&#39;]
+
+const black  = hearts[0];
+const red    = hearts[1];
+const yellow = hearts[2];
+
+console.log(yellow) // 💛</code></pre></code></pre>
+
+<p>We can write:</p>
+
+<pre><code><pre><code class="javascript">const hearts = [&#39;🖤&#39;,&#39;❤️&#39;, &#39;💛&#39;]
+
+const [black, red, yellow] = hearts;
+
+console.log(yellow) // 💛</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="destructuring-function-return-values">Destructuring - Function Return Values</h1>
+  
+    <p>Let&#8217;s say you a function named <code>weather</code> that returns an array of three temperatures.</p>
+
+<pre><code><pre><code class="javascript">const temperatures = weather(); // [10, 15, 22]</code></pre></code></pre>
+
+<p>And you know that the forecasted low, high, and average temperature appear in that order in the array.</p>
+
+<p>You can destructure the returned array into the variables <code>low</code>, <code>high</code>, and <code>average</code>:</p>
+
+<pre><code><pre><code class="javascript">const [low, high, average] = weather(); // [10, 15, 22] 
+
+console.log(`Average: ${average} Low: ${low} High: ${high} `);
+
+// Average: 22 Low: 10 High: 15 </code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="destructuring-objects">Destructuring - Objects</h1>
+  
+    <p>We can also promote object keys to variables using destructuring:</p>
+
+<pre><code><pre><code class="javascript">const adventures = { mountain: &#39;⛰️&#39;, desert: &#39;🏜️&#39; };
+const { mountain, desert } = adventures;
+
+console.log(mountain); // ⛰️ 
+console.log(desert);   // 🏜️</code></pre></code></pre>
+
+<p>We can also name the variables sometime different from the object keys:</p>
+
+<pre><code><pre><code class="javascript">const { mountain: everest, desert: sahara  } = adventures;
+
+console.log(sahara);  // 🏜️
+console.log(everest); // ⛰️</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="destructuring-nested-data">Destructuring - Nested Data</h1>
+  
+    <p>Destructuring can also be used to pluck data out of nested data structures, like an array of objects:</p>
+
+<pre><code><pre><code class="javascript">const animalFriends = [
+  { name: &#39;Monkey&#39;, emoji: &#39;🐒&#39;},
+  { name: &#39;Dog&#39;,    emoji: &#39;🐕&#39;},
+  { name: &#39;Cow&#39;,    emoji: &#39;🐄&#39;}
+];
+
+// - Skip the zeroth position in the array with a comma.
+// - Grab the emoji out of the object at first position.
+// - Skip the object in the final position of the array.
+const [ , {emoji: dogEmoji} ] = animalsFriends;
+
+console.log(dogEmoji); // 🐕</code></pre></code></pre>
+  
+  <div class="handout">
+    <h2 id="complex_nested_data">Complex Nested Data</h2>
+
+<p>This example from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Nested_object_and_array_destructuring">the MDN</a> shows the destructuring of the kind of object you might get back from an API:</p>
+
+<pre><code><pre><code class="javascript">// Let&#39;s pretend this data came from an API.
+const apiResponse = {
+  title: &#39;JS Environment&#39;,
+  translations: [
+    {
+      locale: &#39;de - Germany&#39;,
+      last_edit: &#39;2014-04-14T08:43:37&#39;,
+      title: &#39;JS Umgebung&#39;
+    }
+  ]
+};
+
+// Pluck the English and German title from the data.
+let {
+  title: englishTitle, 
+  translations: [
+    {
+      title: localeTitle, 
+    },
+  ],
+} = apiResponse;
+
+console.log(englishTitle); // &quot;JS Environment&quot;
+console.log(localeTitle);  // &quot;JS Umgebung&quot;</code></pre></code></pre>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN Documentation on Destructuring Assignment</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="object-tricks-functions-properties">Object Tricks - Functions Properties</h1>
+  
+    <p>Functions can be added to objects too:</p>
+
+<pre><code><pre><code class="javascript">const user = { 
+  username: &#39;stungeye&#39;, 
+  age: 42, 
+  printInfo: function() { console.log(`${this.username} is ${this.age}.`); }
+} 
+
+user.printInfo(); 
+
+// &quot;stungeye is 42.&quot;</code></pre></code></pre>
+
+<p>Functions attached to objects are called methods.</p>
+  
+  <div class="handout">
+    <p><strong>⚠️ Warning:</strong> Arrow functions don&#8217;t bind to the object&#8217;s <code>this</code> so they don&#8217;t work well as object properties:</p>
+
+<pre><code><pre><code class="javascript">const brokenUser = { 
+  username: &#39;stungeye&#39;,
+  age: 42, 
+  printInfo: () =&gt; { console.log(`${this.username} is ${this.age}.`); }
+} 
+
+user.printInfo(); // &quot;undefined is undefined.&quot;</code></pre></code></pre>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this">MDN Arrow Functions - No Separate This</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="object-tricks-property-access">Object Tricks - Property Access</h1>
+  
+    <p>Object properties can be access by string index or by &#8220;dot&#8221; access.</p>
+
+<pre><code><pre><code class="javascript">const games = { soccer: &#39;⚽&#39;, baseball: `⚾` };
+
+// Bracket notation using a string index:
+console.log(games[&#39;soccer&#39;]); 
+
+// Dot notation using a period:
+console.log(games.baseball);  
+
+// ⚽
+// ⚾</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="object-tricks-looping">Object Tricks - Looping</h1>
+  
+    <p>We can use destructuring along with the <code>Object.entries</code> method to loop over the key/value pairs in an object.</p>
+
+<pre><code><pre><code class="javascript">for(const [game, ball] of Object.entries(games)) {
+  console.log(`We use a ${ball} to play ${game}.`);
+}
+
+// We use a ⚽ to play soccer.
+// We use a ⚾ to play baseball.</code></pre></code></pre>
+
+<p>This works because <code>Object.entries(games)</code> returns an array of arrays:</p>
+
+<pre><code><pre><code class="javascript">[[ &quot;soccer&quot;, &quot;⚽&quot; ], [ &quot;baseball&quot;, &quot;⚾&quot; ]]</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="spread-syntax-function-arguments">Spread Syntax - Function Arguments</h1>
+  
+    <p>We sometimes need to &#8220;spread out&#8221; the contents of an array or a string into the arguments of a function call.</p>
+
+<p>We can do this with the <code>...</code> spread syntax.</p>
+
+<p>For example, the <code>Math.max</code> method takes any number of arguments.</p>
+
+<pre><code><pre><code class="javascript">console.log(Math.max(42, 56, 102, 12, 15)); // 102</code></pre></code></pre>
+
+<p>But what if the numbers are in an array?</p>
+
+<pre><code><pre><code class="javascript">const numbers = [42, 56, 102, 12, 15];
+
+console.log(Math.max(...numbers)); // 102</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="spread-syntax-array-literals">Spread Syntax - Array Literals</h1>
+  
+    <p>The <code>...</code> spread syntax can also be used to &#8220;spread out&#8221; an array within a new array literal.</p>
+
+<p>Array concatenation* without <code>concat()</code>:</p>
+
+<pre><code><pre><code class="javascript">const litanyStart = [&#39;Fear&#39;, &#39;is&#39;, &#39;the&#39;];
+const litanyEnd = [&#39;mind&#39;, &#39;killer&#39;];
+const litanyFull = [...litanyStart, ...litanyEnd];
+
+console.log(litanyFull);
+
+// [ &#39;Fear&#39;, &#39;is&#39;, &#39;the&#39;, &#39;mind&#39;, &#39;killer&#39; ]</code></pre></code></pre>
+
+<p>Or even:</p>
+
+<pre><code><pre><code class="javascript">const middle = [&#39;is&#39;, &#39;the&#39;];
+const litany = [&#39;Fear&#39;, ...middle, &#39;mind&#39;, &#39;killer&#39;];
+
+console.log(litany);
+
+// [ &#39;Fear&#39;, &#39;is&#39;, &#39;the&#39;, &#39;mind&#39;, &#39;killer&#39; ]</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>*In the coding world, <em>concatentation</em> means gluing collections together.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="spread-syntax-array-destructuring">Spread Syntax - Array Destructuring</h1>
+  
+    <p>We can also involve the <code>...</code> spread syntax in our destructuring:</p>
+
+<pre><code><pre><code class="javascript">const sentence = [&#39;this&#39;, &#39;is&#39;, &#39;the&#39;, &#39;house&#39;, &#39;that&#39;, &#39;🦆&#39;, &#39;built&#39;];
+const [first, second, ...theRest] = sentence; 
+
+console.log(first);
+console.log(second);
+console.log(theRest);
+
+// this
+// is
+// [ &#39;the&#39;, &#39;house&quot;, &quot;that&quot;, &quot;🦆&quot;, &quot;built&quot; ]</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="spread-syntax-objects-literals">Spread Syntax: Objects Literals</h1>
+  
+    <p>The spread syntax can also be used to merge objects.</p>
+
+<pre><code><pre><code class="javascript">const userSome = { fullName: &#39;Wally Glutton&#39;, age: 42 };
+const moarUser = { username: &#39;stungeye&#39;, friend: &#39;Daisy&#39; };
+
+const userFull = {...userSome, ...moarUser};
+
+// { fullName: &quot;Wally Glutton&quot;, age: 42, username: &quot;stungeye&quot;, friend: &quot;Daisy&quot; }</code></pre></code></pre>
+
+<p>If a key appears in more than one of the objects it&#8217;s the last pair that gets to set the value.</p>
+
+<pre><code><pre><code class="javascript">let book = { name: &#39;Anathem&#39;, quote: &#39;Boredom is a mask frustration wears.&#39; };
+
+// Book already contains a &#39;quote&#39; key but not an &#39;author&#39; key.
+book = { ...book, author: &#39;Neal Stephenson&#39;, quote: &#39;Topology is destiny.&#39; };
+
+// { name: &quot;Anathem&quot;, quote: &quot;Topology is destiny.&quot;, author: &quot;Neal Stephenson&quot; }</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">MDN Documentation on Spread Syntax</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="rest-parameters">Rest Parameters</h1>
+  
+    <p>Rest parameters use the same <code>...</code> syntax as spread, but here we use it to create functions that can take any number of arguments.</p>
+
+<pre><code><pre><code class="javascript">function sayGoodnight(...names) {
+  const nameList = names.join(&#39;, &#39;);
+  console.log(`Goodnight ${nameList}!`);
+}
+
+sayGoodnight(&#39;Wally&#39;); 
+sayGoodnight(&#39;Wally&#39;, &#39;Daisy&#39;); 
+sayGoodnight(&#39;Wally&#39;, &#39;Daisy&#39;, &#39;Sammy&#39;, &#39;June&#39;);
+
+// Goodnight Wally!
+// Goodnight Wally, Daisy!
+// Goodnight Wally, Daisy, Sammy, June!</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">MDN Documentation on Rest Parameters</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="what-s-next">What's Next?</h1>
+  
+    <p>The Javascript language is standardized and improved by way of <a href="https://en.wikipedia.org/wiki/ECMAScript">the ECMAScript specification</a>.</p>
+
+<p>Starting with ECMASCript 6 (ES6 in 2015) a new version of the specification has been published yearly.</p>
+
+<p>Additions to the language don&#8217;t end up in the browsers immediately, but we can check <a href="https://www.caniuse.com">caniuse.com</a> to see when new features are widely supported.</p>
+
+<p>Along with improvements to the language syntax there are also new <a href="https://developer.mozilla.org/en-US/docs/Web/API">Web APIs</a> being added to the browser.</p>
+
+<p>A great way to keep up with the Javascript language is to listen to web development podcasts like <a href="https://syntax.fm/">Syntax.fm</a> and <a href="https://devchat.tv/js-jabber/">Javascript Jabber</a>, or subscribe to email roundups like <a href="https://javascriptweekly.com/">Javascript Weekly</a> and <a href="https://frontendfoc.us/">Frontend Focus</a>.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://javascript.info/">Javascript.info - The Modern Javascript Tutorial</a> - Lots more to learn about modern Javascript here!</li>
+</ul>
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+
+  const codepens = document.querySelectorAll(".codepen");
+  if (codepens.length > 0) {
+    const codepenScript = document.createElement('script');
+    codepenScript.src = "https://static.codepen.io/assets/embed/ei.js";
+    document.head.appendChild(codepenScript);
+  }
+</script>
+</body>
+</html>

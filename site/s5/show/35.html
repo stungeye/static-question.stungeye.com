@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>PHP and MySQL = Best Friends Forever</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  .slide > pre {
+      margin-bottom: 1em;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  margin-bottom: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .92em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    margin-top: 0.7em;
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+.slide details summary {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.slide details ul li {
+  font-size: 0.7em;
+}
+
+
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+  
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>PHP and MySQL = Best Friends Forever</h1>
+<h2>Web Development 2 WEBD-2008</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>PHP and MySQL = Best Friends Forever</h1>
+  <h2>Web Development 2 WEBD-2008</h2>
+  
+  <h4>Red River College</h4>
+  <div class="handout">
+    <br><br>
+    <details>
+      <summary>
+        Table of Contents
+      </summary>
+      <ul>
+        
+          <li><a href="#database-backed-php-apps">Database-Backed PHP Apps</a></li>
+        
+          <li><a href="#setting-up-our-tables">Setting Up Our Tables</a></li>
+        
+          <li><a href="#sql-user-administration">SQL User Administration</a></li>
+        
+          <li><a href="#php-data-objects">PHP Data Objects</a></li>
+        
+          <li><a href="#pdo-connect">PDO Connect</a></li>
+        
+          <li><a href="#connect-error-handling">Connect Error Handling</a></li>
+        
+          <li><a href="#pdo-database-statements">PDO Database Statements</a></li>
+        
+          <li><a href="#pdo-select">PDO SELECT</a></li>
+        
+          <li><a href="#fetch-all">Fetch All</a></li>
+        
+          <li><a href="#pdo-where">PDO WHERE</a></li>
+        
+          <li><a href="#pdo-where-with-user-data">PDO WHERE With User Data</a></li>
+        
+          <li><a href="#pdo-where-with-user-data">PDO WHERE With User Data</a></li>
+        
+          <li><a href="#pdo-insert">PDO INSERT</a></li>
+        
+          <li><a href="#pdo-update">PDO UPDATE</a></li>
+        
+          <li><a href="#pdo-delete">PDO DELETE</a></li>
+        
+          <li><a href="#binding-a-hash-to-a-statement">Binding a Hash to a Statement</a></li>
+        
+          <li><a href="#advanced-pdo-topics">Advanced PDO Topics</a></li>
+        
+          <li><a href="#google-coding-aka-copypasta">Google Coding AKA Copypasta</a></li>
+        
+      </ul>
+    </details>
+  </div>
+</div>
+
+
+<div class="slide">
+  <h1 id="database-backed-php-apps">Database-Backed PHP Apps</h1>
+  
+  <div class="content-with-image">
+    <img alt="Friend1" class="medium" src="/system/images/534/medium/friend1.jpg?1296759801" />
+    <p>These day we rarely code a complex PHP application that does not make use of a database for back-end data storage. For this course we will be using the MySQL database as our database back-end.</p>
+
+<p>PHP and MySQL play <em>very</em> nicely together.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="setting-up-our-tables">Setting Up Our Tables</h1>
+  
+  <div class="content-with-image">
+    <img alt="42-21106586" class="medium" src="/system/images/535/medium/42-21106586.jpg?1296790925" />
+    <p>All the database tables we use in this class must contain a column named <code>id</code>. This <code>id</code> column should be:</p>
+
+<ul>
+<li>An INT of size 11.</li>
+
+<li>Auto-incrementing.</li>
+
+<li>The table&#8217;s primary key.</li>
+</ul>
+
+<p>This column allows us to uniquely identify any row of any table by number.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="sql-user-administration">SQL User Administration</h1>
+  
+    <p>Ensure that the MySQL server is by logging into <a href="http://localhost:31337/phpmyadmin">PHPMyAdmin</a>. We will now configure a MySQL user that we will use for all our course work:</p>
+
+<p>From the PHPMyAdmin SQL tab execute:</p>
+
+<pre lang="sql"><code lang="sql" class="sql"><pre><code class="sql">CREATE DATABASE serverside;
+
+CREATE USER &#39;serveruser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;gorgonzola7!&#39;;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER
+  ON serverside.* TO &#39;serveruser&#39;@&#39;localhost&#39;;</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="php-data-objects">PHP Data Objects</h1>
+  
+    <p>The PHP Data Objects extension <em>(PDO)</em> allows you to access the functionality provided by a SQL server in an <em>object-oriented</em> manner.</p>
+
+<p>Provided by the <em>PDO</em> extension is the <em>MySQL Driver</em> which represents a connection between PHP and a MySQL database. By changing the PDO Driver you can switch between different types of database servers.</p>
+  
+  <div class="handout">
+    <p><strong>Remember:</strong> In PHP object methods are called using the stabby operator <code>-&gt;</code> as follows:</p>
+
+<p><code>$favourite_noun-&gt;the_best_method_in_the_world($coolest_parameter_evar);</code></p>
+
+<p><em>Assuming we&#8217;ve already instantiated an object called <code>$favourite_noun</code>.</em></p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/book.pdo.php">PDO @ php.net</a></li>
+
+<li><a href="https://php.net/manual/en/pdo.drivers.php">Available PDO Database Drivers</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-connect">PDO Connect</h1>
+  
+    <p>Before a PHP script can query a MySQL database it must connect to the database server by creating an PDO object.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    define(&#39;DB_DSN&#39;,&#39;mysql:host=localhost;dbname=serverside;charset=utf8&#39;);
+    define(&#39;DB_USER&#39;,&#39;serveruser&#39;);
+    define(&#39;DB_PASS&#39;,&#39;gorgonzola7!&#39;);     
+
+    // Create a PDO object called $db.
+    $db = new PDO(DB_DSN, DB_USER, DB_PASS); 
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>The Data Source Name or DSN string can include an optional port number: <code>mysql:host=localhost;port=3307;dbname=serverside</code></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="connect-error-handling">Connect Error Handling</h1>
+  
+    <p>We can add error handing to the previous connection script using a try/catch block.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    define(&#39;DB_DSN&#39;,&#39;mysql:host=localhost;dbname=serverside&#39;);
+    define(&#39;DB_USER&#39;,&#39;serveruser&#39;);
+    define(&#39;DB_PASS&#39;,&#39;gorgonzola7!&#39;);     
+    
+    try {
+        $db = new PDO(DB_DSN, DB_USER, DB_PASS);
+    } catch (PDOException $e) {
+        print &quot;Error: &quot; . $e-&gt;getMessage();
+        die(); // Force execution to stop on errors.
+    }
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>When deploying an application to production you would likely want to handle the catching of db errors more gracefully, rather than just calling <code>die</code>.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/language.exceptions.php">Try/Catch in PHP</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-database-statements">PDO Database Statements</h1>
+  
+    <p>SQL queries are submitted as strings to the PDO object.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $query = &quot;INSERT INTO quotes (author, content) values (&#39;Wally Glutton&#39;, &#39;Learn to Question&#39;)&quot;;
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;execute();
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>The above code assumes that we have already created a PDO object called <code>$db</code>.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/pdo.prepare.php">PDO::prepare</a></li>
+
+<li><a href="https://php.net/manual/en/pdostatement.execute.php">PDOStatement::execute</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-select">PDO SELECT</h1>
+  
+    <p>A select statement is used to select rows from a table.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $query = &quot;SELECT * FROM quotes&quot;;
+    $statement = $db-&gt;prepare($query); // Returns a PDOStatement object.
+    $statement-&gt;execute(); // The query is now executed.
+?&gt;</code></pre></code></pre>
+
+<p>Below in the HTML we can loop through the retrieved rows:</p>
+
+<pre><code><pre><code class="php">&lt;h1&gt;Found &lt;?= $statement-&gt;rowCount() ?&gt; Rows&lt;/h1&gt;
+&lt;ul&gt;
+    &lt;?php while ($row = $statement-&gt;fetch()): ?&gt;
+        &lt;li&gt;&lt;?= $row[&#39;author&#39;] ?&gt; said &lt;?= $row[&#39;content&#39;] ?&gt;&lt;/li&gt;
+    &lt;?php endwhile ?&gt;
+&lt;/ul&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>Each <code>$row</code> is an associative array with the retrieved column names as keys.</li>
+
+<li>Selection can specify a comma delimited list of columns, instead of simple the &#8221;*&#8221; wildcard.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/pdostatement.rowcount.php">PDOStatement::rowCount</a></li>
+
+<li><a href="https://php.net/manual/en/pdostatement.fetch.php">PDOStatement::fetch</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="fetch-all">Fetch All</h1>
+  
+    <p>After selecting rows from a table you can retrieve an array of all the rows using the <code>fetchAll()</code> method, rather than fetching row by row from the statement.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $query = &quot;SELECT * FROM quotes&quot;;
+    $statement = $db-&gt;prepare($query); // Returns a PDOStatement object.
+    $statement-&gt;execute(); // The query is now executed.
+    $quotes= $statement-&gt;fetchAll();
+?&gt;</code></pre></code></pre>
+
+<p>Below in the HTML we can loop through the retrieved rows:</p>
+
+<pre><code><pre><code class="php">&lt;ul&gt;
+    &lt;?php foreach($quotes as $quote): ?&gt;
+        &lt;li&gt;&lt;?= $quote[&#39;author&#39;] ?&gt; said &lt;?= $quote[&#39;content&#39;] ?&gt;&lt;/li&gt;
+    &lt;?php endforeach ?&gt;
+&lt;/ul&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>Just like with <code>fetch</code> the rows in the array returned by <code>fetchAll</code> are associative arrays with column names as keys.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://secure.php.net/manual/en/pdostatement.fetchall.php">PDOStatement:fetchAll</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-where">PDO WHERE</h1>
+  
+    <p>A WHERE clause can be added to any select statement to enforce conditions on the returned rows. The WHERE clause takes the form:</p>
+
+<pre lang="sql"><code lang="sql" class="sql"><pre><code class="sql">WHERE condition1 [AND/OR] condition2 [AND/OR] condition3...</code></pre></code></pre>
+
+<p>The conditions specify a column name, an operator, and a comparison value.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $query = &quot;SELECT * FROM quotes WHERE id &gt; 7&quot;;
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;execute();
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>Where clauses can also be added to UPDATE and DELETE statements.</li>
+
+<li>Interpolating user data directly into a WHERE clause can be a security issue. We will guard against this on the next slide using parameterize queries.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-where-with-user-data">PDO WHERE With User Data</h1>
+  
+    <p>Imagine we wanted to include some user data in one of our SQL queries. Perhaps we wish to load a specific row from a table based on an id provided as a GET parameter.</p>
+
+<p>The naive solution would be:</p>
+
+<pre><code><pre><code class="php">&lt;?php    
+    $query = &quot;SELECT * FROM quotes WHERE id = {$_GET[&#39;id&#39;]}&quot;; // DANGER! DANGER!
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;execute(); 
+?&gt;</code></pre></code></pre>
+
+<p>User data can never be trusted. In the above example we are injecting user data directly into our SQL which can lead to SQL Injection attacks. Please never do this.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://en.wikipedia.org/wiki/SQL_injection">SQL Injection Attacks</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-where-with-user-data">PDO WHERE With User Data</h1>
+  
+    <p>The safe way to add user data to our SQL is to first sanitize the data and then use a parameterized SQL statement.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    // Sanitize $_GET[&#39;id&#39;] to ensure it&#39;s a number.
+    $id = filter_input(INPUT_GET, &#39;id&#39;, FILTER_SANITIZE_NUMBER_INT);
+    
+    // Build a query using &quot;:id&quot; as a placeholder parameter.
+    $query = &quot;SELECT * FROM quotes WHERE id = :id&quot;;
+    //the PDO::prepare function returns a PDOStatement object
+    $statement = $db-&gt;prepare($query);
+    
+    // Bind the :id parameter in the query to the previously
+    // sanitized $id specifying a type of INT.
+    $statement-&gt;bindValue(&#39;:id&#39;, $id, PDO::PARAM_INT);
+    // Then execute the prepared statement.
+    $statement-&gt;execute(); 
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>The sanitization of the id using <code>filter_input</code> in the above example may be overkill since <code>bindValue</code> when used with <code>PDO::PARAM_INT</code> should sanitize the parameter as an integer. However, it doesn&#8217;t really hurt to be too careful.</p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/function.filter-input.php">filter_input</a></li>
+
+<li><a href="https://php.net/manual/en/pdostatement.bindvalue.php">PDOStatement::BindValue</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-insert">PDO INSERT</h1>
+  
+    <p>The insert statement is used to insert new rows into a specific table. The insert statement takes the form:</p>
+
+<pre lang="sql"><code lang="sql" class="sql"><pre><code class="sql">INSERT INTO table_name ( column1, column2,...columnN ) VALUES ( value1, value2,...valueN )</code></pre></code></pre>
+
+<pre><code><pre><code class="php">&lt;?php
+    // Sanitize user input to escape HTML entities and filter out dangerous characters.
+    $author  = filter_input(INPUT_POST, &#39;author&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $content = filter_input(INPUT_POST, &#39;content&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    
+    // Build the parameterized SQL query and bind sanitized values to the parameters
+    $query     = &quot;INSERT INTO quotes (author, content) values (:author, :content)&quot;;
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;bindValue(&#39;:author&#39;, $author);        
+    $statement-&gt;bindValue(&#39;:content&#39;, $content);
+    
+    // Execute the INSERT prepared statement.
+    $statement-&gt;execute();
+
+    // Determine the primary key of the inserted row.
+    $insert_id = $db-&gt;lastInsertId();
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>When inserting user-supplied data be sure to sanitize it first using <code>filter_input</code>.</li>
+
+<li>The above code requires an HTML form to POST the author and content data.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://php.net/manual/en/filter.filters.sanitize.php">Available Sanitize Filters for filter_input</a></li>
+
+<li><a href="https://php.net/manual/en/pdo.lastinsertid.php">PDO::lastInsertId</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-update">PDO UPDATE</h1>
+  
+    <p>The update statement is used to modify existing rows in the database. One or more columns can be updated. The update statement has the form:</p>
+
+<pre lang="sql"><code lang="sql" class="sql"><pre><code class="sql">UPDATE table_name SET column1=new-value1, column2=new-value2 [WHERE Clause]</code></pre></code></pre>
+
+<pre><code><pre><code class="php">&lt;?php
+    // Sanitize user input to escape HTML entities and filter out dangerous characters.
+    $author  = filter_input(INPUT_POST, &#39;author&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $content = filter_input(INPUT_POST, &#39;content&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $id      = filter_input(INPUT_POST, &#39;id&#39;, FILTER_SANITIZE_NUMBER_INT);
+    
+    // Build the parameterized SQL query and bind the sanitized values to the parameters
+    $query     = &quot;UPDATE quotes SET author = :author, content = :content WHERE id = :id&quot;;
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;bindValue(&#39;:author&#39;, $author);        
+    $statement-&gt;bindValue(&#39;:content&#39;, $content);
+    $statement-&gt;bindValue(&#39;:id&#39;, $id, PDO::PARAM_INT);
+    
+    // Execute the INSERT.
+    $statement-&gt;execute();
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>If no WHERE clause is specified all rows will be updated.</li>
+
+<li>To ensure that a WHERE clause can only affect a single row you can add <code>LIMIT 1</code> to the end of your query.</li>
+
+<li>The above code requires an HTML form to POST the author, content and id.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="pdo-delete">PDO DELETE</h1>
+  
+    <p>The delete statement is used to delete rows from a database table. The delete statement has the form:</p>
+
+<pre lang="sql"><code lang="sql" class="sql"><pre><code class="sql">DELETE FROM table_name [WHERE Clause]</code></pre></code></pre>
+
+<pre><code><pre><code class="php">&lt;?php
+    $id = filter_input(INPUT_POST, &#39;id&#39;, FILTER_SANITIZE_NUMBER_INT);
+    $query = &quot;DELETE FROM quotes WHERE id = :id&quot;;
+    $statement = $db-&gt;prepare($query);
+    $statement-&gt;bindValue(&#39;:id&#39;, $id, PDO::PARAM_INT);
+    $statement-&gt;execute();
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>If no WHERE clause is specified all rows will be deleted.</li>
+
+<li>To ensure that only one row is deleted you can place <code>LIMIT 1</code> at the end of your query.</li>
+
+<li>The above code requires an HTML form to POST the id.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="binding-a-hash-to-a-statement">Binding a Hash to a Statement</h1>
+  
+    <p>Up to this point, if we had multiple parameters in a prepared statement we would have to make multiple calls to <code>bindValue</code>. However, we can bind multiple parameters using a hash.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $author = filter_input(INPUT_POST, &#39;author&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $content = filter_input(INPUT_POST, &#39;content&#39;, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    $query  = &quot;INSERT INTO quotes (author, content) values (:author, :content)&quot;;
+    $statement = $db-&gt;prepare($query);
+
+    $bind_values = [&#39;author&#39; =&gt; $author, &#39;content&#39; =&gt; $content];
+    $statement-&gt;execute($bind_values);
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Tips and Gotchas:</em></p>
+
+<ul>
+<li>The parameters in the query start with colons but the keys in the hash do not. The colon is optional in the hash keys.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="advanced-pdo-topics">Advanced PDO Topics</h1>
+  
+    <p>These notes cover the basics of using PDO with a MySQL database. Here are some links to more advanced topics:</p>
+
+<ul>
+<li><a href="http://stungeye.com/school/pdo/">Example Advanced PDO Code</a> (Written by a former student.)</li>
+
+<li><a href="https://php.net/manual/en/pdo.error-handling.php">PDO Errors and Error Handling</a></li>
+
+<li><a href="https://php.net/manual/en/pdo.transactions.php">Database Transactions with PDO</a></li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="google-coding-aka-copypasta">Google Coding AKA Copypasta</h1>
+  
+  <div class="content-with-image">
+    <img alt="Copypasta" class="medium" src="/system/images/545/medium/copypasta.jpg?1297375593" />
+    <p>In this course we are <em>only</em> using PDO for database access.</p>
+
+<p>Be wary of example code you find online that uses the <em>mysql</em> or <em>mysqli</em> extensions.</p>
+
+<p><strong>Code written using the <em>mysql</em> and <em>mysqli</em> extensions will not be accepted for challenges or assignments.</strong></p>
+
+<p>If you wish to use a database abstraction other that PDO for you work, please ask for special permission from your instructor.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+
+  const codepens = document.querySelectorAll(".codepen");
+  if (codepens.length > 0) {
+    const codepenScript = document.createElement('script');
+    codepenScript.src = "https://static.codepen.io/assets/embed/ei.js";
+    document.head.appendChild(codepenScript);
+  }
+</script>
+</body>
+</html>

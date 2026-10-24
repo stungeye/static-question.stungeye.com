@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Coding Challenges</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .9em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Coding Challenges</h1>
+<h2>WinnipegRb Meetup</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>Coding Challenges</h1>
+  <h2>WinnipegRb Meetup</h2>
+  <h3>Kyle Geske</h3>
+  <h4>Red River College</h4>
+</div>
+
+
+<div class="slide">
+  <h1>Sally the Camel has Two Humps</h1>
+  
+  <div class="content-with-image">
+    <img alt="Chart1" class="medium" src="/system/images/600/medium/chart1.png?1306356782" />
+    <p><strong>The 20% Rule:</strong></p>
+
+<p><em>&#8220;In every introduction to programming course, 20% of the students just get it effortlessly &#8211; you could lock them in a dimly lit closet with a reference manual, and they’d still figure out how to program.</em></p>
+
+<p><em>Another 20% of the class never seems to get it.&#8221;</em></p>
+
+<p>&#8211; <a href="https://computinged.wordpress.com">Mark Guzdial</a></p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Praxis Makes Perfect</h1>
+  
+  <div class="content-with-image">
+    <img alt="Ollie_monster_by_olivier_bareau" class="medium" src="/system/images/585/medium/Ollie_monster_by_olivier_bareau.jpg?1306275369" />
+    <p><strong>Praxis is the process by which a theory, lesson, or skill is enacted, practiced, embodied and realized.</strong></p>
+
+<p><em>The best people in any field are those who devote the most hours to what the researchers call &#8220;deliberate practice&#8221;. It’s activity that’s explicitly intended to improve performance, that reaches for objectives just beyond one’s level of competence, provides feedback on results and involves high levels of repetition <span>and reflection</span>.</em></p>
+
+<p>&#8211; Geoffrey Colvin</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Code Kata</h1>
+  
+  <div class="content-with-image">
+    <img alt="Kamae_no_kata" class="medium" src="/system/images/586/medium/kamae_no_kata.jpg?1306276031" />
+    <p>Kata (方 literally: form) is a Japanese word describing a way of doing something or <strong>a pattern of behaviour that is practiced to various levels of mastery</strong>.</p>
+
+<p>A <strong>Code Kata</strong> is an exercise in programming which helps hone your skills through practice and repetition.</p>
+
+<p>Overlearning the basics allows our students to excel at the more difficult tasks.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Electronic Commerce WEBD-2000</h1>
+  
+  <div class="content-with-image">
+    <img alt="Rails3" class="medium" src="/system/images/599/medium/rails3.jpg?1306356460" />
+    <p><em>&#8220;Learners will implement an e-commerce system using the <strong>Ruby on Rails</strong> web-programming framework through a series of graduated assignments.&#8221;</em></p>
+
+<p><strong>Demo of Final Assignment:</strong> <a href="http://ghostydepot.heroku.com">http://ghostydepot.heroku.com</a></p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Introducing Ruby</h1>
+  
+  <div class="content-with-image">
+    <img alt="Ruby_makes_me_happy" class="medium" src="/system/images/587/medium/Ruby_makes_me_happy.png?1306276899" />
+    <p><strong>Ruby is a dynamically-typed scripting language similar to Perl, Python and Bash.</strong></p>
+
+<p>Try reading the following Ruby code out loud:</p>
+
+<pre><code><pre><code class="ruby">4.times { puts "Chunky Bacon!" }</code></pre></code></pre>
+
+<p>Students need to master:</p>
+
+<ul>
+<li>Important Data Structures</li>
+
+<li>Input / Output</li>
+
+<li>Looping</li>
+
+<li>Conditionals</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Coding Challenge Guidelines</h1>
+  
+  <div class="content-with-image">
+    <img alt="Referral-guidelines" class="medium" src="/system/images/597/medium/referral-guidelines.jpg?1306284843" />
+    <ul>
+<li>Clear goals and constraints.</li>
+
+<li>Doable during lab time.</li>
+
+<li>Just outside comfort zone.</li>
+
+<li>Presents one or two new concepts.</li>
+
+<li>Failure is okay, as long as you can explain what went wrong.</li>
+
+<li>In class competition is fun too!</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Baby Steps</h1>
+  
+    <p><strong>Create a program that prints your initials to the console using nine rows of asterisks.</strong></p>
+
+<pre lang="output"><code lang="output" class="output"><pre>**        ***           *             *******
+**      ***            ***           *********
+**    ***             ** **         **       **
+**  ***              **   **       **      
+*****               *********     **         ***
+**  ***            ***********     **      *****
+**    ***         **         **     **        **
+**      ***      **           **     **********
+**        ***    *             *       ********</pre></code></pre>
+
+<p>Simple, but ensure that students can run code and print strings.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Arrays and Hashes</h1>
+  
+    <pre><code><pre><code class="ruby">carl  = {
+          :start => 'We are a way',
+          :middle => ' for the cosmos ',
+          :punctuation => [ ',', '.', '?' ]
+        }
+
+sagan = [
+          "to ",
+          "know ",
+          "itself"
+        ]</code></pre></code></pre>
+
+<p><strong>Use the provided Hash and Array to print out:</strong></p>
+
+<p><em>&#8220;We are a way for the cosmos to know itself.&#8221;</em></p>
+  
+  <div class="handout">
+    <pre><code><pre><code class="ruby">sentence  = carl[:start] + carl[:middle]
+sentence += sagan[0] + sagan[1] + sagan[2]
+sentence += carl[:punctuation][1]
+puts sentence</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Looping</h1>
+  
+    <p><strong>Generate an array that contains 20 random numbers.</strong></p>
+
+<p>Once the array is built, iterate through its elements printing out the value of twice each number.</p>
+  
+  <div class="handout">
+    <pre><code><pre><code class="ruby">random_numbers = Array.new
+20.times { random_numbers << rand(100) }
+
+random_numbers.each { |num| puts 2 * num }</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Wowza Cowza</h1>
+  
+    <p><strong>Start by coding a program that print every number from 1 to 100 to seperate lines in the console.</strong></p>
+
+<p>Next, modify your code so that:</p>
+
+<ul>
+<li>For multiples of three you print “Wowza” instead of the number.</li>
+
+<li>For the multiples of five you print “Cowza”.</li>
+
+<li>For numbers which are multiples of both three and five you print “WowzaCowza”.</li>
+</ul>
+
+<p>See: <a href="http://programming.dojo.net.nz/resources/programming-language-posters/_posters/Programming-Language-Posters-Dec2010.pdf">Fizz Buzz Posters</a></p>
+  
+  <div class="handout">
+    <pre><code><pre><code class="ruby">1.upto(100) do |n|
+  print "Wowza" if wowza = (n % 3).zero?
+  print "Cowza" if cowza = (n % 5).zero?
+  print n       unless (wowza || cowza)
+  puts
+end</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>The Sequence</h1>
+  
+    <p><strong>There is a famous mathematical sequence of numbers called the Fibonacci sequence.</strong></p>
+
+<p>The beginning of the sequence goes like this:</p>
+
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144&#8230;</p>
+
+<p>Starting with the first two numbers (zero and one) the rest of the sequence can be calculated:</p>
+
+<p><em>Each number (after the first two) is calculated by summing the previous two numbers.</em></p>
+  
+  <div class="handout">
+    <pre><code><pre><code class="ruby"># Recursive
+def fib(n)
+  return n  if (0..1).include? n
+  fib(n-1) + fib(n-2)
+end
+
+# Iterative
+def fib(n)
+  curr, succ = 0, 1
+  n.times do |i|
+    curr, succ = succ, curr + succ
+  end
+  curr
+end</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>The Cipher</h1>
+  
+    <p><strong>A Secret Code:</strong></p>
+
+<pre lang="output"><code lang="output" class="output"><pre>rwpeitg x. sdlc iwt gpqqxi-wdat
+
+paxrt lph qtvxccxcv id vti ktgn ixgts du hxiixcv qn wtg hxhitg dc iwt
+qpcz, pcs du wpkxcv cdiwxcv id sd: dcrt dg ilxrt hwt wps ettets xcid iwt
+qddz wtg hxhitg lph gtpsxcv, qji xi wps cd exrijgth dg rdcktghpixdch xc
+xi, 'pcs lwpi xh iwt jht du p qddz,' iwdjvwi paxrt 'lxiwdji exrijgth dg
+rdcktghpixdc?'
+
+hd hwt lph rdchxstgxcv xc wtg dlc bxcs (ph ltaa ph hwt rdjas, udg iwt
+wdi spn bpst wtg utta ktgn hatten pcs hijexs), lwtiwtg iwt eatphjgt
+du bpzxcv p spxhn-rwpxc ldjas qt ldgiw iwt igdjqat du vtiixcv je pcs
+exrzxcv iwt spxhxth, lwtc hjsstcan p lwxit gpqqxi lxiw excz tnth gpc
+radht qn wtg.</pre></code></pre>
+
+<p><em>Every character has been shifting by a set number of alphabet positions.</em></p>
+  
+  <div class="handout">
+    <p>Terse Obfuscated Solution:</p>
+
+<pre><code><pre><code class="ruby">s = IO.read('code.txt')
+shift = ('e'.ord - ('a'..'z').reduce(['',0]) do |m, l|
+  s.count(l) > m[1] ? [l, s.count(l)] : m
+end[0].ord) % 26
+puts s.tr('a-z', (('a'..'z').to_a*2)[shift...shift+26].join)</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>We Need Practice Too</h1>
+  
+  <div class="content-with-image">
+    <img alt="24cc6384-07d2-4038-b782-d78ec74e0af1" class="medium" src="/system/images/598/medium/24cc6384-07d2-4038-b782-d78ec74e0af1.jpg?1306354369" />
+    <p><strong>As instructors we should be coding on a regular basis too.</strong></p>
+
+<p>The easiest way to do this is to <strong>live code</strong> in class. Your students will want to code along which means <strong>super engagement</strong>.</p>
+
+<p><em>YOU WILL MAKE MISTAKES. THIS IS AWESOME FOR TEACHING DEBUGGING!</em></p>
+
+<p>If you do any coding outside of work, share your successes with your students.</p>
+
+<p>For example: You could maintain a <a href="https://github.com/stungeye">Github Repo</a>.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>More Examples</h1>
+  
+    <p><strong>Oodles of coding challenge examples:</strong></p>
+
+<ul>
+<li><a href="http://challenge.greplin.com">http://challenge.greplin.com</a></li>
+
+<li><a href="http://codingbat.com">http://codingbat.com</a></li>
+
+<li><a href="http://puzzlenode.com">http://puzzlenode.com</a></li>
+
+<li><a href="http://www.rubyquiz.com">http://www.rubyquiz.com</a></li>
+
+<li><a href="http://programmingpraxis.com">http://programmingpraxis.com</a></li>
+
+<li><a href="http://github.com/ryanb/ruby-warrior">http://github.com/ryanb/ruby-warrior</a></li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    //hljs.configure({useBR: true});
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+</script>
+</body>
+</html>

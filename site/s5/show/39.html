@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>ActiveAdmin</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link href="/stylesheets/syntax/all_hallows_eve.css?1307730023" media="screen" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+  
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+  
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #eeeeee;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+  
+  div.presentation {
+    width: auto;
+    border: 1px solid #eeeeee;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+  
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+  
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+  
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .9em;
+        overflow: auto;
+  } 
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 980px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>ActiveAdmin</h1>
+<h2>Winnipeg.rb Talk</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+  
+<div class="slide">
+  <h1>ActiveAdmin</h1>
+  <h2>Winnipeg.rb Talk</h2>
+  <h3>Kyle Geske</h3>
+  <h4>Red River College</h4>
+</div>
+
+
+<div class="slide">
+  <h1>About Me</h1>
+  
+  <div class="content-with-image">
+    <img alt="Moi" class="medium" src="/system/images/612/medium/moi.jpg?1327603918" />
+    <p><strong>Kyle Geske</strong></p>
+
+<ul>
+<li>Hardware/Firmware Engineer Turned Web Dev</li>
+
+<li>Instructor at Red River College<br /><em>(Ruby/Rails, PHP, HTML/CSS, Philosophy of Time Travel)</em></li>
+
+<li>Artist w/ Printmaking Studio @ Artspace</li>
+</ul>
+
+<p><strong>V-World Avatars</strong></p>
+
+<ul>
+<li><em><a href="http://twitter.com/stungeye">T</a>witter, <a href="http://github.com/stungeye">G</a>ithub, <a href="http://flickr.com/stungeye">F</a>lickr, <a href="http://pinboard.in/u:stungeye">P</a>inboard, <a href="mailto:stungeye@gmail.com">G</a>mail, Etc:</em> <code>stungeye</code></li>
+
+<li><em>Web:</em> <a href="http://stungeye.com">stungeye.com</a></li>
+
+<li><em>AKA:</em> Walter S. Glutton</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Getting Started</h1>
+  
+    <p><strong>Let&#8217;s create a simple Rails app with models for customers and provinces.</strong></p>
+
+<pre lang="output"><code class="output" lang="output"><pre>rails new activeadmin
+cd activeadmin
+
+rails g model customer name:string age:integer province_id:integer
+rails g model province name:string population:integer
+
+rake db:migrate</pre></code></pre>
+
+<p><strong>Associated the models.</strong></p>
+
+<p>customer.rb:</p>
+
+<pre><code><pre class="all_hallows_eve"><span class="line-numbers">   1 </span> <span class="SupportFunction">belongs_to</span> <span class="Constant"><span class="Constant">:</span>province</span>
+</pre></code></pre>
+
+<p>province.rb:</p>
+
+<pre><code><pre class="all_hallows_eve"><span class="line-numbers">   1 </span> <span class="SupportFunction">has_many</span> <span class="Constant"><span class="Constant">:</span>customers</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Adding ActiveAdmin</h1>
+  
+    <p><strong>Edit your Gemfile.</strong></p>
+
+<pre><code><pre class="all_hallows_eve"><span class="line-numbers">   1 </span> gem <span class="String"><span class="String">'</span>activeadmin<span class="String">'</span></span>
+<span class="line-numbers">   2 </span> gem <span class="String"><span class="String">'</span>sass-rails<span class="String">'</span></span>
+<span class="line-numbers">   3 </span> gem <span class="String"><span class="String">&quot;</span>meta_search<span class="String">&quot;</span></span><span class="SourceBase">,</span>    <span class="String"><span class="String">'</span>&gt;= 1.1.0.pre<span class="String">'</span></span>
+</pre></code></pre>
+
+<p><strong>Install ActiveAdmin.</strong></p>
+
+<pre lang="output"><code class="output" lang="output"><pre>bundle install
+
+rails generate active_admin:install
+rake db:migrate</pre></code></pre>
+
+<p><strong>Enhance your models.</strong></p>
+
+<pre lang="output"><code class="output" lang="output"><pre>rails generate active_admin:resource Customer
+
+rails generate active_admin:resource Province</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Visit the Dashboard</h1>
+  
+    <p><strong>Run your Rails server and visit:</strong> <a href="http://localhost:3000/admin">http://localhost:3000/admin</a></p>
+
+<ul>
+<li><em>username:</em> admin@example.com</li>
+
+<li><em>password:</em> password</li>
+</ul>
+<br />
+<p><strong>Authentication is handled by Devise, but you can override that.</strong></p>
+
+<pre><code><pre class="all_hallows_eve"><span class="line-numbers">   1 </span> <span class="Comment"><span class="Comment">#</span> config/initializers/active_admin.rb</span>
+<span class="line-numbers">   2 </span> config<span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">authentication_method</span></span> <span class="Keyword">=</span> <span class="Constant"><span class="Constant">:</span>authenticate_admin_user!</span>
+<span class="line-numbers">   3 </span> config<span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">current_user_method</span></span>   <span class="Keyword">=</span> <span class="Constant"><span class="Constant">:</span>current_admin_user</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Add Dashboard Widgets</h1>
+  
+    <p><strong>Edit</strong> <code>app/admin/dashboards.rb</code></p>
+
+<pre><code><pre class="all_hallows_eve"><span class="line-numbers">   1 </span> <span class="SourceBase">ActiveAdmin</span><span class="SourceBase"><span class="SourceBase">::</span><span class="FunctionName">Dashboards</span></span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">build</span></span> <span class="Keyword">do</span>
+<span class="line-numbers">   2 </span>   
+<span class="line-numbers">   3 </span>   section <span class="String"><span class="String">&quot;</span>Provinces<span class="String">&quot;</span></span> <span class="Keyword">do</span>
+<span class="line-numbers">   4 </span>     ul <span class="Keyword">do</span>
+<span class="line-numbers">   5 </span>       li <span class="String"><span class="String">&quot;</span>Number of Provinces: <span class="SourceBase"><span class="SourceBase">#{</span><span class="SourceBase">Province</span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">all</span></span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">count</span></span><span class="SourceBase">}</span></span><span class="String">&quot;</span></span>
+<span class="line-numbers">   6 </span>       li <span class="String"><span class="String">&quot;</span>Average Population: <span class="SourceBase"><span class="SourceBase">#{</span>number_to_human <span class="SourceBase">Province</span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">average</span></span><span class="SourceBase">(</span><span class="Constant"><span class="Constant">:</span>population</span><span class="SourceBase">)</span><span class="SourceBase">}</span></span><span class="String">&quot;</span></span>
+<span class="line-numbers">   7 </span>     <span class="Keyword">end</span>
+<span class="line-numbers">   8 </span>   <span class="Keyword">end</span>
+<span class="line-numbers">   9 </span> 
+<span class="line-numbers">  10 </span>   section <span class="String"><span class="String">&quot;</span>Customers<span class="String">&quot;</span></span> <span class="Keyword">do</span>
+<span class="line-numbers">  11 </span>     ul <span class="Keyword">do</span>
+<span class="line-numbers">  12 </span>       li <span class="String"><span class="String">&quot;</span>Number of Customers: <span class="SourceBase"><span class="SourceBase">#{</span><span class="SourceBase">Customer</span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">all</span></span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">count</span></span><span class="SourceBase">}</span></span><span class="String">&quot;</span></span>
+<span class="line-numbers">  13 </span>       li <span class="String"><span class="String">&quot;</span>Average Age: <span class="SourceBase"><span class="SourceBase">#{</span><span class="SourceBase">Customer</span><span class="SourceBase"><span class="SourceBase">.</span><span class="FunctionName">average</span></span><span class="SourceBase">(</span><span class="Constant"><span class="Constant">:</span>age</span><span class="SourceBase">)</span><span class="SourceBase">}</span></span><span class="String">&quot;</span></span>
+<span class="line-numbers">  14 </span>     <span class="Keyword">end</span>
+<span class="line-numbers">  15 </span>   <span class="Keyword">end</span>
+<span class="line-numbers">  16 </span> 
+<span class="line-numbers">  17 </span> <span class="Keyword">end</span>
+</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>ManitobaElection.ca Demo</h1>
+  
+  <div class="content-with-image">
+    <img alt="Me" class="large" src="/system/images/611/large/ME.png?1327606668" />
+    <p>The back-end of <a href="http://manitobaelection.ca">ManitobaElection.ca</a> is powered by ActiveAdmin.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Questions & More Information</h1>
+  
+  <div class="content-with-image">
+    <img alt="Web_find_out_more" class="medium" src="/system/images/617/medium/web_find_out_more.jpg?1327607319" />
+    <p><strong>Find out more about ActiveAdmin:</strong></p>
+
+<p><a href="http://activeadmin.info">http://activeadmin.info</a></p>
+
+<p><a href="https://github.com/gregbell/active_admin">https://github.com/gregbell/active_admin</a></p>
+<br />
+<h2 id="any_questions">Any Questions?</h2>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

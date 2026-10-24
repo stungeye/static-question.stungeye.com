@@ -1,0 +1,1577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Intro to PHP</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="Kyle Geske" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  .slide > pre {
+      margin-bottom: 1em;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  margin-bottom: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .92em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    margin-top: 0.7em;
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+.slide details summary {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.slide details ul li {
+  font-size: 0.7em;
+}
+
+
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+  
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Intro to PHP</h1>
+<h2>Web Development 2 WEBD-2008</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>Intro to PHP</h1>
+  <h2>Web Development 2 WEBD-2008</h2>
+  
+  <h4>Red River College</h4>
+  <div class="handout">
+    <br><br>
+    <details>
+      <summary>
+        Table of Contents
+      </summary>
+      <ul>
+        
+          <li><a href="#introduction">Introduction</a></li>
+        
+          <li><a href="#objectives">Objectives</a></li>
+        
+          <li><a href="#conventions">Conventions</a></li>
+        
+          <li><a href="#php-history">PHP History</a></li>
+        
+          <li><a href="#wello-horld-4">Wello Horld * 4</a></li>
+        
+          <li><a href="#wello-horld-in-java">Wello Horld in Java</a></li>
+        
+          <li><a href="#semicolons-and-comments">Semicolons and Comments</a></li>
+        
+          <li><a href="#constants">Constants</a></li>
+        
+          <li><a href="#variables">Variables</a></li>
+        
+          <li><a href="#variable-types">Variable Types</a></li>
+        
+          <li><a href="#variable-types">Variable Types</a></li>
+        
+          <li><a href="#strings">Strings</a></li>
+        
+          <li><a href="#strings">Strings</a></li>
+        
+          <li><a href="#truthiness-and-falsiness">Truthiness and Falsiness</a></li>
+        
+          <li><a href="#boolean-expressions">Boolean Expressions</a></li>
+        
+          <li><a href="#really-really-really-equals">Really Really Really Equals?</a></li>
+        
+          <li><a href="#if-statements">If Statements</a></li>
+        
+          <li><a href="#switch-statements">Switch Statements</a></li>
+        
+          <li><a href="#for-loops">For Loops</a></li>
+        
+          <li><a href="#while">While</a></li>
+        
+          <li><a href="#arrays">Arrays</a></li>
+        
+          <li><a href="#count-the-length">Count The Length</a></li>
+        
+          <li><a href="#implode-and-explode">Implode and Explode</a></li>
+        
+          <li><a href="#print_r">Print_r</a></li>
+        
+          <li><a href="#hashes">Hashes</a></li>
+        
+          <li><a href="#nested-hashes-and-arrays">Nested Hashes and Arrays</a></li>
+        
+          <li><a href="#nested-hashes-and-arrays">Nested Hashes and Arrays</a></li>
+        
+          <li><a href="#null">NULL</a></li>
+        
+          <li><a href="#isset-for-hashes">Isset() For Hashes</a></li>
+        
+          <li><a href="#functions">Functions</a></li>
+        
+          <li><a href="#traversing-arrays">Traversing Arrays</a></li>
+        
+          <li><a href="#traversing-hashes">Traversing Hashes</a></li>
+        
+          <li><a href="#traversing-nested-structures">Traversing Nested Structures</a></li>
+        
+          <li><a href="#helpful-array-functions">Helpful Array Functions</a></li>
+        
+          <li><a href="#scope">Scope</a></li>
+        
+          <li><a href="#php-and-html">PHP and HTML</a></li>
+        
+          <li><a href="#mixing-html-and-php">Mixing HTML and PHP</a></li>
+        
+          <li><a href="#the-alternative-syntax">The Alternative Syntax</a></li>
+        
+          <li><a href="#thou-shall-never">Thou Shall Never...</a></li>
+        
+      </ul>
+    </details>
+  </div>
+</div>
+
+
+<div class="slide">
+  <h1 id="introduction">Introduction</h1>
+  
+    <p>This module is an introduction to the PHP programming language. It will also serve as a programming reference that you can use throughout the course.</p>
+
+<p>This module will cover variable data types, boolean branching structures, looping structures and variable scope.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="objectives">Objectives</h1>
+  
+    <p>Upon completion of this module, you should be able to:</p>
+
+<ul>
+<li>Store data in variables and constants.</li>
+
+<li>Output strings to the screen with <code>echo</code>.</li>
+
+<li>Interpolate variables in strings.</li>
+
+<li>Use comments in your PHP code.</li>
+
+<li>Define your own functions.</li>
+
+<li>Store and retrieve single and multi-dimensional array data.</li>
+
+<li>Store and retrieve hash data.</li>
+
+<li>Code various conditional and looping structures.</li>
+
+<li>Understand PHP&#8217;s scoping rules.</li>
+
+<li>Use short echos and the PHP alternative syntax.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="conventions">Conventions</h1>
+  
+    <p>All source code in the notes will be syntax highlighted like so:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $beers_on_the_wall = 99;
+    $beers_on_the_wall--; // Take one down, pass it around.
+    echo $beers_on_the_wall . &quot; bottles of beer on the wall.&quot;;
+?&gt;</code></pre></code></pre>
+
+<p>The output obtained by running the source through an interpreter will be displayed in a monospace font on a grey background:</p>
+
+<pre><code><pre><code class="php">98 bottles of beer on the wall.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="php-history">PHP History</h1>
+  
+    <ul>
+<li><strong>1995-97</strong>: <em>PHP/FI 1.0-2.0</em> (<strong>P</strong>ersonal <strong>H</strong>omepage <strong>P</strong>age Tools / <strong>F</strong>orms <strong>I</strong>nterpreter) - PERL scripts and C libraries developed by Rasmus Lerdorf to manage his online resume.</li>
+
+<li><strong>1998</strong>: <em>PHP 3</em> - Major Rewrite. PHP now stands for <strong>P</strong>HP: <strong>H</strong>ypertext <strong>P</strong>reprocessor.</li>
+
+<li><strong>1999</strong>: <em>PHP 4</em> - New Zend Engine</li>
+
+<li><strong>2004</strong>: <em>PHP 5</em> - Zend Engine 2.0 and a new object model.</li>
+
+<li><strong>2015</strong>: <em>PHP 7</em> - 10+ years in the making! <a href="https://secure.php.net/archive/2015.php#id2015-12-03-1">Included lots of new goodies</a>.</li>
+
+<li><strong>Coming Nov 2020</strong>: <em>PHP 8!</em></li>
+</ul>
+
+<p><strong>Side note:</strong> PHP 6 never launched, although some of that work (like namespaces and traits) was back-ported into PHP 5.3/5.4 in 2009/2010.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://www.zend.com/en/community/php">PHP &amp; Zend Engine</a></li>
+
+<li><a href="http://us.php.net/manual/en/history.php.php">PHP History @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="wello-horld-4">Wello Horld * 4</h1>
+  
+    <p>Here&#8217;s a short PHP program:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+for ($i = 0; $i &lt; 4; $i++) {
+    echo &quot;Wello Horld!\n&quot;;
+}
+
+?&gt;</code></pre></code></pre>
+
+<p>The code looks a little bit like Java, Javascript or even C.</p>
+
+<p>Note the <code>&lt;?php</code> and <code>?&gt;</code> which respectively indicate the beginning and end of a section of PHP code.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="wello-horld-in-java">Wello Horld in Java</h1>
+  
+    <p>Here is the same program written in Java.</p>
+
+<pre><code><pre><code class="php">class WelloHorld {
+
+    public static void main(String[] args) {
+        for (int i = 0; i &lt; 4; i++) {
+            System.out.println(&quot;Wello Horld!&quot;);
+        }
+    }
+
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>When compared to PHP, the Java version has some extra baggage:</p>
+
+<ul>
+<li>A WelloHorld class required to wrap the entire program.</li>
+
+<li>A <code>public static void main(String[] args)</code> method required to wrap the mainline.</li>
+
+<li><code>System.out.prinln</code> vs. <code>echo</code></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="semicolons-and-comments">Semicolons and Comments</h1>
+  
+    <p>All PHP statements must end in a semicolon. The rules for semicolon usage are identical to those in Java.</p>
+
+<p>Single-line and multi-line comments are also identical to Java comments.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+// Single line-comments are fun times!
+
+echo &quot;Grinning ghosts &quot;;
+
+/* A multi-line
+   comment if I ever saw one. */
+
+echo &quot;boast the most roast!&quot;;
+
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Grinning ghosts boast the most roast!</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="constants">Constants</h1>
+  
+    <p>You can define constants in PHP. A constant holds a value that you do not expect to change.</p>
+
+<p>Constant names should be written in all capital letters, with underscores as spaces.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+define(&quot;CLOSE_TO_PIE&quot;,3.1415926); 
+define(&quot;THE_ANSWER&quot;,42);
+define(&quot;INSTRUCTOR_FULL_NAME&quot;,&quot;Kyle Andrew McGrath Geske&quot;);
+echo INSTRUCTOR_FULL_NAME . &quot; knows the answer: &quot; . THE_ANSWER;
+
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Kyle Andrew McGrath Geske knows the answer: 42</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/language.constants.php">Constants @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="variables">Variables</h1>
+  
+    <p>PHP can store your data in variables. Variables are named placeholders that can store numbers, strings, and other data.</p>
+
+<p>Variables in PHP begin with a dollar sign followed by the name of the variable. The variable name is case-sensitive.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+$goats_in_the_kitchen = 13;
+$goat_feet = $goats_in_the_kitchen * 4;
+$feet_story  = &quot;Once there were &quot; . $goat_feet . &quot; goat feet in our kitchen.&quot;;
+echo $feet_story;
+
+?&gt;</code></pre></code></pre>
+
+<p>A valid variable name starts with a letter or underscore, followed by any number of letters, numbers, or underscores.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/language.variables.php">Variables @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="variable-types">Variable Types</h1>
+  
+    <p>PHP variables are dynamically typed, which means that they are not assigned types by the programmer. They are assigned a type by the interpreter based on their context.</p>
+
+<p>Types in PHP:</p>
+
+<ul>
+<li>boolean (scalar)</li>
+
+<li>integer (scalar)</li>
+
+<li>float (scalar)</li>
+
+<li>string (scalar)</li>
+
+<li>array (compound)</li>
+
+<li>object (compound)</li>
+
+<li>NULL (Variables can be assigned NULL or <code>unset()</code>.)</li>
+
+<li>resource (special)</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/language.types.php">Types @ PHP.net</a></li>
+
+<li><a href="http://us.php.net/manual/en/function.unset.php">unset() @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="variable-types">Variable Types</h1>
+  
+    <p>The type of a variable can be changed at any time by reassignment or by casting.</p>
+
+<p>There are a number of <code>is_*()</code> functions available (example <code>is_bool()</code>, <code>is_int()</code>, &amp;c) and <code>isset()</code> to check for NULL.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+$my_int   = 12;
+$my_float = (float)$my_int; // Casting int to a float.
+unset($my_int); // Equivalent to: $my_int = NULL;
+if (!isset($my_int) &amp;&amp; is_float($my_float)) {
+    echo &quot;All is well.&quot;;
+}
+
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/function.gettype.php">gettype() @ PHP.net</a></li>
+
+<li><a href="http://us.php.net/manual/en/ref.var.php">Variable Handling Funcions @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="strings">Strings</h1>
+  
+    <p>A string is series of characters. The most common ways to specify strings is by wrapping characters in single or double quotes.</p>
+
+<p>If a string is specified using double quotes then any variables within curly-braces or escape characters it contains will be evaluated.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $name = &#39;Bobby McGee&#39;;    
+    $fancy_string = &quot;My name is {$name}.\n&quot;; // The \n represents a newline.
+    $plain_string = &#39;My name is {$name}.\n&#39;;
+    echo $fancy_string;
+    echo $plain_string;
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">My name is Bobby McGee.
+My name is {$name}.\n</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/language.types.string.php">Strings @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="strings">Strings</h1>
+  
+    <p>Strings can be concatenated together using the dot operator.</p>
+
+<p>We can use <code>strlen()</code> to determine the length of a string.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $old_shopping_list = &#39;bacon,chickpeas,gasoline,grapes&#39;;
+    $new_shopping_list = $old_shopping_list . &#39;,corn,tricycle&#39;;
+    $output  = &quot;Our list is &quot; . strlen($new_shopping_list);
+    $output .= &quot; characters long.&quot; // Add to an existing string by using .=
+    echo $output;
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Our list is 45 characters long.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="truthiness-and-falsiness">Truthiness and Falsiness</h1>
+  
+    <p>When working with Boolean expressions PHP contains the constants <code>TRUE</code> and <code>FALSE</code>. However, most other variable types can be coerced into Booleans.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    function boolean_test($var) {
+        if ($var) { 
+            echo &quot;{$var} is true\n&quot;;
+        } else {
+            echo &quot;{$var} is false\n&quot;;
+        }
+    }
+    boolean_test(TRUE);     boolean_test(FALSE);
+    boolean_test(0);        boolean_test(1);
+    boolean_test(2);        boolean_test(3);
+    boolean_test(&#39;string&#39;); boolean_test(&#39;&#39;);
+    boolean_test([]);       boolean_test([34]);
+    boolean_test(NULL);
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Output:</p>
+
+<pre><code><pre><code class="php">1 is true
+ is false
+0 is false
+1 is true
+2 is true
+3 is true
+string is true
+ is false
+Array is false
+Array is true
+ is false</code></pre></code></pre>
+
+<p>Some things to note here:</p>
+
+<ul>
+<li>When printing out <code>TRUE</code> we get a 1.</li>
+
+<li>When print <code>FALSE</code> or <code>NULL</code> a empty string is printer.</li>
+
+<li>Zero is false while all other numbers are true.</li>
+
+<li>Empty strings are false, while all other strings are true.</li>
+
+<li>Empty arrays and hashes are false, while all other arrays and hashes are true.</li>
+</ul>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://php.net/manual/en/types.comparisons.php">The Nitty-Gritty of Type Comparisons @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="boolean-expressions">Boolean Expressions</h1>
+  
+    <p>A boolean expression is a mathematical expression that results in either <code>true</code> or <code>false</code>.</p>
+
+<p>Boolean expressions can contain the following common operators (and more):</p>
+<table><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td style="text-align: center;">==</td><td style="text-align: left;">equal</td>
+</tr><tr><td style="text-align: center;">!=</td><td style="text-align: left;">not equal</td>
+</tr><tr><td style="text-align: center;">&gt;</td><td style="text-align: left;">greater than</td>
+</tr><tr><td style="text-align: center;">&lt;</td><td style="text-align: left;">less than</td>
+</tr><tr><td style="text-align: center;">&gt;=</td><td style="text-align: left;">greater than or equal</td>
+</tr><tr><td style="text-align: center;">&lt;=</td><td style="text-align: left;">less than or equal</td>
+</tr><tr><td style="text-align: center;">&amp;&amp;</td><td style="text-align: left;">Boolean &#8216;and&#8217;</td>
+</tr><tr><td style="text-align: center;">&#166;&#166;</td><td style="text-align: left;">Boolean &#8216;or&#8217;</td>
+</tr></tbody></table>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://stungeye.com/archive/by_date/2009/06/15">George Boole</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="really-really-really-equals">Really Really Really Equals?</h1>
+  
+    <p>Because PHP will auto-cast your variables when you compare them with different types, the double equals operator doesn&#8217;t always act in an expected manner.</p>
+
+<p>For example, the following comparisons will evaluate to true.</p>
+
+<pre><code><pre><code class="php">42 == &quot;42&quot;
+42 == true
+0 == false
+0 == &quot;a&quot;
+&quot;a&quot; == true
+0 != true</code></pre></code></pre>
+
+<p>To avoid these WAT!? moments, use the triple equals operator <code>===</code> when making comparisons.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="if-statements">If Statements</h1>
+  
+    <p>If statements work as expected. Note that <code>elseif</code> is one word when chaining statements.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+if (($wobblypops &gt; 4) || ($wobblypops === 0)) {
+    echo &#39;I pity da fool.&#39;;
+} elseif ($wobblypops &lt; 4) {
+    echo &#39;Gulp gulp.&#39;;
+    $wobblypops++;
+}
+
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>There have been examples of simple if/else clauses earlier in the notes.</p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us.php.net/manual/en/control-structures.if.php">if @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="switch-statements">Switch Statements</h1>
+  
+    <p>It&#8217;s sometimes nice to express long if/else chains as switch statements:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $i = 1;
+    switch ($i) {
+        case 0:
+            echo &#39;i equals 0&#39; . $i;
+            break;
+        case 1:  // Note: Fall-through
+            echo &quot;falling\n&quot;;
+        case 2:  // Note: Fall-through
+            echo &quot;falling\n&quot;;
+        case 3:  
+            echo &#39;i equals 1-3&#39;;
+            break;
+        default:
+            echo &#39;Nothing special about the default.&#39;;
+    }
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p><em>Note the &#8220;fall-through&#8221; cases for 1 and 2. Execution does not stop until we reach a <code>break</code> or the end of the switch block.</em></p>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">falling
+falling
+i equals 1-3</code></pre></code></pre>
+
+<p>Strings can also be used as the target of a switch:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    switch($beer)
+    {
+        case &#39;trad&#39;:
+        case &#39;fort garry dark&#39;:
+        case &#39;hoegaarden&#39;:
+            echo &#39;Good choice&#39;;
+            break;
+        default:
+            echo &#39;Please make a new selection...&#39;;
+    }
+?&gt;</code></pre></code></pre>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us3.php.net/manual/en/control-structures.switch.php">Switch @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="for-loops">For Loops</h1>
+  
+    <p>A for loop is a counting loops that executes a block of code until a test becomes false. In PHP a for loop works pretty much as you would expect it to.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+    for($i = 100; $i &gt; 0; $i--) {
+        echo $i;
+    }
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://ca3.php.net/manual/en/control-structures.for.php">For Loop @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="while">While</h1>
+  
+    <p>A while loop repeatedly executes a block of code while the supplied boolean expression is true.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+    $i = 1;
+    while ($i &lt;= 10) {
+        echo $i++;
+    }
+
+    echo &#39;Oh my, a humdrum example if I ever saw one.&#39;;
+
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://ca3.php.net/while">while @ PHP.net</a></li>
+
+<li><a href="http://us3.php.net/manual/en/control-structures.do.while.php">do-while @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="arrays">Arrays</h1>
+  
+    <p>Arrays are created using square braces. The data stored in an array can be retrieved using a zero-based index.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+$numbers      = [1,2,3];
+$to_do_list   = [&#39;finish homework&#39;,&#39;bathe&#39;,&#39;cook dinner&#39;];
+$to_do_list[] = &#39;practice taxidermy&#39;; // Appended the array.
+echo &quot;Kyle {$to_do_list[0]} now!&quot;;
+
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Kyle finish homework now!</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>The length of an Array need never be specified explicitly.</p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://ca.php.net/manual/en/language.types.array.php">Arrays @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="count-the-length">Count The Length</h1>
+  
+    <p>The length of an array can be determined using the <code>count()</code> function.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $bookshelf = [&#39;Catcher in the Rye&#39;,
+                  &#39;Anathem&#39;,
+                  &#39;The Glassbead Game&#39;,
+                  &#39;The Manticore&#39;];
+    echo &quot;I own &quot; . count($bookshelf) .&quot; books.&quot;;
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php"> I own 4 books.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://ca.php.net/manual/en/function.count.php">Count @ PHP.net</a></li>
+
+<li><a href="http://ca.php.net/manual/en/ref.array.php">Array Functions @ PHP.net</a> - Too many useful functions to list. Come on down!</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="implode-and-explode">Implode and Explode</h1>
+  
+    <p>The <code>implode()</code> function joins array elements into a string, while the <code>explode()</code> function splits a string into an array.</p>
+
+<p>Both functions need to be supplied with a delimiter.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $poem = [&#39;Mares eat oats&#39;,&#39;goat eat oats&#39;,&#39;little lambs eat ivy.&#39;];
+    echo implode(&#39; and &#39;, $poem) . &quot;\n&quot;;
+
+    $the_numbers  = &#39;4,8,15,16,23,42&#39;;
+    $dharma_hatch = explode(&#39;,&#39;,$the_numbers);
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Mares eat oats and goat eat oats and little lambs eat ivy.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://ca.php.net/manual/en/function.implode.php">Implode @ PHP.net</a></li>
+
+<li><a href="http://ca.php.net/manual/en/function.explode.php">Explode @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="print_r">Print_r</h1>
+  
+    <p>The <code>print_r()</code> function prints human-readable information about an array.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $the_numbers  = &#39;4,8,15,16,23,42&#39;;
+    $dharma_hatch = explode(&#39;,&#39;,$the_numbers);
+    print_r($dharma_hatch);
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Array
+(
+    [0] =&gt; 4
+    [1] =&gt; 8
+    [2] =&gt; 15
+    [3] =&gt; 16
+    [4] =&gt; 23
+    [5] =&gt; 42
+)</code></pre></code></pre>
+
+<p>For even more details use <code>var_dump()</code> instead of <code>print_r</code>.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://stungeye.com/school/pizza/pizza.php">Hurray for Arrays</a> - In which Hippolyte and Chubbs order a pizza.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="hashes">Hashes</h1>
+  
+    <p>A hash (sometimes called a map or a dictionary) is similar to an array. However, instead of storing and retrieving data using an index, hashes use <em>keys</em> to retrieve <em>values</em>. Each key is unique, and corresponds to a single value within the array. We call these <em>key-value</em> pairs.</p>
+
+<p>In PHP, arrays are actually just hashes where the keys are zero-based integers.</p>
+
+<p><strong>Hash keys can also be strings.</strong></p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $french_fruit = [&#39;apple&#39;      =&gt; &#39;une pomme&#39;,
+                     &#39;pineapple&#39;  =&gt; &#39;un ananas&#39;,
+                     &#39;grapefruit&#39; =&gt; &#39;un pamplemousse&#39;];
+    echo &quot;Aujourd&#39;hui, je vais manger {$french_fruit[&#39;grapefruit&#39;]}.&quot;;
+?&gt; </code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Aujourd&#39;hui, je vais manger un pamplemousse.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="nested-hashes-and-arrays">Nested Hashes and Arrays</h1>
+  
+    <p>Hashes can contain hashes. Arrays can contain arrays. Hashes can contain Arrays. Arrays can contain Hashes.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    // An Array of Hashes
+    $employees = [
+                     [&#39;name&#39;     =&gt; &#39;Wally Glutton&#39;,
+                      &#39;position&#39; =&gt; &#39;Ninja&#39;],
+                     [&#39;name&#39;     =&gt; &#39;Kyle Geske&#39;,
+                      &#39;position&#39; =&gt; &#39;Instructor&#39;]
+                 ];
+    echo &quot;{$employees[0][&#39;name&#39;]} is a {$employees[0][&#39;position&#39;]}.&quot;;
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Wally Glutton is a Ninja.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="nested-hashes-and-arrays">Nested Hashes and Arrays</h1>
+  
+    <p>Here&#8217;s a hash where the values are arrays:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    // A Hash of Arrays
+    $favourite_foods = [ &#39;jane&#39; =&gt; [&#39;cabbage&#39;,&#39;pizza&#39;],
+                         &#39;john&#39; =&gt; [&#39;rainbow trout&#39;,&#39;chalk&#39;]];
+
+    $john_eats = $favourite_foods[&#39;john&#39;];
+    echo &quot;John eats {$john_eats[0]} and {$john_eats[1]}.&quot;;
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">John eats rainbow trout and chalk.</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Two things that should also be noted:</p>
+
+<ul>
+<li>The contents of an array or hash can be of non-uniform type.</li>
+
+<li>The <code>print_r()</code> function also works for hashes.</li>
+</ul>
+
+<p>For example:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $mixed_bag = [&#39;one&#39;,2,&#39;three&#39;,4,[5 =&gt; &#39;five&#39;,&#39;six&#39; =&gt; 6]];
+    print_r($mixed_bag);
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Array
+(
+    [0] =&gt; one
+    [1] =&gt; 2
+    [2] =&gt; three
+    [3] =&gt; 4
+    [4] =&gt; Array
+        (
+            [5] =&gt; five
+            [six] =&gt; 6
+        )
+)</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="null">NULL</h1>
+  
+    <p>A variable is considered NULL if:</p>
+
+<ul>
+<li>It has not yet been assigned a value.</li>
+
+<li>It has been explicitly assigned the constant <code>NULL</code>.</li>
+
+<li>It has been <code>unset()</code>.</li>
+</ul>
+
+<p>We can test for null using <code>isset()</code>.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    if (isset($new_variable)) {
+        echo &quot;How very odd!?!&quot;;
+    }
+    $new_variable = &#39;I am no longer NULL.&#39;;
+    if (isset($new_variable)) {
+        echo $new_variable;
+    }
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">I am no longer NULL.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us3.php.net/manual/en/function.unset.php">unset() @ PHP.net</a></li>
+
+<li><a href="http://us3.php.net/manual/en/function.isset.php">isset() @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="isset-for-hashes">Isset() For Hashes</h1>
+  
+    <p>We can also use <code>isset()</code> to test if particular hash keys have been assigned values.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    function toy_box_contains($toy, $toy_box) {
+        if (isset($toy_box[$toy])) {
+            echo &quot;You have {$toy_box[$toy]} {$toy}.\n&quot;;
+        } else {
+            echo &quot;You have no $toy.&quot;;
+        }
+    }
+    $toy_box = [&#39;tin soldiers&#39;   =&gt; 52,
+                &#39;pick-up sticks&#39; =&gt; 35,
+                &#39;dice&#39;           =&gt;  6,
+                &#39;transformers&#39;   =&gt;  4];
+    toy_box_contains(&#39;dice&#39;, $toy_box);
+    toy_box_contains(&#39;robots&#39;, $toy_box);
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Output:</p>
+
+<pre><code><pre><code class="php">You have 6 dice.
+You have no robots.</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="functions">Functions</h1>
+  
+    <p>Functions do things, they are the verbs of computer programming.</p>
+
+<p>PHP functions can be defined to take zero of more parameters and can return any type of variable.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    function square($x) {
+        return $x * $x;
+    }
+    echo &quot;16 squared = &quot; . square(16);
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>If your function has nothing to return you need not use the return keyword. A function will automatically return when there are no more statements to execute.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+
+function say_good_day($name) {
+    echo &quot;A fine day indeed {$name}!&quot;;
+}
+
+say_good_day(&#39;Bobby McGee&#39;);
+
+?&gt;</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="traversing-arrays">Traversing Arrays</h1>
+  
+    <p>The most common task performed on arrays is a traversal, the incrementally &#8220;visiting&#8221; of each array element.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $words = [&#39;one&#39;,&#39;two&#39;,&#39;buckle&#39;,&#39;my&#39;,&#39;shoe&#39;];
+    foreach ($words as $word) {
+        echo $word . &#39; &#39;;
+    }
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Here&#8217;s the same code in Java:</p>
+
+<pre><code><pre><code class="php">String[] words = {&quot;one&quot;, &quot;two&quot;, &quot;buckle&quot;, &quot;my&quot;, &quot;shoe&quot;};
+ 
+ for (int i = 0; i &lt; words.length; i++) {
+     System.out.println(words[i]);
+ }</code></pre></code></pre>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us3.php.net/manual/en/control-structures.foreach.php">foreach @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="traversing-hashes">Traversing Hashes</h1>
+  
+    <p>The <code>foreach</code> loop can also be used to traverse the key/value pairs of a hash.</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $names = [&#39;Wally&#39; =&gt; &#39;Glutton&#39;,
+              &#39;Sammy&#39; =&gt; &#39;McGoo&#39;,
+              &#39;Joni&#39;  =&gt; &#39;Mitchell&#39;];
+    foreach($names as $firstname =&gt; $lastname) {
+        echo &quot;{$lastname}, {$firstname}&quot;;
+    }
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Output:</p>
+
+<pre><code><pre><code class="php">Glutton, Wally
+McGoo, Sammy
+Mitchell, Joni</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="traversing-nested-structures">Traversing Nested Structures</h1>
+  
+    <p>Sometimes we need to traverse complex nested structures of arrays and hashes.</p>
+
+<p>When traversing such structures it is important to determine which portion of the structure is comprised of arrays and his portion is comprised of hashes.</p>
+
+<p>We can then use nested <code>foreach</code> loops to traverse all of these hashes and arrays.</p>
+  
+  <div class="handout">
+    <p>Here the <code>$football_teams</code> variable is an array of hashes detailing British football teams:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $football_teams = [ 
+        [ // This is the 0th hash in the $football_teams array.
+            &#39;coach&#39;    =&gt; &#39;Bobby McGoo&#39;,
+            &#39;teamname&#39; =&gt; &#39;Strike Attack&#39;,
+            &#39;players&#39;  =&gt; [ // &#39;players&#39; is an array of hashes.
+                [&#39;name&#39;=&gt;&#39;Jill Scott&#39;,  &#39;position&#39;=&gt;&#39;goalie&#39;],
+                [&#39;name&#39;=&gt;&#39;Willard Bee&#39;, &#39;position&#39;=&gt;&#39;defense&#39;],
+                [&#39;name&#39;=&gt;&#39;Ace Batord&#39;,  &#39;position&#39;=&gt;&#39;centre&#39;]
+            ],
+            &#39;wins&#39;    =&gt; 5,
+            &#39;loses&#39;   =&gt; 2  
+        ],
+        [ // This is the 1st hash in the $football_teams array.
+            &#39;coach&#39;    =&gt; &#39;Sam Smith&#39;,
+            &#39;teamname&#39; =&gt; &#39;Running Scared&#39;,
+            &#39;players&#39;  =&gt; [
+                [&#39;name&#39;=&gt;&#39;Warren Lost&#39;, &#39;position&#39;=&gt;&#39;goalie&#39;],
+                [&#39;name&#39;=&gt;&#39;Jane Mayor&#39;,  &#39;position&#39;=&gt;&#39;defense&#39;],
+                [&#39;name&#39;=&gt;&#39;Tim MacLand&#39;, &#39;position&#39;=&gt;&#39;centre&#39;]
+            ],
+            &#39;wins&#39;    =&gt; 0,
+            &#39;loses&#39;   =&gt; 4
+        ]];
+    
+  foreach($football_teams as $current_team) {
+    echo &quot;{$current_team[&#39;teamname&#39;]} is coached by {$current_team[&#39;coach&#39;]}.\n&quot;;
+    echo &quot;The team has {$current_team[&#39;wins&#39;]} wins and {$current_team[&#39;loses&#39;]} loses.\n&quot;;
+    echo &quot;The team roster:\n&quot;;
+    foreach ($current_team[&#39;players&#39;] as $current_player) {
+        echo &quot;* {$current_player[&#39;name&#39;]} plays {$current_player[&#39;position&#39;]}\n&quot;;
+    }
+    echo &quot;\n&quot;;
+  }
+?&gt;</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre><code><pre><code class="php">Strike Attack is coached by Bobby McGoo.
+The team has 5 wins and 2 loses.
+The team roster:
+* Jill Scott plays goalie
+* Willard Bee plays defense
+* Ace Batord plays centre
+
+Running Scared is coached by Sam Smith.
+The team has 0 wins and 4 loses.
+The team roster:
+* Warren Lost plays goalie
+* Jane Mayor plays defense
+* Tim MacLand plays centre</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="helpful-array-functions">Helpful Array Functions</h1>
+  
+    <ul>
+<li><a href="http://ca2.php.net/manual/en/function.in-array.php">in_array</a> - Checks if a value exists in an array.</li>
+
+<li><a href="http://ca2.php.net/manual/en/function.array-key-exists.php">array_key_exists</a> - Checks if the given key or index exists in the array.</li>
+
+<li><a href="http://ca2.php.net/manual/en/function.shuffle.php">shuffle</a> - Shuffles an array.</li>
+
+<li><a href="http://ca2.php.net/manual/en/function.sort.php">sort</a> - Sort an array.</li>
+
+<li><a href="http://ca2.php.net/manual/en/function.asort.php">asort</a> - Sort an hash and maintain index association.</li>
+
+<li><a href="http://ca2.php.net/manual/en/function.list.php">list</a> - Assign variables as if they were an array.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="scope">Scope</h1>
+  
+    <p>All variables in PHP (created outside of functions) exist in a global scope. Function have a separate local scope. Variables used inside a function leave scope when the function exits.</p>
+
+<pre><code><pre><code class="php">&lt;?php 
+    $magic_words = &#39;abracadabra&#39;;
+    function scope_scoop() {
+        echo &quot;Inside Function 1: {$magic_words}\n&quot;;
+        $magic_words = &#39;Bibbidi-bobbidi-boo&#39;;
+        echo &quot;Inside Function 2: {$magic_words}\n&quot; ;
+    }
+    scope_scoop();
+    echo &quot;Outside Function : {$magic_words}&quot; ;
+?&gt;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Output:</p>
+
+<pre><code><pre><code class="php">Notice:  Undefined variable: magic_words in C:\xampp\htdocs\php\text.php on line 4
+Inside Function 1: 
+Inside Function 2: Bibbidi-bobbidi-boo
+Outside Function : abracadabra</code></pre></code></pre>
+
+<p><em>Scope defines where in a program a variable is accessible. Where ever a variable is not accessible by your program it is said to be &#8220;out of scope&#8221; or &#8220;outside the current scope.&#8221;</em></p>
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://us3.php.net/manual/en/language.variables.scope.php">Variable Scope @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="php-and-html">PHP and HTML</h1>
+  
+    <p>Up to this point when we&#8217;ve wanted to print from PHP we&#8217;ve been using <code>echo</code>:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $world = &quot;Hello World&quot;;
+    echo $world;
+?&gt;</code></pre></code></pre>
+
+<p>But we can also use what is called a short echo:</p>
+
+<pre><code><pre><code class="php">&lt;?= $world ?&gt;</code></pre></code></pre>
+
+<p>Note that a trailing semicolon is not required.</p>
+  
+  <div class="handout">
+    <p>When mixing PHP and HTML we&#8217;re going to try to keep the two as separate as possible.</p>
+
+<p>A typical PHP + HTML script should look like:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    /* Most of your PHP code should go here.
+       Including all variable initialization,
+       calculations, user input processing, 
+       database queries, etc. */
+
+    $world = &quot;Hello World&quot;;
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- To inject data from PHP variables into
+         your HTML you should use a short echo. --&gt;
+
+    &lt;p&gt;Woot: &lt;?= $world ?&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="mixing-html-and-php">Mixing HTML and PHP</h1>
+  
+  <div class="content-with-image">
+    <img alt="Spaghetti-code" class="medium" src="/system/images/805/medium/spaghetti-code.jpg?1452094005" />
+    <p>In the HTML portion of your code you should use as little PHP as possible. At most you should use PHP within your HTML to:</p>
+
+<ul>
+<li>Echo the content of variables using &#8220;short echos&#8221;.</li>
+
+<li>Include or exclude HTML using PHP if/elseif/else statements.</li>
+
+<li>Loop over arrays using PHP for/while loops while echoing.</li>
+</ul>
+
+<p>The HTML portion of your page should be considered a template only, not a place to code. Because spaghetti code.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="the-alternative-syntax">The Alternative Syntax</h1>
+  
+    <p>When embedding PHP within your HTML you should be using what is called the &#8220;alternative syntax for control structures.&#8221;</p>
+
+<pre><code><pre><code class="php">&lt;ul&gt;
+    &lt;?php foreach($todo as $item): ?&gt;
+        &lt;li&gt;&lt;?=$item?&gt;&lt;/li&gt;
+    &lt;?php endforeach ?&gt;
+&lt;/ul&gt;
+
+&lt;?php if ($logged_in): ?&gt;
+   &lt;h3&gt;You Are Logged In&lt;/h3&gt;
+&lt;?php elseif ($username === &#39;admin&#39;): ?&gt;
+   &lt;h3&gt;You Are the Admin&lt;/h3&gt;
+&lt;?php else: ?&gt;
+   &lt;a href=&quot;login.php&quot;&gt;Log In&lt;/a&gt;
+&lt;?php endif ?&gt;</code></pre></code></pre>
+
+<p>Notice that there are no curly braces. Instead blocks begin with a colon and end with an <code>endif</code>, <code>endfor</code>, <code>endforeach</code> or <code>endwhile</code>.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://secure.php.net/manual/en/control-structures.alternative-syntax.php">PHP Alternative Syntax @ PHP.net</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1 id="thou-shall-never">Thou Shall Never...</h1>
+  
+    <p>&#8230;write HTML inside of your PHP inside of your HTML.*</p>
+
+<p>This is what not to do:</p>
+
+<pre><code><pre><code class="php">&lt;?php
+    $href  = &quot;http://example.com&quot;;
+    $title = &quot;Snafu&quot;;
+?&gt;
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Make Your Instructor Cry&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- The following two lines are what I want you to avoid doing. --&gt;
+    &lt;p&gt;&lt;?= &quot;&lt;span&gt;WAT?!?&lt;/span&gt;&quot; ?&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;?= &quot;&lt;a href=&#39;&quot; . $href .&quot;&#39;&gt;&quot; . $title . &quot;&lt;/a&gt;&quot; ?&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></code></pre>
+
+<p>There is always a way around embedding HTML in your PHP strings. For example:</p>
+
+<pre><code><pre><code class="php">&lt;p&gt;&lt;a href=&quot;&lt;?= $href ?&gt;&quot;&gt;&lt;?= $title ?&gt;&lt;/a&gt;&lt;/p&gt;
+############^^^^^^^^^^^^##^^^^^^^^^^^^^########</code></pre></code></pre>
+
+<p>Code above hashes (#) is HTML. Code above carets (^) is PHP.</p>
+  
+  <div class="handout">
+    <p>When processed this line would generate:</p>
+
+<pre><code><pre><code class="php">&lt;p&gt;&lt;a href=&quot;http://example.com&quot;&gt;Snafu&lt;/a&gt;&lt;/p&gt;</code></pre></code></pre>
+
+<p>* <em>Rules, of course, were meant to be broken. So try your best to keep this one, but if you really can&#8217;t find a way around it, go ahead and live dangerously. ;)</em></p>
+    
+      <h3>Resources</h3>
+      <p>Another way to manage the complexity of the PHP embedded in your markup is to use a templating library like <a href="http://twig.sensiolabs.org/">Twig</a> or <a href="https://laravel.com/docs/5.1/blade">Blade</a>. To use these libraries you&#8217;ll have to look into <a href="https://getcomposer.org/">Composer</a>, the PHP dependency manager.</p>
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+
+  const codepens = document.querySelectorAll(".codepen");
+  if (codepens.length > 0) {
+    const codepenScript = document.createElement('script');
+    codepenScript.src = "https://static.codepen.io/assets/embed/ei.js";
+    document.head.appendChild(codepenScript);
+  }
+</script>
+</body>
+</html>

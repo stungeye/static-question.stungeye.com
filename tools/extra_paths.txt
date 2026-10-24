@@ -1,0 +1,11 @@
+/ui/default/slides.css
+/ui/default/iepngfix.htc
+/ui/default/outline.css
+/ui/default/framing.css
+/ui/default/pretty.css
+/ui/default/bodybg.gif
+/ui/default/blank.gif
+/ui/default/s5-core.css
+/ui/default/slides.js
+/ui/default/print.css
+/ui/default/opera.css

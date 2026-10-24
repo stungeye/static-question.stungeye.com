@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Intro to Processing</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  .slide > pre {
+      margin-bottom: 1em;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .92em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Intro to Processing</h1>
+<h2>Intro to Programming Logic COMP-1029</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>Intro to Processing</h1>
+  <h2>Intro to Programming Logic COMP-1029</h2>
+  
+  <h4>Red River College</h4>
+</div>
+
+
+<div class="slide">
+  <h1>Introduction</h1>
+  
+  <div class="content-with-image">
+    <img alt="Path" class="medium" src="/system/images/378/medium/path.jpg?1257828760" />
+    <p><em>&#8220;The journey of a thousand miles begins with one step.&#8221;</em> &#8211; Lao Tzu</p>
+
+<p>Here begins your journey into the Java programming language by way of Processing, an open source programming language and environment for people who want to program images, animation, and sound.</p>
+
+<p><em>&#8220;Focus on the journey, not the destination.</em></p>
+
+<p><em>Joy is found not in finishing an activity but in doing it.&#8221;</em> &#8211; Greg Anderson</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Objectives</h1>
+  
+    <p>Upon completion of this module, you should be able to:</p>
+
+<ul>
+<li>Create and save new Processing sketches.</li>
+
+<li>Add single and multi-line comments to a sketch.</li>
+
+<li>Evaluate numeric and Boolean expressions to determine their value.</li>
+
+<li>Apply the variable naming rules to create correctly named variables.</li>
+
+<li>List the common variable types and their limitations.</li>
+
+<li>Understand the function of white space in source code.</li>
+
+<li>Print text and the contents of variables to the Processing console.</li>
+
+<li>Write simple Processing sketches that make use of: Comments, Built-in Functions &amp; Variables</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>What is Source Code?</h1>
+  
+  <div class="content-with-image">
+    <img alt="Source-code" class="medium" src="/system/images/389/medium/source-code.jpg?1257831484" />
+    <p>Source code is a special kind of written document through which a programmer can control a computer.</p>
+
+<p>Most source code is simply text made of letters, numbers and symbols. It can therefore be viewed and edited using any text-editor. However it is sometimes helpful to use an Integrated Development Environment (IDE), a program that allows you to both edit and run your source.</p>
+
+<p>Processing programs are called sketches and are composed of one or more source code files. We can run and edit these sketches using the Processing IDE called the PDE (Processing Development Environment).</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Conventions</h1>
+  
+    <p>All source code in these notes will be syntax highlighted like so:</p>
+
+<pre><code><pre><code class="java">smooth();
+ellipse(50, 40, 60, 60);
+ellipse(31, 40, 16, 32); 
+ellipse(69, 40, 16, 32); </code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Creating Processing Sketches</h1>
+  
+    <p>Processing comes bundled with an IDE for editing and running your sketches. It also comes with a large number of example sketches that you can read through and run.</p>
+
+<p>When you launch Processing you are presented with a blank unnamed sketch. You can save the sketch using the file menu or by pressing CTRL-S.</p>
+
+<p>The first time you save a sketch the IDE may ask you where you wish all your sketches to be saved. I recommend saving your sketches to a folder within your &#8220;My Documents&#8221; folder.</p>
+
+<p>Open Processing and save the empty sketch as &#8220;first sketch&#8221;.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Commenting Code</h1>
+  
+    <p>Comments are lines of source code that are ignored by the computer but are important for people.</p>
+
+<p>Comments let us write notes to ourselves and to any others who may read our code. These notes allow us to document our design decisions and to explain complex portions of our source.</p>
+
+<p>Source documents often begin with a collection of comments explaining the purpose and functionality of the code. These comments may also show who created the code, when it was created, when it was modified and by whom.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Single and Multi-Line Comments</h1>
+  
+    <p>Single lines of text can be flagged as comments by place two forward slashes at the start of the line. There must not be any spaces between the slashes.</p>
+
+<pre><code><pre><code class="java">// This is a single-line comment.</code></pre></code></pre>
+
+<p>A forward slash followed by an asterisk allows a comment to continue across multiple lines until the comment is &#8220;closed&#8221; using an asterisk and a forward slash.</p>
+
+<pre><code><pre><code class="java">/* This is a multi-line comment.
+   As you can see the comment does
+   indeed span multiple lines. */</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Adding Comments</h1>
+  
+    <p>Let&#8217;s add a multi-line comment block to the top of our first sketch.</p>
+
+<pre><code><pre><code class="java">/**************************************************
+ * Description: This is my first sketch.          *
+ * Created By: Kyle Geske                         *
+ * Created On: November 9th, 2009                 *
+ * Modified On: ---- by ----                      *
+ **************************************************/</code></pre></code></pre>
+
+<p><strong>Note:</strong> All but two of those asterisks are required. Which ones?</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Using Built-In Functions</h1>
+  
+    <p>Add the following to your first sketch:</p>
+
+<pre><code><pre><code class="java">ellipse(50, 40, 60, 60);</code></pre></code></pre>
+
+<p>Run your program and you will see that we are providing Processing with a command to draw an ellipse. We will refer to commands in Processing as <em>functions</em>. Functions are the verbs of computer programming, they do things. When use a function we are said to be &#8220;calling the function.&#8221;</p>
+
+<p>Some functions require that we specify <em>arguments</em> that control how the command will be executed. The ellipse function above requires four arguments. Can you figure out what each argument means?</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Statements - Sentences in Code</h1>
+  
+    <p>Add the following to your sketch:</p>
+
+<pre><code><pre><code class="java">line(20, 10, 80, 70);</code></pre></code></pre>
+
+<p>If this function is to be seen as a verb then the entire line of source code can be seen as a sentence.</p>
+
+<p>All sentences in Processing must end in a semicolon. As we will soon see, there are different kinds of Processing sentences beyond function calls. We will refers to sentences in Processing as <em>statements</em>.</p>
+
+<p>Try running a sketch with one of the semicolons missing.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Expressions - Phrases in Code</h1>
+  
+    <p>In human language a number of phrases can be combined to form a sentence. The Processing equivalent of phrases are called <em>expressions</em>.</p>
+
+<p>Expressions are often combinations of operators such as +, *, and / along with values on which to operate. An expression always has a value, determined by evaluating its contents.</p>
+<table><thead><tr><th>Expression</th><th>Value</th></tr></thead><tbody><tr><td style="text-align: center;">12</td><td style="text-align: left;">12</td>
+</tr><tr><td style="text-align: center;">7 * 7 - 7</td><td style="text-align: left;">42</td>
+</tr><tr><td style="text-align: center;">(3+2) * -10)</td><td style="text-align: left;">-50</td>
+</tr></tbody></table>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Boolean Expressions</h1>
+  
+    <p>Expressions can also be used to compare values using comparison operators that return Boolean values.</p>
+<table><thead><tr><th>Expression</th><th>Value</th></tr></thead><tbody><tr><td style="text-align: center;">8 &gt; 2</td><td style="text-align: left;">true</td>
+</tr><tr><td style="text-align: center;">89 &lt; 4</td><td style="text-align: left;">false</td>
+</tr><tr><td style="text-align: center;">23 == 23</td><td style="text-align: left;">true</td>
+</tr><tr><td style="text-align: center;">23 == 24</td><td style="text-align: left;">false</td>
+</tr><tr><td style="text-align: center;">23 != 24</td><td style="text-align: left;">true</td>
+</tr></tbody></table>
+<p><em>Note:</em> The double equals signs test for numeric equivalence. The exclamation mark equals tests for non-equivalence.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>White Space</h1>
+  
+    <p>In many programming languages, Processing included, the amount of whitespace between elements of a program can be arbitrary.</p>
+
+<p>Currently your sketch contains the following code:</p>
+
+<pre><code><pre><code class="java">ellipse(50, 40, 60, 60);
+line(20, 10, 80, 70);</code></pre></code></pre>
+
+<p>The program would run the same way had we typed:</p>
+
+<pre><code><pre><code class="java">ellipse
+(    50,40    ,60,      60)             ;
+line   (20,10,      80, 70)
+;</code></pre></code></pre>
+
+<p>Of course, we want our source code to be as readable as possible, so try not to get too fancy with your whitespace.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Variables Hold Data</h1>
+  
+    <p>Processing allows us to remember specific data using <em>variables</em>. We can think of variables as containers for storing data. Before we can use a variable we need to assign it a name along with a <em>type</em>. The type specifies what kind of data a particular variable can store.</p>
+
+<p>Here are some common variable types:</p>
+<table><thead><tr><th>Name</th><th>Size</th><th>Value Range</th></tr></thead><tbody><tr><td style="text-align: center;">boolean</td><td style="text-align: center;">1 bit</td><td style="text-align: center;">true or false</td>
+</tr><tr><td style="text-align: center;">byte</td><td style="text-align: center;">8 bits</td><td style="text-align: center;">-128 to 127</td>
+</tr><tr><td style="text-align: center;">char</td><td style="text-align: center;">16 bits</td><td style="text-align: center;">0 to 65535</td>
+</tr><tr><td style="text-align: center;">int</td><td style="text-align: center;">32 bits</td><td style="text-align: center;">-2,147,483,648 to 2,147,483,647</td>
+</tr><tr><td style="text-align: center;">float</td><td style="text-align: center;">32 bit</td><td style="text-align: center;">-3.40282347E+38 to 3.40282347E+38</td>
+</tr><tr><td style="text-align: center;">color</td><td style="text-align: center;">32 bit</td><td style="text-align: center;">16,777,216 colours</td>
+</tr></tbody></table>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Variable Creation</h1>
+  
+    <p>A variable needs to be declared before it can be used. The declaration specifies the variable&#8217;s name and type.</p>
+
+<pre><code><pre><code class="java">int x;   // Declares a variable named x of type int
+float y; // Declares a variable named y of type float
+x = 50;  // Assigns the value of 50 to the variable x
+y = 2.5; // Assigns the value of 2.5 to the variable y</code></pre></code></pre>
+
+<p>Once a variable is declared we can assign it a value using a <em>single</em> equals sign.</p>
+
+<p><strong>Note:</strong> Both the declaration and assignment of variables are statements and therefore need to end with semi-colons.</p>
+  
+  <div class="handout">
+    <p>Variables can also be assigned values at the same time as they are declared:</p>
+
+<pre><code><pre><code class="java">int x = 50;
+int y = 2.5;</code></pre></code></pre>
+
+<p><strong>Be Careful:</strong> A common novice programming error is to confuse the double equals operator that tests for equality with the single equals assignment operator.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Variable Naming</h1>
+  
+    <p>Variable names should be chosen so that they accurately describe their content. This makes our programs easier to read by humans.</p>
+
+<p>Variables names should begin with a lowercase letter. If a variable name is composed of multiple words the words should be combined with the first letter of each additional word capitalized.</p>
+
+<pre><code><pre><code class="java">sampleWeightInKilograms = 2.4;
+usersAgeBeforeSpaceFlight = 32;</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Rules for naming variables:</p>
+
+<ul>
+<li>The first character must be a lower-case letter, not a number.</li>
+
+<li>Remaining positions can be filled with numbers or letters and &#8220;_&#8221;</li>
+
+<li>Variable names cannot contain spaces.</li>
+
+<li>Variables are case-sensitive. They <em>must</em> be written the same way every time. (For example, the variable <code>Pizza</code> is not the same as <code>pizza</code>.)</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Common Variable Errors</h1>
+  
+    <p>When working with variables there are some common errors we encounter when we attempt to:</p>
+
+<ul>
+<li>Re-declare the type of an existing variable.</li>
+
+<li>Assign the incorrect type of data to an existing variable.</li>
+
+<li>Calculate decimal values using integer types, resulting in truncation.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>No Variable Re-Declaration</h1>
+  
+    <p>Once a variable has been declared it may never be re-declared to change it&#8217;s type or to reset it&#8217;s value.</p>
+
+<pre><code><pre><code class="java">int x = 5;
+float y;
+
+float x; // This declaration will trigger an error.
+float y; // Error: Even though the type is the same.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Incorrect Variable Type</h1>
+  
+    <p>Attempting to use a variable with data of an incompatible type will trigger an error.</p>
+
+<pre><code><pre><code class="java">int whole_number;
+String a_sentence;
+
+whole_number = &quot;Five&quot;; // Error: An int cannot be a string.
+a_sentence = 5; // Error: A string cannot be an integer.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Numeric Truncation</h1>
+  
+    <p>Some numeric data can be shared amongst different types, but we may loose some accuracy.</p>
+
+<pre><code><pre><code class="java">int whole_number = 5;
+float decimal_number = 10.12;
+
+println(decimal_number);  // Prints 10.12
+whole_number = decimal_number; // Error: Incorrect type
+
+println(whole_number / 2); // Prints 2! Truncated.
+whole_number = (int)decimal_number; // Convert the float to an int.
+println(decimal_number); // Prints 10</code></pre></code></pre>
+
+<p>Note: The decimal place values were truncated when we converted the float to an integer.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://codeglutton.tumblr.com/post/2066956792/why-dont-my-numbers-add-up">What Every Programmer Should (Eventually) Know About Floating-Point Arithmetic</a>.</li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Built-in Variables</h1>
+  
+    <p>There are a number of variables provided by the Processing environment. These built-in variables provide access to system properties like the position of the mouse, the size of the drawing window, and the state of the keyboard.</p>
+
+<p>For example:</p>
+
+<ul>
+<li><code>height</code> - The hight (in pixels) of the drawing window.</li>
+
+<li><code>width</code> - The width (in pixels) of the drawing window.</li>
+
+<li><code>mouseX</code> - The current vertical position of the mouse pointer.</li>
+
+<li><code>mouseY</code> - The current horizontal position of the mouse pointer.</li>
+
+<li><code>mousePressed</code> - If the user is holding a mouse button down this variable is set to true, otherwise false.</li>
+
+<li><code>keyPressed</code> - If the user is holding down a key on the keyboard this variable is to true, otherwise false.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Incrementing and Decrementing</h1>
+  
+    <p>A common occurrence in programming is the act of incrementally adding or subtracting one from a variable.</p>
+
+<pre><code><pre><code class="java">int x = 10;
+int y = 10;
+
+x = x + 1;
+y = y - 1;
+
+println(x); // Prints 11
+println(y); // Prints 9
+
+x++; // A shortcut for x = x + 1
+y--; // A shortcut for y = y - 1
+
+println(x); // Prints 12
+println(y); // Prints 8</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Printing to the Console</h1>
+  
+    <p>The built-in <code>print()</code> function can be used to print out information to the Processing console. The console is the black text area below the source code window.</p>
+
+<p>The <code>println()</code> function is identical to the <code>print()</code> function but it also moves the cursor to the next line after printing.</p>
+
+<pre><code><pre><code class="java">print(&quot;The &quot;);
+print(&quot;rain &quot;);
+print(&quot;in &quot;);
+println(&quot;Spain&quot;); // Go to a new line after printing Spain.
+print(&quot;falls mainly on the plain.&quot;);</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre lang="output"><code class="output" lang="output"><pre>The rain in Spain
+falls mainly on the plain.</pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Printing Variables</h1>
+  
+    <p>The <code>print()</code> and <code>println()</code> functions can also be used to print out the contents of variables.</p>
+
+<pre><code><pre><code class="java">int apples = 5;
+float gravity = 9.81;
+println(apples);
+println(&quot;Apples: &quot; + apples);
+println(&quot;Gravity on earth is &quot; + gravity + &quot; m/s^2&quot;);</code></pre></code></pre>
+
+<p>Output:</p>
+
+<pre lang="output"><code class="output" lang="output"><pre>5
+Apples: 5
+Gravity on earth is 9.81m/s^2</pre></code></pre>
+  
+  <div class="handout">
+    <p><strong>Note:</strong> The addition operator in the last two lines in the above source-code appends the content of a variable to the quoted text. This operation is called <em>concatenation</em>.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Input/Output = Yin/Yang</h1>
+  
+  <div class="content-with-image">
+    <img alt="Ying-yang" class="medium" src="/system/images/546/medium/Ying-Yang.jpg?1300327420" />
+    <p>Think back to the &#8220;How Computers Work&#8221; module:</p>
+
+<p><em>Input and output devices (I/O devices) allow data from the outside world into and out of the computer system.</em></p>
+
+<p>We can control keyboard and monitor I/O using Processing in much the same way we did using Scratch. To do so you will need perform a bit of setup work.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>I/O Additional Setup Step</h1>
+  
+  <div class="content-with-image">
+    <img alt="Library" class="medium" src="/system/images/736/medium/library.png?1458059647" />
+    <p>When you want to work with I/O you need to add an extra library to your processing sketch. Libraries are pre-written pieces of source code that add capabilities to your sketches.</p>
+
+<p>To add I/O capabilities to a sketch:</p>
+
+<ul>
+<li>Download this file: ask.jar (Located in Learn in the &#8220;Basic Operations module.&#8221;)</li>
+
+<li>Create and save a new Processing sketch.</li>
+
+<li>Drag and drop the downloaded file to the Processing Development Environment with your sketch open.</li>
+</ul>
+
+<p>To ensure these steps have worked, check the folder where your sketch is saved. It should now contain a sub-folder named <code>code</code> containing a single file named <code>ask.jar</code>.</p>
+  </div>
+  
+  <div class="handout">
+    <p><strong>IMPORTANT:</strong> Every time you start a new sketch that requires keyboard based I/O you must repeat these instructions.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Asking for Strings</h1>
+  
+    <p>We can now use this Ask file to ask for input. To use this input, we must store the input to a variable. For example, here&#8217;s the code to ask for a String:</p>
+
+<pre><code><pre><code class="java">String name = Ask.forString(&quot;What is your name?&quot;);
+println(&quot;Hello &quot; + name + &quot;! It&#39;s nice to meet you.&quot;);</code></pre></code></pre>
+
+<p>If this code does not run it means you did not properly follow the steps on the previous slide. Ask your instructor or EA for assistance if you cannot get this code to run! :)</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Asking for Numbers (int)</h1>
+  
+    <p>When using <code>Ask.forString</code> the user response is returned to us as a String.</p>
+
+<p>If we wish to retrieve an integer you can use the <code>Ask.forInt</code> function.</p>
+
+<pre><code><pre><code class="java">int celcius = Ask.forInt(answer); 
+
+int fahrenheit = celcius * 2 + 32;
+
+println(&quot;It&#39;s &quot; + fahrenheit + &quot; in Fahrenheit.&quot;);</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Asking for Numbers (double)</h1>
+  
+    <p>The previous code converted a string to an int. This next code will gather to doubles using the <code>Ask.forDouble</code> method.</p>
+
+<pre><code><pre><code class="java">double distance = Ask.forDouble(&quot;How far are you going? (km)&quot;);
+double speedLimit = Ask.forDouble(&quot;How fast can you go? (km/hr)&quot;);  
+
+// Calculate the lenght of the trip.
+double lengthOfTrip = distance / speedLimit;
+
+// Print out the trip length.
+println(&quot;This trip will take you &quot; + lengthOfTrip + &quot; hours.&quot;);</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Static Sketches</h1>
+  
+  <div class="content-with-image">
+    <img alt="Capture" class="medium" src="/system/images/884/medium/Capture.PNG?1475675039" />
+    <p>All the sketches we&#8217;ve seen so far have been examples of <em>static</em> sketches.</p>
+
+<p>A static sketch is written as a series of statements. When executed, each of these statements is executed in order starting at the top of the sketch. The code displayed to the right is an example of a static sketch.</p>
+
+<p>Other than requesting input using the <code>Ask</code> functions, static sketches are not interactive.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Interactive Sketches</h1>
+  
+    <p>Interactive sketches can be created by adding two specific sections to your code, a <code>setup</code> function and a <code>draw</code> function.</p>
+
+<p>Here&#8217;s an example:</p>
+
+<pre><code><pre><code class="java">void setup() 
+{
+  size(640, 360);
+  background(102);
+  stroke(255);
+}
+
+void draw()
+{
+  ellipse(mouseX, mouseY, 5, 5);
+}</code></pre></code></pre>
+
+<p>The code within the curly braces below <code>void setup()</code> will run exactly once. The code with the curly braces below <code>void draw()</code> will run over and over, until you stop the sketch with the stop button.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>What's Next?</h1>
+  
+    <p>In upcoming modules and assignments we will learn about:</p>
+
+<ul>
+<li>Drawing Shapes and Lines</li>
+
+<li>Working with Colour</li>
+
+<li>Animation</li>
+
+<li>Conditional Branches</li>
+
+<li>Looping Constructs</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    //hljs.configure({useBR: true});
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+</script>
+</body>
+</html>

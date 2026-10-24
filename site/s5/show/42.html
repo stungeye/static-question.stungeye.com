@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Modular Abstraction</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20080403" />
+<meta name="author" content="" />
+<meta name="company" content="Red River College" />
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- configuration parameters -->
+<meta name="defaultView" content="outline" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="/ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="/ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="/ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="/ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+<style type="text/css" media="screen">
+  body {
+      font-family: 'Calibri', 'Helvetica', 'Bitstream Vera Sans', Arial, sans-serif;
+  }
+
+  .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6, #slide0 h2, #slide0 h1 {
+      font-family: Georgia, 'Bitstream Charter', serif;
+      letter-spacing: 1px;
+      color: #521;
+  }
+
+  .slide h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.3em;
+    border: none;
+  }
+
+  .slide > pre {
+      margin-bottom: 1em;
+  }
+
+  table th {
+    background: #eeeeee;
+    padding: 3px;
+  }
+  table td {
+    border: 1px solid #eeeeee;
+    padding: 3px;
+  }
+  pre {
+    background: #f4f4f4;
+    font-family: 'Bitstream Vera Sans Mono', monospace;
+  }
+
+  div.presentation {
+    width: auto;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.content-with-image {
+	overflow: hidden;
+	zoom: 1;
+  }
+
+  div.content-with-image img.medium {
+	float: right;
+	margin-left: 1em;
+	margin-top: 1em;
+  }
+
+  div.content-with-image img.large {
+	display: block;
+	margin: 1em auto;
+  }
+
+  div.code {
+	overflow: none;
+	zoom: 1;
+  }
+
+  code, div.code pre {
+        font-family: Monaco,
+             "Bitstream Vera Sans Mono",
+             "Lucida Console",
+             Terminal,
+             monospace;
+        font-size: .92em;
+        overflow: auto;
+        background: #f4f4f4 !important;
+  }
+
+  p code {
+      font-weight: bold;
+      color: #222;
+  }
+  
+  a.toggle {
+	display:block;
+	margin-top: -1em;
+	float: right;
+	font-size: 0.5em;
+  }
+
+.slide p, .slide li {
+    line-height: 118%;
+    font-size: 1.1em;
+  }
+  
+  a {
+  color: #3b59bb;
+  text-decoration: none; }
+  a img {
+    border: none; }
+ 
+a:hover {
+  text-decoration: underline; }
+
+  div.presentation {
+    max-width: 900px;
+  }
+  #slide0 {
+   font-size: 1.5em;
+  }
+
+  #slide0 h1, #slide0 h3, #slide0 h4 {
+   font-family: Georgia, 'Bitstream Charter', serif;
+   font-style: italic;
+   margin: 0;
+   padding: 0;
+   border: none;
+   letter-spacing: 1px;
+  }
+  #slide0 h2 {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  #slide0 h3, #slide0 h4 {
+    color: #444;
+    font-size: .9em;
+  }
+
+@media screen and (max-width:767px){
+    img.medium {
+        max-width: 99%;
+        float: none !important;
+        margin-bottom: 1em;
+        margin-left: 0 !important;
+   }
+   img.large {
+       max-width: 99%;
+   }
+}
+ 
+</style>
+<!-- S5 JS -->
+<script src="/ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Modular Abstraction</h1>
+<h2>Intro to Programming Logic COMP-1029</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+<div class="slide">
+  <h1>Modular Abstraction</h1>
+  <h2>Intro to Programming Logic COMP-1029</h2>
+  <h3></h3>
+  <h4>Red River College</h4>
+</div>
+
+
+<div class="slide">
+  <h1>Introduction</h1>
+  
+  <div class="content-with-image">
+    <img alt="37786433" class="medium" src="/system/images/655/medium/37786433.jpg?1368463041" />
+    <p>This module will focus on the creation of functions, self-contained named blocks of programming code.</p>
+
+<p>Until now we&#8217;ve been using Processing&#8217;s built-in functions like <code>line</code>, <code>size</code> and <code>ellipse</code> to write our programs, but it&#8217;s also possible to create our own functions.</p>
+
+<p>Custom functions allow us to remove redundant code from our programs and make our source code easier to read and update.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Objectives</h1>
+  
+    <p>Upon completion of this module, you should be able to:</p>
+
+<ul>
+<li>Identify a custom function and its parts.</li>
+
+<li>Create and use your own functions that perform specific drawing tasks.</li>
+
+<li>Create and use your own functions that return computed values.</li>
+</ul>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Functions are Verbs</h1>
+  
+  <div class="content-with-image">
+    <img alt="Reuse_tcm15-35290" class="medium" src="/system/images/654/medium/reuse_tcm15-35290.jpg?1369684611" />
+    <p>A <strong>function</strong> is a named, independent section of code that performs a specific task and optionally returns a computed value.</p>
+
+<p>Functions are the verbs of computer programming. They <em>do</em> things.</p>
+
+<p>They increase:</p>
+
+<ul>
+<li><strong>Modularity</strong>, by allowing us to break down a larger program into smaller parts.</li>
+
+<li><strong>Reusability</strong>, by allowing us to reuse code without having to retype or copy/paste it.</li>
+
+<li><strong>Readability</strong>, by allowing us to give descriptive names to specific parts of our program.</li>
+</ul>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Built-In Functions Review</h1>
+  
+    <p>In our Intro to Processing module we learnt how to use Processing&#8217;s built in functions. We execute a function by name followed by open and close parenthesis. Many functions allow us to control their behaviour by including a list of comma-separated arguments within the parentheses.</p>
+
+<pre><code><pre><code class="java">println( &quot;This string is the argument of the println function.&quot; );
+line( 0, 0, 100, 100 ); // Draw a diagonal line.
+fill( 0 ); // Set the fill colour to black.
+circle( 50, 50, 40, 40 ); // Draw a black circle.</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="http://processing.org/reference/">List of built-in Processing Functions</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>What's in a Name?</h1>
+  
+  <div class="content-with-image">
+    <img alt="Name" class="medium" src="/system/images/668/medium/name.jpg?1369685244" />
+    <p>What does this code do?</p>
+
+<pre><code><pre><code class="java">for( int i = 60; i &gt; 0; i -= 10 ) {
+  ellipse( 50, 50, i, i );
+}</code></pre></code></pre>
+
+<p>Writing readable code is important. Wouldn&#8217;t it be nice if we could describe this code with an appropriate name?</p>
+
+<p>Paste this code into Processing to see if you were able to correctly determine what it does.</p>
+  </div>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Creating Functions</h1>
+  
+    <p>A generic function looks like this:</p>
+
+<pre><code><pre><code class="java">returnType functionName( parameters ) {
+  // Code goes here.
+}</code></pre></code></pre>
+
+<p>Let&#8217;s give our target drawing code a name by defining a function:</p>
+
+<pre><code><pre><code class="java">void drawTarget() {
+  for( int i = 60; i &gt; 0; i -= 10 ) {
+    ellipse( 50, 50, i, i );
+  }
+}</code></pre></code></pre>
+
+<p>Function names are written in camelCase, just like variable names.</p>
+
+<p>A return type of &#8221;<code>void</code>&#8221; means that our function will not return a computed value to the calling program. Later in this module we&#8217;ll explore functions that do return values.</p>
+  
+  <div class="handout">
+    <p><em>Note: The code within a function&#8217;s code block will only be executed when the function is called.</em></p>
+
+<h2 id="naming_functions">Naming Functions</h2>
+
+<p>It is important that we give our functions descriptive names. A well thought-out name allows readers of our code to understand the purpose of a function without having to look at the function&#8217;s code. This improves the readability of our code.</p>
+
+<p>Our <code>drawTarget</code> function says exactly what it does, it draws a target!</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Calling a Function</h1>
+  
+    <p>In our Booleans and Conditionals assignment you were introduced to two special functions called <code>setup</code> and <code>draw</code>.</p>
+
+<p>Whenever we wish to use custom functions in our code, we must use one or both of these special functions.</p>
+
+<pre><code><pre><code class="java">void drawTarget() {
+  for( int i = 60; i &gt; 0; i -= 10 ) {
+    ellipse( 50, 50, i, i );
+  }
+}
+
+void setup() {
+  drawTarget(); // Execute or &quot;call&quot; our custom function.
+}</code></pre></code></pre>
+
+<p>Note that we always include the open and close parentheses when we call the function.</p>
+  
+  <div class="handout">
+    <p>If you write a Processing sketch that includes a custom function and you do not use a <code>setup</code> or <code>draw</code> function you will get an error when trying to run your code. Here&#8217;s an example of some code that would not run:</p>
+
+<pre><code><pre><code class="java">void drawTarget() {
+  for( int i = 60; i &gt; 0; i -= 10 ) {
+    ellipse( 50, 50, i, i );
+  }
+}
+
+drawTarget();</code></pre></code></pre>
+
+<p>If you tried to run the above code you&#8217;d get an error that say:</p>
+
+<p><code>It looks like you&#39;re mixing &quot;active&quot; and &quot;static&quot; modes.&quot;</code></p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Function Parameters and Arguments</h1>
+  
+    <p>Currently, our target drawing function does the same thing every time it&#8217;s called. What if we could specify where we wanted the target drawn on the canvas?</p>
+
+<pre><code><pre><code class="java">void drawTarget( int x, int y ) {
+  for( int i = 60; i &gt; 0; i -= 10 ) {
+    ellipse( x, y, i, i );
+  }
+}</code></pre></code></pre>
+
+<p>Here we&#8217;ve added two integer <strong>parameters</strong> to the function definition. These parameters act like variable declarations. When we call the function, we need to provide one <strong>argument</strong> for each function parameter.</p>
+
+<pre><code><pre><code class="java">void setup() {
+  drawTarget(20, 25);
+}</code></pre></code></pre>
+
+<p>The integer &#8220;20&#8221; is the first argument and is loaded into the parameter x. The integer &#8220;25&#8221; is the second argument and is loaded into the parameter y.</p>
+  
+  <div class="handout">
+    <p>We can make our function even more flexible by adding another parameter for the size of the target:</p>
+
+<pre><code><pre><code class="java">void drawTarget( int x, int y, int size ) {
+  for( int i = size; i &gt; 0; i -= 10 ) {
+    ellipse( x, y, i, i );
+  }
+}</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Drawing with Targets</h1>
+  
+    <p>Our <code>drawTarget</code> function could be further enhanced to include a parameter for the colour of the target. Here&#8217;s a simple drawing program that makes use of this enhanced version of our function.</p>
+
+<pre><code><pre><code class="java">void setup() {
+  size( 400, 400 );
+}
+
+void draw() {
+  if ( mousePressed ) {
+    drawTarget( mouseX, mouseY, 60, #6666EE );
+  } else {
+      drawTarget( mouseX, mouseY, 60, #66EE66 );
+  }
+}
+
+void drawTarget( int x, int y, int size, color c ) {
+  fill( c );
+  for( int i = size; i &gt; 0; i -= 10 ) {
+    ellipse( x, y, i, i );
+  }
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    <object data="https://studio.processingtogether.com/sp/pad/iframe/ro.9XW4oN6gLJGU2/rev.71" width="400" height="435">
+    <embed width="400" height="435" src="https://studio.processingtogether.com/sp/pad/iframe/ro.9XW4oN6gLJGU2/rev.71"> </embed>
+    Error: Embedded data could not be displayed.
+</object>
+<p><strong>Hover your mouse over the above canvas area. Holding down the mouse button changes the target colour.</strong></p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Calculating and Returning Values</h1>
+  
+    <p>Functions can return computed values to the program that calls them. Our <code>drawTarget</code> function doesn&#8217;t return any data so it was assigned a return type of &#8221;<code>void</code>&#8221;.</p>
+
+<p>We use the keyword &#8221;<code>return</code>&#8221; to return data from a function. The data we return must match the return type of the function.</p>
+
+<p>The return type must be a valid variable type like <code>int</code>, <code>float</code>, <code>String</code>, etc.</p>
+
+<pre><code><pre><code class="java">int cubed( int x ) {
+  return x * x * x; // return x to the power of 3 as an integer.
+}
+
+void setup() {
+  int ten_cubed = cubed( 10 );
+  println( &quot;Ten to the power of three is &quot; + ten_cubed );
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Local Variables</h1>
+  
+    <p>You should consider functions to be completely &#8220;stand alone&#8221; when it comes to variables. Variables created within a function are called <strong>local variables</strong>. These local variables are not accessible from outside of the function.</p>
+
+<p>In the example below, the variable <code>x_cubed</code> is a local variable, accessible only within the <code>cubed()</code> function. Trying to access it from outside the function will result in an error.</p>
+
+<pre><code><pre><code class="java">int cubed( int x ) {
+  int x_cubed = x * x * x; // The variable x_cubed is accessible only within the function.
+  return x_cubed; 
+}
+
+void setup() {
+  int ten_cubed = cubed( 10 );
+  println( &quot;Ten to the power of three is &quot; + ten_cubed );
+  println( x_cubed ); // Results in error: &quot;Cannot find anything called &#39;x_cubed&#39;&quot;
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>Function parameters are also not accessible outside the function. Trying to access the <code>cubed()</code> function’s parameter <code>x</code> from outside the function will result in an error, as shown below.</p>
+
+<pre><code><pre><code class="java">void setup() {
+  int ten_cubed = cubed( 10 );
+  println( &quot;Ten to the power of three is &quot; + ten_cubed );
+  println( x ); // Results in an error! 
+}</code></pre></code></pre>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Drawing and Moving a Spaceship</h1>
+  
+    <p>Imagine we wanted to code a <a href="http://en.wikipedia.org/wiki/Space_Invaders">Space Invaders</a>-type game. We might start out by coding the display and controls for the player spaceship.</p>
+
+<p>Notice that the <code>draw()</code> function only contains three function calls. One to the built in function <code>background</code> and then two custom functions.</p>
+
+<pre><code><pre><code class="java">int currentShipXPosition;
+ 
+void setup() {
+  size(400,300);
+  currentShipXPosition = width/2;
+}
+ 
+void draw() {
+  background(200);
+  drawSpaceship(currentShipXPosition);
+  currentShipXPosition = calculateNextShipXPosition(currentShipXPosition);
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Spaceship Functions</h1>
+  
+    <p>The <code>drawSpaceship</code> function is defined with a single parameter and a return type of &#8221;<code>void</code>&#8221;.</p>
+
+<pre><code><pre><code class="java">void drawSpaceship(int topOfShipX) {
+  // Drawing code goes here.
+}</code></pre></code></pre>
+
+<p>The <code>topOfShipX</code> parameter controls the x-axis location of where the ship will be drawn on the canvas.</p>
+
+<p>The <code>calculateNextShipXPosition</code> function takes in the current X position of our ship (the <code>currentShipXPosition</code> parameter). It then calculates and returns a new X position based on user input.</p>
+
+<pre><code><pre><code class="java">int calculateNextShipXPosition( int currentShipXPosition ) {
+  // Calculate and return the next x-axis position 
+  // based on user input.
+}</code></pre></code></pre>
+  
+  <div class="handout">
+    <p>The actual implementation of these two functions isn&#8217;t important. The important thing to realize is that by using functions we&#8217;ve assigned descriptive names to potentially complex pieces of code.</p>
+
+<p><em>Click on the square below and then use the left and right arrow keys to control the &#8220;spaceship&#8221; (aka the triangle).</em></p>
+<object data="//studio.processingtogether.com/sp/pad/iframe/ro.98pmHVMTQ$85E/rev.4" width="400" height="435">
+    <embed width="400" height="435" src="//studio.processingtogether.com/sp/pad/iframe/ro.98pmHVMTQ$85E/rev.4"> </embed>
+    Error: Embedded data could not be displayed.
+</object>
+<p>To view the full source code, including the <code>drawSpaceship</code> and <code>calculateNextShipXPosition</code> functions, click on the &#8220;source&#8221; link above.</p>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Functions vs Procedures vs Subroutines</h1>
+  
+    <p>You will sometimes hear programmers refer to functions as <strong>procedures</strong>, <strong>methods</strong>, or even <strong>subroutines</strong>.</p>
+
+<p>In some programming languages there is a distinction between a <em>procedure</em> (which performs a task) and a <em>function</em> (which calculates a value). This distinction does not exist in Processing.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>Object-oriented Programming and Methods</h1>
+  
+    <p>Object-oriented programming (OOP) is a programming style that represents concepts as &#8220;objects&#8221; that have data fields (attributes that describe the object) and associated functions.</p>
+
+<p>When you start coding Object Oriented Java in the BIT program you will use the term <em>method</em> to refer to functions associated with objects.</p>
+
+<p>In a sense, you can think of the above Spaceship Processing sketch as an object representing a spaceship. The attributes that describe this spaceship object are the integer variables defined at the top of the sketch. The associated methods are the two custom functions used to display and move the ship.</p>
+  
+  <div class="handout">
+    
+    
+      <h3>Resources</h3>
+      <ul>
+<li><a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-Oriented Programming @ Wikipedia</a></li>
+
+<li><a href="http://processing.org/learning/objects/">Object-Oriented Programming with Processing</a></li>
+</ul>
+    
+  </div>
+</div>
+
+<div class="slide">
+  <h1>What's Next?</h1>
+  
+    <p>This is the final module in the course. :)</p>
+
+<p>I hope you have enjoyed your introduction to the Java programming language by way of Processing.</p>
+  
+  <div class="handout">
+    
+    
+  </div>
+</div>
+
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+<script>
+    //hljs.configure({useBR: true});
+    var code = document.querySelectorAll('pre code pre code');
+
+    Array.prototype.forEach.call(code, function(el, index, array){
+        hljs.highlightBlock(el);
+    });
+</script>
+</body>
+</html>
