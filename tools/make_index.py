@@ -4,17 +4,19 @@
 Usage: python3 -I tools/make_index.py lessons.usv site/index.html
 lessons.usv columns (\\x1f-separated): course, id, title, author, company, created, updated.
 Three sections (owner, 2026-10-25): community talks, work talks, course modules (grouped by course name).
-Decks with no course are placed by id in COMMUNITY / WORK / GENERAL. Courses in HIDDEN aren't listed
-(their decks are still served at /s5/show/<id>). Within a group, decks are in id order, as on the app's /lessons page.
+Decks with no course are placed by id in COMMUNITY / WORK, or in a course by COURSE_OF. Courses in HIDDEN aren't listed
+(their decks are still served at /s5/show/<id>). Community talks are newest first (by updated date); a course in ORDER
+uses that order; everything else is in id order, as on the app's /lessons page.
 """
 import sys
 from html import escape
 from itertools import groupby
 
-COMMUNITY = {34, 37, 38, 39, 51, 52, 64}   # meetups and events (WinnipegRb, BSides Winnipeg, Sound + Code = Jam, paper talks)
-WORK = {55}                                # internal presentations for coworkers
-GENERAL = {43}                             # course material that belongs to no single course
-HIDDEN = {"Game Dev Drafts"}
+COMMUNITY = {34, 37, 39, 51, 52, 64}     # meetups and events (WinnipegRb, BSides Winnipeg, Sound + Code = Jam, paper talks)
+WORK = {38, 55}                          # internal presentations for coworkers
+COURSE_OF = {43: "Intro to Programming Logic"}   # course material with no course in the app
+HIDDEN = {"Game Dev Drafts", "XML & Mobile Computing"}
+ORDER = {"Intro to Programming Logic": [19, 21, 22, 25, 49, 26, 27, 28, 42, 43, 44, 29]}   # owner, 2026-10-25
 
 rows = [l.rstrip("\n").split("\x1f") for l in open(sys.argv[1], encoding="utf-8") if l.strip()]
 community, work, courses = [], [], []
@@ -27,25 +29,30 @@ for course, lid, title, _author, _company, _created, updated in rows:
         community.append(deck)
     elif deck[0] in WORK:
         work.append(deck)
-    elif deck[0] in GENERAL:
-        courses.append(("General", deck))
+    elif deck[0] in COURSE_OF:
+        courses.append((COURSE_OF[deck[0]], deck))
     else:
         sys.exit(f"deck {lid} ({title}) has no course and no section")
 
 
-def deck_list(decks):
+def deck_list(decks, order=None):
+    decks = sorted(decks)
+    if order:
+        assert sorted(order) == [d[0] for d in decks], (order, decks)
+        decks.sort(key=lambda d: order.index(d[0]))
     items = [f'<li><a href="/s5/show/{lid}">{escape(title)}</a> <span class="date">{updated[:4]}</span></li>'
-             for lid, title, updated in sorted(decks)]
+             for lid, title, updated in decks]
     return "<ul>\n" + "\n".join(items) + "\n</ul>"
 
 
-courses.sort(key=lambda c: (c[0] == "General", c[0]))   # by course name, General last
-parts = ["<h2>Community talks</h2>\n<p>Presented at local meetups and events.</p>", deck_list(community),
+courses.sort(key=lambda c: c[0])   # by course name
+community.sort(key=lambda d: d[2], reverse=True)   # newest first
+parts = ["<h2>Community talks</h2>\n<p>Presented at local meetups and events.</p>", deck_list(community, [d[0] for d in community]),
          "<h2>Work talks</h2>\n<p>Internal presentations for coworkers.</p>", deck_list(work),
          "<h2>Course modules</h2>\n<p>Notes and slides for courses taught in the Business Information Technology (BIT) "
          "program at Red River College.</p>"]
 for course, group in groupby(courses, key=lambda c: c[0]):
-    parts += [f"<h3>{escape(course)}</h3>", deck_list(d for _, d in group)]
+    parts += [f"<h3>{escape(course)}</h3>", deck_list((d for _, d in group), ORDER.get(course))]
 
 page = f"""<!DOCTYPE html>
 <html lang="en">
