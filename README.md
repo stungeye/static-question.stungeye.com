@@ -45,7 +45,7 @@ Served from **Cloudflare Workers static assets** (Phase B of the olddroplet migr
 * **Worker:** `static-question-stungeye-com`, account `Stungeye@gmail.com's Account`.
 * **Deploy:** `npx wrangler@4.148.0 deploy` from the repo root. Only `site/` is uploaded.
 * **Routes:** `question.stungeye.com/*` on zone `stungeye.com`, over the existing proxied DNS record.
-* **workers.dev:** https://static-question-stungeye-com.stungeye.workers.dev. Per-version preview URLs are off (`preview_urls: false`).
+* **workers.dev:** off (R11). Per-version preview URLs are off (`preview_urls: false`).
 * **Serving:** `html_handling: auto-trailing-slash` (`/foo` serves `foo.html`, `/foo/` serves `foo/index.html`; the other forms 307 to those) and `not_found_handling: 404-page` (`site/404.html`, a minimal page added in Phase B).
 * **http → https:** the `stungeye.com` zone has "Always Use HTTPS" **off** (it also serves the owner's other sites), so http isn't redirected at the edge yet; decided at cutover.
 * **Redirect rules:** none.
