@@ -38,6 +38,19 @@ External links (GitHub, Flickr, shoesrb.com, …) were left as they are, and som
 
 Not included: cached pages for four deleted lessons (33, 36, 48, 56), and the junk cache files that scanner probes created (`51'+and+1=1…` etc.).
 
+## Hosting
+
+Served from **Cloudflare Workers static assets** (Phase B of the olddroplet migration). `wrangler.jsonc`, `.gitignore`, `site/404.html` and this section are written by `hosting.py` (`python3 -I hosting.py question.stungeye.com <preview|routed|final>`).
+
+* **Worker:** `static-question-stungeye-com`, account `Stungeye@gmail.com's Account`.
+* **Deploy:** `npx wrangler@4.148.0 deploy` from the repo root. Only `site/` is uploaded.
+* **Routes:** none yet (preview only).
+* **workers.dev:** https://static-question-stungeye-com.stungeye.workers.dev. Per-version preview URLs are off (`preview_urls: false`).
+* **Serving:** `html_handling: auto-trailing-slash` (`/foo` serves `foo.html`, `/foo/` serves `foo/index.html`; the other forms 307 to those) and `not_found_handling: 404-page` (`site/404.html`, a minimal page added in Phase B).
+* **http → https:** the `stungeye.com` zone has "Always Use HTTPS" **off** (it also serves the owner's other sites), so http isn't redirected at the edge yet; decided at cutover.
+* **Redirect rules:** none.
+* **Rollback:** while the old origin is up, remove `routes` from `wrangler.jsonc` and deploy (or delete the route in the dashboard); the origin serves again at once. A bad version can be rolled back with `npx wrangler@4.148.0 rollback`.
+
 ## Secret scan
 
 The Phase A §7.2 scan was run on `site/` before publishing. Its only hit is a code sample in deck 37 that uses a constant named `DB_PASSWORD`, with no value. Other "password" strings are teaching examples (`pass123`, `gorgonzola77`, `your_postgres_pass`). The wifi password field on deck 64 is blank.

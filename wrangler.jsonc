@@ -1,0 +1,12 @@
+// Cloudflare Workers static assets for question.stungeye.com. Written by hosting.py; see README "Hosting".
+{
+  "name": "static-question-stungeye-com",
+  "compatibility_date": "2026-10-24",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
