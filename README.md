@@ -47,7 +47,7 @@ Served from **Cloudflare Workers static assets** (Phase B of the olddroplet migr
 * **Routes:** `question.stungeye.com/*` on zone `stungeye.com`, over the existing proxied DNS record.
 * **workers.dev:** off (R11). Per-version preview URLs are off (`preview_urls: false`).
 * **Serving:** `html_handling: auto-trailing-slash` (`/foo` serves `foo.html`, `/foo/` serves `foo/index.html`; the other forms 307 to those) and `not_found_handling: 404-page` (`site/404.html`, a minimal page added in Phase B).
-* **http → https:** the `stungeye.com` zone has "Always Use HTTPS" **off** (it also serves the owner's other sites), so http isn't redirected at the edge yet; decided at cutover.
+* **http → https:** the zone setting "Always Use HTTPS" (301 at Cloudflare's edge).
 * **Redirect rules:** none.
 * **Rollback:** while the old origin is up, remove `routes` from `wrangler.jsonc` and deploy (or delete the route in the dashboard); the origin serves again at once. A bad version can be rolled back with `npx wrangler@4.148.0 rollback`.
 
