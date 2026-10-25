@@ -6,7 +6,7 @@ This is a static copy of the 47 S5 slide decks published by the QuestionCMS Rail
 
 | Path | What |
 |-|-|
-| `site/index.html` | List of decks grouped by course. Generated from the app's `lessons`/`courses` tables. It replaces the admin-only `/lessons` page. |
+| `site/index.html` | List of decks in three sections: community talks, work talks and course modules (grouped by course). Generated from the app's `lessons`/`courses` tables. It replaces the admin-only `/lessons` page. The "Game Dev Drafts" course (deck 63) isn't listed; the deck is still served. |
 | `site/s5/show/<id>.html` | One deck per lesson. These are the app's own page-cache files, exactly as nginx served them. |
 | `site/ui/default/` | S5 engine (slides.js, CSS, images) |
 | `site/stylesheets/syntax/` | Code-highlighting themes the decks reference |
@@ -25,7 +25,7 @@ Image URLs carry Rails cache-busting query strings (`?1296087850`). The files ar
 1. The deck list was taken from the app's `/lessons` index and cross-checked against the `lessons` table: 47 lessons, IDs 5–64.
 2. `python3 -I tools/crawl.py tools/ids.sorted site tools/extra_paths.txt` fetched `https://question.stungeye.com/s5/show/<id>` from the origin (159.203.24.194, bypassing Cloudflare, so no injected scripts), then every same-host `src`/`href`/CSS `url()` it referenced, plus the whole `/ui/` tree.
 3. Lesson 14 had no page-cache file, so this crawl rendered it for the first time.
-4. `tools/make_index.py` built the index from the DB.
+4. `tools/make_index.py` built the index from the DB. Its sections and copy were revised on 2026-10-25 (owner): decks with no course are placed in a section by id, and the author and company / event columns were dropped.
 
 ## Known gaps
 
